@@ -1,1 +1,6 @@
-<svg fill="none" class="icon icon-search" viewBox="0 0 18 19"><path fill="currentColor" fill-rule="evenodd" d="M11.03 11.68A5.784 5.784 0 1 1 2.85 3.5a5.784 5.784 0 0 1 8.18 8.18m.26 1.12a6.78 6.78 0 1 1 .72-.7l5.4 5.4a.5.5 0 1 1-.71.7z" clip-rule="evenodd"/></svg>
+<!-- <svg fill="none" class="icon icon-search" viewBox="0 0 18 19"><path fill="currentColor" fill-rule="evenodd" d="M11.03 11.68A5.784 5.784 0 1 1 2.85 3.5a5.784 5.784 0 0 1 8.18 8.18m.26 1.12a6.78 6.78 0 1 1 .72-.7l5.4 5.4a.5.5 0 1 1-.71.7z" clip-rule="evenodd"/></svg> -->
+
+<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-search" width="17" height="21" viewBox="0 0 17 21" fill="none">
+<path d="M5.33789 13.9934L1.55859 19.8523" stroke="#0F1C1F" stroke-width="1.5" stroke-linecap="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.94043 14.4854C5.25296 14.4854 2.26367 11.4961 2.26367 7.80859C2.26367 4.12112 5.25296 1.13184 8.94043 1.13184C12.6279 1.13184 15.6172 4.12112 15.6172 7.80859C15.6172 11.4961 12.6279 14.4854 8.94043 14.4854Z" stroke="#0F1C1F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

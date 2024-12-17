@@ -15,7 +15,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Growing simplified",
+            "heading": "<strong>Growing simplified</strong>",
             "heading_size": "h0"
           }
         },
@@ -63,7 +63,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "What problems does our system solve",
+            "heading": "<strong>What problems does our system solve</strong>",
             "heading_size": "h1"
           }
         },
@@ -227,7 +227,7 @@
         "column_epDz39"
       ],
       "settings": {
-        "title": "Early Adopters and Supporting Partners",
+        "title": "<strong>Early Adopters and Supporting Partners</strong>",
         "heading_size": "h2",
         "image_width": "full",
         "image_ratio": "adapt",
@@ -249,7 +249,7 @@
         "heading_mtMKyp": {
           "type": "heading",
           "settings": {
-            "heading": "Sold over USD500,000 in pre-orders",
+            "heading": "<strong>Sold over USD500,000 in pre-orders</strong>",
             "heading_size": "h1"
           }
         },
