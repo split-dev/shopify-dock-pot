@@ -15,23 +15,23 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Image banner",
+            "heading": "Growing simplified",
             "heading_size": "h0"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text": "Get up to 75% more yield using the same lighting and room size",
             "text_style": "body"
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
+            "button_label_1": "Build your system",
             "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
+            "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false
@@ -44,12 +44,14 @@
         "button"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
+        "image": "shopify://shop_images/banner-bg.png",
+        "image_overlay_opacity": 0,
         "image_height": "large",
-        "desktop_content_position": "bottom-center",
+        "desktop_content_position": "middle-left",
         "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-5",
+        "image_behavior": "none",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
@@ -61,14 +63,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Talk about your brand",
+            "heading": "What problems does our system solve",
             "heading_size": "h1"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+            "text": "<p>Piendigenis aut occatem solutem ex et am adia ex eturibus. Ro tem non nullesto explictur?As est praepero comnimus.Ferum et veleste mporum quodit eos aligend icimpos unt reptaecat el mosam fugit, velitatisit, ipsam hil modit estion re providucias expe sit erate rest aliqui officidit ommolo que nobisto quis reic totat fugia cum es dollique veliqui sitiat lit ullorestibus quam sit, sedi dolecupti </p>"
           }
         }
       },
@@ -77,7 +79,9 @@
         "text"
       ],
       "settings": {
-        "color_scheme": "scheme-1",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 0
@@ -88,69 +92,26 @@
       "settings": {
         "title": "Featured products",
         "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
         "collection": "all",
         "products_to_show": 8,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
+        "full_width": false,
         "show_view_all": false,
-        "swipe_on_mobile": false,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "scheme-1",
         "image_ratio": "adapt",
+        "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "quick_add": "none",
         "columns_mobile": "2",
+        "swipe_on_mobile": false,
         "padding_top": 28,
-        "padding_bottom": 36
-      }
-    },
-    "collage": {
-      "type": "collage",
-      "blocks": {
-        "collection-0": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "product": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "second_image": false
-          }
-        },
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
-      ],
-      "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "video": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "heading_size": "h1",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
         "padding_bottom": 36
       }
     },
@@ -160,8 +121,9 @@
         "column1": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "image": "shopify://shop_images/image_3.png",
+            "title": "",
+            "text": "",
             "link_label": "",
             "link": ""
           }
@@ -169,8 +131,9 @@
         "column2": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "image": "shopify://shop_images/image_4.png",
+            "title": "",
+            "text": "",
             "link_label": "",
             "link": ""
           }
@@ -178,8 +141,29 @@
         "column3": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "image": "shopify://shop_images/image_5.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_7KEtnb": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_6.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_epDz39": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_2.png",
+            "title": "",
+            "text": "",
             "link_label": "",
             "link": ""
           }
@@ -188,23 +172,55 @@
       "block_order": [
         "column1",
         "column2",
-        "column3"
+        "column3",
+        "column_7KEtnb",
+        "column_epDz39"
       ],
       "settings": {
-        "title": "",
+        "title": "Early Adopters and Supporting Partners",
         "heading_size": "h1",
-        "image_width": "third",
+        "image_width": "full",
         "image_ratio": "adapt",
-        "columns_desktop": 3,
+        "columns_desktop": 5,
         "column_alignment": "center",
         "background_style": "none",
         "button_label": "",
         "button_link": "",
-        "swipe_on_mobile": false,
         "color_scheme": "scheme-1",
         "columns_mobile": "1",
+        "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "rich_text_HDtG4q": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_mtMKyp": {
+          "type": "heading",
+          "settings": {
+            "heading": "Sold over USD500,000 in pre-orders",
+            "heading_size": "h1"
+          }
+        },
+        "text_7V9mGJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Piendigenis aut occatem solutem ex et am adia ex eturibus. Ro tem non nullesto explictur?As est praepero comnimus.Ferum et veleste mporum quodit eos aligend icimpos unt reptaecat el mosam fugit, velitatisit, ipsam hil modit estion re providucias expe sit erate rest aliqui officidit ommolo que nobisto quis reic totat fugia cum es dollique veliqui sitiat lit ullorestibus quam sit, sedi dolecupti </p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_mtMKyp",
+        "text_7V9mGJ"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     }
   },
@@ -212,8 +228,7 @@
     "image_banner",
     "rich_text",
     "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
+    "multicolumn",
+    "rich_text_HDtG4q"
   ]
 }
