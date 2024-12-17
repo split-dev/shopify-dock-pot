@@ -90,29 +90,79 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
+        "title": "",
         "heading_size": "h2",
         "description": "",
-        "show_description": false,
+        "show_description": true,
         "description_style": "body",
         "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
+        "products_to_show": 3,
+        "columns_desktop": 3,
         "full_width": false,
         "show_view_all": false,
         "view_all_style": "solid",
         "enable_desktop_slider": false,
         "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
+        "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
+        "quick_add": "standard",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
         "padding_top": 28,
         "padding_bottom": 36
+      }
+    },
+    "adaptive_banner_eNKge7": {
+      "type": "adaptive-banner",
+      "blocks": {
+        "description_M6Jznp": {
+          "type": "description",
+          "settings": {
+            "description": "<h2>Build your system</h2><p>Be the first to try the only way to cultivate in the 21st century, build your room today and start growing more!</p>"
+          }
+        },
+        "button_QLYTBw": {
+          "type": "button",
+          "settings": {
+            "button_name": "Button name",
+            "button_link": "#",
+            "button_style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "description_M6Jznp",
+        "button_QLYTBw"
+      ],
+      "settings": {
+        "section_link": "",
+        "image": "shopify://shop_images/banner-bg_44be21bc-672b-4813-8cd9-975ac1f80ad7.png",
+        "markup": "image_as_background",
+        "image_height_auto": false,
+        "image_height_desktop": 33,
+        "image_max_height_desktop": 480,
+        "image_height_mobile": 82,
+        "image_max_height_mobile": 310,
+        "fit_to_container": "all",
+        "color_scheme": "scheme-1",
+        "bg": "",
+        "bg_blur": 0,
+        "vertical_alignment": "center",
+        "horizontal_alignment": "center",
+        "alignment": "center",
+        "max_width": 420,
+        "content_box_bg": false,
+        "content_padding_top": 20,
+        "content_padding_bottom": 20,
+        "content_padding_top_mobile": 20,
+        "content_padding_bottom_mobile": 20,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24
       }
     },
     "multicolumn": {
@@ -228,6 +278,7 @@
     "image_banner",
     "rich_text",
     "featured_collection",
+    "adaptive_banner_eNKge7",
     "multicolumn",
     "rich_text_HDtG4q"
   ]
