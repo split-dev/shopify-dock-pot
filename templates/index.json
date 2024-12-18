@@ -231,7 +231,7 @@
         "title": "<strong>Early Adopters and Supporting Partners</strong>",
         "heading_size": "h2",
         "image_width": "full",
-        "image_ratio": "adapt",
+        "image_ratio": "square",
         "columns_desktop": 5,
         "column_alignment": "center",
         "background_style": "none",

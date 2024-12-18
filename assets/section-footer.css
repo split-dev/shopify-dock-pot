@@ -1,9 +1,17 @@
 .footer {
-  border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  border-top: 6px solid #8FC85A;
 }
 
-.footer:not(.color-scheme-1) {
-  border-top: none;
+.footer__blocks-wrapper {
+  display: flex;
+}
+@media screen and (max-width: 450px) {
+  .footer__blocks-wrapper {
+    flex-direction: column;
+  }
+  .footer__blocks-wrapper .footer-block__details-content {
+    margin-bottom: 0;
+  }
 }
 
 .footer__content-top {
@@ -42,7 +50,9 @@
 
 .footer__content-bottom {
   border-top: solid 0.1rem rgba(var(--color-foreground), 0.08);
-  padding-top: 3rem;
+  padding-top: 29px;
+  background: #FAFBFB;
+  color: #333741;
 }
 
 .footer__content-bottom:only-child {
@@ -57,7 +67,7 @@
 @media screen and (max-width: 749px) {
   .footer__content-bottom {
     flex-wrap: wrap;
-    padding-top: 0;
+    /* padding-top: 0; */
     padding-left: 0;
     padding-right: 0;
     row-gap: 1.5rem;
@@ -292,12 +302,24 @@
 
 .footer__copyright {
   text-align: center;
-  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 6px;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 600;
 }
 
 @media screen and (min-width: 750px) {
   .footer__content-bottom-wrapper:not(.footer__content-bottom-wrapper--center) .footer__copyright {
     text-align: right;
+  }
+}
+@media screen and (max-width: 768px) {
+  .footer__copyright {
+    flex-direction: column;
   }
 }
 
@@ -378,6 +400,8 @@
 
 .footer-block-image {
   display: flex;
+  flex-direction: column;
+  align-items: baseline;
 }
 
 .footer-block-image.left {
@@ -438,6 +462,10 @@
   justify-content: flex-start;
 }
 
+.footer-block__details-content {
+  width: 250px;
+}
+
 .footer-block__details-content .placeholder-svg {
   max-width: 20rem;
 }
@@ -452,7 +480,15 @@
 }
 
 .policies {
-  display: inline;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+@media screen and (max-width: 768px) {
+  .policies {
+    margin-left: inherit;
+  }
 }
 
 .policies li {
@@ -461,10 +497,10 @@
   align-items: center;
 }
 
-.policies li::before {
+/* .policies li::before {
   content: '\00B7';
   padding: 0 0.8rem;
-}
+} */
 
 .policies li a {
   padding: 0.6rem 0;
