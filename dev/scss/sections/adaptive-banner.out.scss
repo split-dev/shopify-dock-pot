@@ -2,6 +2,8 @@
 
 .adaptive-banner {
     position: relative;
+    border-radius: 12px;
+    overflow: hidden;
     &.fit-to-container {
         &--all {
             margin-right: 1.5rem;
@@ -108,6 +110,25 @@
             & > *:not(:first-child) {
                 margin-top: 12px;
                 margin-bottom: 0;
+            }
+            h2 {
+                font-size: 40px;
+                line-height: 76px;
+                font-weight: 700;
+                margin: 0;
+                @media screen and (max-width: 1024px) {
+                    font-size: 30px;
+                    line-height: 60px;
+                }
+            }
+            p {
+                font-size: 21px;
+                line-height: 31px;
+                font-weight: 400;
+                @media screen and (max-width: 1024px) {
+                    font-size: 18px;
+                    line-height: 20px;
+                }
             }
         }
         .btn {

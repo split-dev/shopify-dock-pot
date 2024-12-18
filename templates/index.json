@@ -127,8 +127,8 @@
         "button_QLYTBw": {
           "type": "button",
           "settings": {
-            "button_name": "Button name",
-            "button_link": "#",
+            "button_name": "Get started",
+            "button_link": "shopify://pages/build-your-sustem",
             "button_style": "primary"
           }
         }
@@ -140,14 +140,15 @@
       "settings": {
         "section_link": "",
         "image": "shopify://shop_images/banner-bg_44be21bc-672b-4813-8cd9-975ac1f80ad7.png",
+        "image_mobile": "shopify://shop_images/1.png",
         "markup": "image_as_background",
         "image_height_auto": false,
         "image_height_desktop": 33,
         "image_max_height_desktop": 480,
-        "image_height_mobile": 82,
-        "image_max_height_mobile": 310,
+        "image_height_mobile": 100,
+        "image_max_height_mobile": 500,
         "fit_to_container": "all",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-5",
         "bg": "",
         "bg_blur": 0,
         "vertical_alignment": "center",
