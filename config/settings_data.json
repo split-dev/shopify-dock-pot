@@ -135,6 +135,57 @@
         "settings": {
           "color_scheme": "scheme-1"
         }
+      },
+      "help-bar": {
+        "type": "help-bar",
+        "blocks": {
+          "bar_item_wadiFP": {
+            "type": "bar_item",
+            "settings": {
+              "content": "Get More!",
+              "page": "contact",
+              "bg_color": "#67b035",
+              "text_color": "#ffffff"
+            }
+          },
+          "bar_item_7zqYVK": {
+            "type": "bar_item",
+            "settings": {
+              "content": "Need help?",
+              "page": "build-your-sustem",
+              "bg_color": "#67b035",
+              "text_color": "#ffffff"
+            }
+          },
+          "bar_item_kqVCAM": {
+            "type": "bar_item",
+            "settings": {
+              "content": "Contact us!",
+              "page": "contact",
+              "bg_color": "#0f1c1f",
+              "text_color": "#67b035"
+            }
+          },
+          "bar_item_NCbdei": {
+            "type": "bar_item",
+            "settings": {
+              "content": "FAQs",
+              "page": "data-sale-opt-out",
+              "bg_color": "#0f1c1f",
+              "text_color": "#67b035"
+            }
+          }
+        },
+        "block_order": [
+          "bar_item_wadiFP",
+          "bar_item_7zqYVK",
+          "bar_item_kqVCAM",
+          "bar_item_NCbdei"
+        ],
+        "settings": {
+          "padding_top": 0,
+          "padding_bottom": 0
+        }
       }
     },
     "content_for_index": [],

@@ -1,0 +1,100 @@
+{{ 'help-bar.out.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+{% for block in section.blocks %}
+  <a href="{{ block.settings.page }}" class="help-bar" style="background: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }};">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31" fill="none">
+      <path d="M28.25 19.875C28.25 20.6485 27.9427 21.3904 27.3957 21.9374C26.8487 22.4844 26.1069 22.7917 25.3333 22.7917H7.83333L2 28.625V5.29167C2 4.51812 2.30729 3.77625 2.85427 3.22927C3.40125 2.68229 4.14312 2.375 4.91667 2.375H25.3333C26.1069 2.375 26.8487 2.68229 27.3957 3.22927C27.9427 3.77625 28.25 4.51812 28.25 5.29167V19.875Z" stroke="#FAFBFB" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>{{ block.settings.content }}</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="48" viewBox="0 0 34 48" fill="none">
+      <rect width="34" height="48" fill="white" fill-opacity="0.3"/>
+      <g opacity="0.2">
+      <circle cx="11" cy="12" r="3" fill="#FAFBFB"/>
+      <circle cx="11" cy="24" r="3" fill="#FAFBFB"/>
+      <circle cx="11" cy="36" r="3" fill="#FAFBFB"/>
+      </g>
+      <g opacity="0.2">
+      <circle cx="23" cy="12" r="3" fill="#FAFBFB"/>
+      <circle cx="23" cy="24" r="3" fill="#FAFBFB"/>
+      <circle cx="23" cy="36" r="3" fill="#FAFBFB"/>
+      </g>
+    </svg>
+  </a>
+{% endfor %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {});
+</script>
+
+{% schema %}
+{
+  "name": "Help bar",
+  "tag": "section",
+  "class": "help-bar__wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 0
+    }
+  ],
+  "max_blocks": 6,
+  "blocks": [
+    {
+      "name": "Bar item",
+      "type": "bar_item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content",
+          "label": "Text",
+          "default": "Need help?"
+        },
+        {
+          "type": "page",
+          "id": "page",
+          "label": "Page"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background color",
+          "default": "#67b035"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Color text",
+          "default": "#ffffff"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
