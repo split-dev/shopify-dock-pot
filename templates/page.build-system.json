@@ -8,119 +8,119 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {
-    "main": {
-      "type": "main-page",
-      "disabled": true,
-      "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
-      }
-    },
-    "image_banner_kb6er9": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_N4xQcT": {
-          "type": "heading",
-          "settings": {
-            "heading": "Build your system",
-            "heading_size": "h1"
-          }
+    "sections": {
+        "main": {
+            "type": "main-page",
+            "disabled": true,
+            "settings": {
+                "padding_top": 28,
+                "padding_bottom": 28
+            }
         },
-        "text_yC9dig": {
-          "type": "text",
-          "settings": {
-            "text": "Be the first to try the only way to cultivate in the 21st century, build your room today and start growing more!",
-            "text_style": "body"
-          }
+        "image_banner_kb6er9": {
+            "type": "image-banner",
+            "blocks": {
+                "heading_N4xQcT": {
+                    "type": "heading",
+                    "settings": {
+                        "heading": "Build your system",
+                        "heading_size": "h1"
+                    }
+                },
+                "text_yC9dig": {
+                    "type": "text",
+                    "settings": {
+                        "text": "Be the first to try the only way to cultivate in the 21st century, build your room today and start growing more!",
+                        "text_style": "body"
+                    }
+                },
+                "buttons_q6X6hr": {
+                    "type": "buttons",
+                    "settings": {
+                        "button_label_1": "Get started",
+                        "button_link_1": "shopify://pages/build-your-sustem",
+                        "button_style_secondary_1": false,
+                        "button_label_2": "",
+                        "button_link_2": "",
+                        "button_style_secondary_2": false
+                    }
+                }
+            },
+            "block_order": [
+                "heading_N4xQcT",
+                "text_yC9dig",
+                "buttons_q6X6hr"
+            ],
+            "settings": {
+                "image": "shopify://shop_images/banner-bg.png",
+                "image_overlay_opacity": 0,
+                "image_height": "medium",
+                "desktop_content_position": "middle-left",
+                "show_text_box": false,
+                "desktop_content_alignment": "left",
+                "color_scheme": "scheme-5",
+                "image_behavior": "none",
+                "mobile_content_alignment": "center",
+                "stack_images_on_mobile": true,
+                "show_text_below": true
+            }
         },
-        "buttons_q6X6hr": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Get started",
-            "button_link_1": "shopify://pages/build-your-sustem",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
+        "adaptive_banner_BBiRRC": {
+            "type": "adaptive-banner",
+            "blocks": {
+                "description_33bpDX": {
+                    "type": "description",
+                    "settings": {
+                        "description": "<p><strong>Build your system</strong></p><p>Be the first to try the only way to cultivate in the 21st century, build your room today and start growing more!</p>"
+                    }
+                },
+                "button_hxpnpy": {
+                    "type": "button",
+                    "settings": {
+                        "button_name": "Get started",
+                        "button_link": "",
+                        "button_style": "secondary"
+                    }
+                }
+            },
+            "block_order": [
+                "description_33bpDX",
+                "button_hxpnpy"
+            ],
+            "disabled": true,
+            "settings": {
+                "section_link": "",
+                "image": "shopify://shop_images/banner-bg.png",
+                "image_mobile": "shopify://shop_images/1.png",
+                "markup": "image_as_background",
+                "image_height_auto": false,
+                "image_height_desktop": 33,
+                "image_max_height_desktop": 480,
+                "image_height_mobile": 82,
+                "image_max_height_mobile": 310,
+                "fit_to_container": "all",
+                "color_scheme": "scheme-5",
+                "bg": "",
+                "bg_blur": 0,
+                "vertical_alignment": "center",
+                "horizontal_alignment": "center",
+                "alignment": "center",
+                "max_width": 780,
+                "content_box_bg": false,
+                "content_padding_top": 20,
+                "content_padding_bottom": 20,
+                "content_padding_top_mobile": 20,
+                "content_padding_bottom_mobile": 20,
+                "padding_top": 36,
+                "padding_bottom": 36,
+                "padding_top_mobile": 24,
+                "padding_bottom_mobile": 24
+            }
         }
-      },
-      "block_order": [
-        "heading_N4xQcT",
-        "text_yC9dig",
-        "buttons_q6X6hr"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/banner-bg.png",
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "desktop_content_position": "middle-left",
-        "show_text_box": false,
-        "desktop_content_alignment": "left",
-        "color_scheme": "scheme-5",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
-      }
     },
-    "adaptive_banner_BBiRRC": {
-      "type": "adaptive-banner",
-      "blocks": {
-        "description_33bpDX": {
-          "type": "description",
-          "settings": {
-            "description": "<p><strong>Build your system</strong></p><p>Be the first to try the only way to cultivate in the 21st century, build your room today and start growing more!</p>"
-          }
-        },
-        "button_hxpnpy": {
-          "type": "button",
-          "settings": {
-            "button_name": "Get started",
-            "button_link": "",
-            "button_style": "secondary"
-          }
-        }
-      },
-      "block_order": [
-        "description_33bpDX",
-        "button_hxpnpy"
-      ],
-      "disabled": true,
-      "settings": {
-        "section_link": "",
-        "image": "shopify://shop_images/banner-bg.png",
-        "image_mobile": "shopify://shop_images/1.png",
-        "markup": "image_as_background",
-        "image_height_auto": false,
-        "image_height_desktop": 33,
-        "image_max_height_desktop": 480,
-        "image_height_mobile": 82,
-        "image_max_height_mobile": 310,
-        "fit_to_container": "all",
-        "color_scheme": "scheme-5",
-        "bg": "",
-        "bg_blur": 0,
-        "vertical_alignment": "center",
-        "horizontal_alignment": "center",
-        "alignment": "center",
-        "max_width": 780,
-        "content_box_bg": false,
-        "content_padding_top": 20,
-        "content_padding_bottom": 20,
-        "content_padding_top_mobile": 20,
-        "content_padding_bottom_mobile": 20,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 24,
-        "padding_bottom_mobile": 24
-      }
-    }
-  },
-  "order": [
-    "main",
-    "image_banner_kb6er9",
-    "adaptive_banner_BBiRRC"
-  ]
+    "order": [
+        "main",
+        "image_banner_kb6er9",
+        "adaptive_banner_BBiRRC"
+    ]
 }
