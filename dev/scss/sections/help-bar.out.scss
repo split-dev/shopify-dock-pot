@@ -25,6 +25,23 @@ main#MainContent {
         transition: all 0.3s;
         cursor: pointer;
         text-decoration: none;
+        
+        @media screen and (max-width: 768px) {
+            transform: translateX(19.83px);
+        }
+        svg:nth-child(1) {
+            @media screen and (max-width: 768px) {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        svg:last-child {
+            @media screen and (max-width: 768px) {
+                width: auto;
+                height: 28px;
+            }
+        }
     }
     
     .help-bar:hover {

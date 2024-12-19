@@ -412,6 +412,11 @@
   max-width: 365px;
   margin-bottom: 61px;
 }
+@media screen and (max-width: 749px) {
+  .banner__box .banner__text {
+    min-width: 100%;
+  }
+}
 
 .button {
   font-weight: 600;

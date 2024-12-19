@@ -6,7 +6,11 @@
   line-height: 28px;
   font-weight: 700;
   letter-spacing: 0.22px;
-
+}
+@media screen and (max-width: 450px) {
+  .multicolumn .title {
+    line-height: 40px;
+  }
 }
 
 .multicolumn.no-heading .title {
