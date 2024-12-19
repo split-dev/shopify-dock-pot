@@ -17,6 +17,9 @@
   border-radius: 12px;
   overflow: hidden;
 }
+.card-two-coll .card {
+  flex-direction: row-reverse;
+}
 
 .card.card--horizontal {
   --text-alignment: left;

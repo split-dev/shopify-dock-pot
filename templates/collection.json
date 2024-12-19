@@ -132,6 +132,7 @@
         "products_per_page": 12,
         "columns_desktop": 2,
         "color_scheme": "scheme-5",
+        "card_two_columns": true,
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": false,
