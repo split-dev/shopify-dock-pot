@@ -405,6 +405,18 @@
   }
 }
 
+.banner__box .banner__text {
+  font-size: 21px;
+  line-height: 31px;
+  font-weight: 400;
+  max-width: 365px;
+  margin-bottom: 61px;
+}
+
+.button {
+  font-weight: 600;
+}
+
 .banner__box > * + * {
   margin-top: 1rem;
 }

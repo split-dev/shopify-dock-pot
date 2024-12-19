@@ -11,14 +11,14 @@
 }
 
 .list-social__item .icon {
-  height: 2.2rem;
-  width: 2.2rem;
+  height: 21px;
+  width: 21px;
 }
 
 .list-social__link {
   align-items: center;
   display: flex;
-  padding: 1.1rem;
+  padding: 9px;
   color: rgb(var(--color-foreground));
 }
 

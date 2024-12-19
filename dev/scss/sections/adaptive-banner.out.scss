@@ -53,6 +53,12 @@
         .adaptive-banner__content-wrapper {
             height: 100%;
         }
+        .adaptive-banner__content-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: baseline;
+        }
         .adaptive-banner__content-box--bg {
             background: rgb(var(--color-background));
             padding-right: 20px;
