@@ -1,3 +1,8 @@
+.contact {
+  display: flex;
+  justify-content: space-between;
+  gap: 78px;
+}
 .contact img {
   max-width: 100%;
 }
@@ -36,4 +41,31 @@
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 2rem;
   }
+}
+
+.contact__right-wrapper {
+  background: #39474A;
+  border-radius: 12px;
+  color: white;
+  padding: 25px 39px;
+}
+.contact__r-title {
+  font-size: 40px;
+  /* line-height: 76px; */
+  line-height: 40px;
+  font-weight: 700;
+  margin: 0;
+}
+.contact__r-emaile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contact__r-emaile p {
+  display: flex;
+  flex-direction: column;
+}
+.contact__r-emaile p span {
+  font-size: 13px;
+  line-height: 20px;
 }
