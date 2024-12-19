@@ -9,10 +9,119 @@
  */
 {
   "sections": {
+    "rich_text_8wViTn": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_kF9dNw": {
+          "type": "heading",
+          "settings": {
+            "heading": "This is the shop page.",
+            "heading_size": "h1"
+          }
+        },
+        "text_6jc3nx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Piendigenis aut occatem solutem ex et am adia ex eturibus. Ro tem non nullesto explictur?As est praepero comnimus.Ferum et veleste mporum quodit eos aligend icimpos unt rep taecat el mosam fugit, velitatisit, ipsam hil modit estion r</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_kF9dNw",
+        "text_6jc3nx"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "featured_collection_hQnqcK": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Best sellers.",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "frontpage",
+        "products_to_show": 3,
+        "columns_desktop": 3,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "scheme-5",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "adaptive_banner_Y6QXwj": {
+      "type": "adaptive-banner",
+      "blocks": {
+        "description_YpMHrp": {
+          "type": "description",
+          "settings": {
+            "description": "<p><strong>Build your system</strong></p><p>Be the first to try the only way to cultivate in the 21st century, build your room today and start growing more!</p>"
+          }
+        },
+        "button_nerrEP": {
+          "type": "button",
+          "settings": {
+            "button_name": "Get started",
+            "button_link": "shopify://pages/build-your-sustem",
+            "button_style": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "description_YpMHrp",
+        "button_nerrEP"
+      ],
+      "settings": {
+        "section_link": "",
+        "image": "shopify://shop_images/banner-bg.png",
+        "image_mobile": "shopify://shop_images/1.png",
+        "markup": "image_as_background",
+        "image_height_auto": false,
+        "image_height_desktop": 33,
+        "image_max_height_desktop": 480,
+        "image_height_mobile": 82,
+        "image_max_height_mobile": 310,
+        "fit_to_container": "all",
+        "color_scheme": "scheme-5",
+        "bg": "",
+        "bg_blur": 0,
+        "vertical_alignment": "center",
+        "horizontal_alignment": "center",
+        "alignment": "center",
+        "max_width": 780,
+        "content_box_bg": false,
+        "content_padding_top": 20,
+        "content_padding_bottom": 20,
+        "content_padding_top_mobile": 20,
+        "content_padding_bottom_mobile": 20,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24
+      }
+    },
     "banner": {
       "type": "main-collection-banner",
       "settings": {
-        "show_collection_description": true,
+        "show_collection_description": false,
         "show_collection_image": false,
         "color_scheme": "scheme-1"
       }
@@ -20,21 +129,28 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
-        "products_per_page": 16,
-        "columns_desktop": 4,
+        "products_per_page": 12,
+        "columns_desktop": 2,
+        "color_scheme": "scheme-5",
         "image_ratio": "adapt",
+        "image_shape": "default",
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
-        "enable_filtering": true,
-        "enable_sorting": true,
+        "quick_add": "standard",
+        "enable_filtering": false,
+        "filter_type": "horizontal",
+        "enable_sorting": false,
         "columns_mobile": "2",
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 100
       }
     }
   },
   "order": [
+    "rich_text_8wViTn",
+    "featured_collection_hQnqcK",
+    "adaptive_banner_Y6QXwj",
     "banner",
     "product-grid"
   ]
