@@ -257,7 +257,7 @@
         "image_height_mobile": 82,
         "image_max_height_mobile": 310,
         "fit_to_container": "desktop",
-        "color_scheme": "",
+        "color_scheme": "scheme-5",
         "bg": "",
         "bg_blur": 0,
         "vertical_alignment": "center",
