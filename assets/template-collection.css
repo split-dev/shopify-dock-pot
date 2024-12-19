@@ -74,6 +74,13 @@
 .collection__title .title:not(:only-child) {
   margin-bottom: 1rem;
 }
+.collection__title .title {
+  text-align: center;
+  font-size: 40px;
+  line-height: 76px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
 
 @media screen and (min-width: 990px) {
   .collection__title--desktop-slider .title {

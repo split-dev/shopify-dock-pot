@@ -19,8 +19,8 @@
     "page_width": 1200,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 40,
-    "spacing_grid_vertical": 8,
-    "animations_reveal_on_scroll": true,
+    "spacing_grid_vertical": 40,
+    "animations_reveal_on_scroll": false,
     "buttons_border_thickness": 1,
     "buttons_border_opacity": 100,
     "buttons_radius": 6,
@@ -56,7 +56,7 @@
     "collection_card_style": "standard",
     "collection_card_image_padding": 0,
     "collection_card_text_alignment": "left",
-    "collection_card_color_scheme": "scheme-2",
+    "collection_card_color_scheme": "scheme-5",
     "collection_card_border_thickness": 0,
     "collection_card_border_opacity": 10,
     "collection_card_corner_radius": 0,
@@ -87,7 +87,7 @@
     "media_radius": 0,
     "media_shadow_opacity": 0,
     "media_shadow_horizontal_offset": 0,
-    "media_shadow_vertical_offset": 4,
+    "media_shadow_vertical_offset": -40,
     "media_shadow_blur": 5,
     "popup_border_thickness": 1,
     "popup_border_opacity": 10,
@@ -170,7 +170,7 @@
             "type": "bar_item",
             "settings": {
               "content": "FAQs",
-              "page": "data-sale-opt-out",
+              "page": "build-your-sustem",
               "bg_color": "#0f1c1f",
               "text_color": "#67b035"
             }
@@ -207,7 +207,7 @@
           "background_gradient": "",
           "text": "#39474a",
           "button": "#39474a",
-          "button_label": "#fafbfb",
+          "button_label": "#f3f4f6",
           "secondary_button_label": "#39474a",
           "shadow": "#39474a"
         }
@@ -242,7 +242,18 @@
           "button": "#67b035",
           "button_label": "#fafbfb",
           "secondary_button_label": "#ffffff",
-          "shadow": "#121212"
+          "shadow": "#39474a"
+        }
+      },
+      "scheme-cffdb044-84d2-46a4-891d-7cdea128249c": {
+        "settings": {
+          "background": "#f3f4f6",
+          "background_gradient": "",
+          "text": "#39474a",
+          "button": "#67b035",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#67b035",
+          "shadow": "#404546"
         }
       }
     }

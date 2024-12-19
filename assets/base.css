@@ -3636,6 +3636,28 @@ details-disclosure > details {
   }
 }
 
-/* header {
-  padding-bottom: 0;
+
+/* @media only screen and (min-width:900px) {
+  .product--small .thumbnail-list.slider--tablet-up li.thumbnail-list__item.slider__slide {
+    transform: rotate(-90deg);
+    width: calc(20% - .8rem);
+  }
+  .grid__item.product__media-wrapper slider-component.thumbnail-slider {
+    position: absolute;
+    bottom: 0;
+    transform: rotate(90deg);
+    width: 602px;
+    right: 0;
+    transform-origin: right bottom;
+    height: 100px;
+    overflow: hidden;
+  }
+  .grid__item.product__media-wrapper {
+    position: relative;
+    padding-left: 100px;
+  }
+  .thumbnail-list.slider--tablet-up li.thumbnail-list__item.slider__slide {
+    transform: rotate(-90deg);
+    width: calc(16.8% - .8rem);
+  }
 } */

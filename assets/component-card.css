@@ -20,6 +20,11 @@
 .card-two-coll .card {
   flex-direction: row-reverse;
 }
+.card-two-coll .card__inner,
+.card-two-coll .card__wrapp-content {
+  width: 50%;
+}
+
 
 .card.card--horizontal {
   --text-alignment: left;
@@ -148,6 +153,17 @@
   line-height: 32px;
   font-weight: 700;
 }
+.card__content-description h3 + p {
+  font-size: 15px;
+  margin-bottom: 14px;
+}
+.card__content-description p {
+  font-size: 14.5px;
+  line-height: 23px;
+  font-weight: 400;
+}
+
+
 .card__content--bottom {
   background: #FAFBFB;
 }

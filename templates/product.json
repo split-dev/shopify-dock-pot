@@ -12,14 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
         "title": {
           "type": "title",
           "settings": {}
@@ -35,10 +27,6 @@
           "type": "description",
           "settings": {}
         },
-        "price": {
-          "type": "price",
-          "settings": {}
-        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -50,79 +38,37 @@
           "type": "quantity_selector",
           "settings": {}
         },
+        "custom_liquid_X9P7fg": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<hr></hr>"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "collapsible-row-0": {
-          "type": "collapsible_tab",
-          "disabled": true,
-          "settings": {
-            "heading": "Materials",
-            "icon": "leather",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-1": {
-          "type": "collapsible_tab",
-          "disabled": true,
-          "settings": {
-            "heading": "Shipping & Returns",
-            "icon": "truck",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
-          "disabled": true,
-          "settings": {
-            "heading": "Dimensions",
-            "icon": "ruler",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-3": {
-          "type": "collapsible_tab",
-          "disabled": true,
-          "settings": {
-            "heading": "Care Instructions",
-            "icon": "heart",
-            "content": "",
-            "page": ""
-          }
-        },
-        "share": {
-          "type": "share",
-          "disabled": true,
-          "settings": {
-            "share_label": "Share"
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
           }
         }
       },
       "block_order": [
-        "vendor",
         "title",
         "caption",
         "description",
-        "price",
         "variant_picker",
         "quantity_selector",
-        "buy_buttons",
-        "collapsible-row-0",
-        "collapsible-row-1",
-        "collapsible-row-2",
-        "collapsible-row-3",
-        "share"
+        "custom_liquid_X9P7fg",
+        "price",
+        "buy_buttons"
       ],
       "settings": {
         "enable_sticky_info": true,
-        "color_scheme": "scheme-5",
+        "color_scheme": "scheme-cffdb044-84d2-46a4-891d-7cdea128249c",
         "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "contain",
@@ -215,9 +161,9 @@
         "heading": "",
         "heading_size": "h1",
         "heading_alignment": "center",
-        "layout": "none",
+        "layout": "section",
         "color_scheme": "",
-        "container_color_scheme": "",
+        "container_color_scheme": "scheme-1",
         "open_first_collapsible_row": false,
         "image_ratio": "adapt",
         "desktop_layout": "image_second",

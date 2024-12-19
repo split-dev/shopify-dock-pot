@@ -15,7 +15,7 @@
         "heading_kF9dNw": {
           "type": "heading",
           "settings": {
-            "heading": "This is the shop page.",
+            "heading": "<strong>This is the shop page.</strong>",
             "heading_size": "h1"
           }
         },
@@ -35,8 +35,8 @@
         "content_alignment": "center",
         "color_scheme": "scheme-2",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "featured_collection_hQnqcK": {
@@ -61,8 +61,8 @@
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "standard",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -106,7 +106,7 @@
         "vertical_alignment": "center",
         "horizontal_alignment": "center",
         "alignment": "center",
-        "max_width": 780,
+        "max_width": 420,
         "content_box_bg": false,
         "content_padding_top": 20,
         "content_padding_bottom": 20,
@@ -135,15 +135,15 @@
         "card_two_columns": true,
         "image_ratio": "adapt",
         "image_shape": "default",
-        "show_secondary_image": false,
+        "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "standard",
         "enable_filtering": false,
         "filter_type": "horizontal",
         "enable_sorting": false,
-        "columns_mobile": "2",
-        "padding_top": 36,
+        "columns_mobile": "1",
+        "padding_top": 0,
         "padding_bottom": 100
       }
     }
