@@ -16,7 +16,7 @@
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <div class="contact page-width section-{{ section.id }}-padding">
-    <div>
+    <div class="contact__left-wrapper">
       {%- if section.settings.heading != blank -%}
         <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           {{ section.settings.heading }}
@@ -62,6 +62,7 @@
               name="contact[{{ 'templates.contact.form.name' | t }}]"
               value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
               placeholder="{{ 'templates.contact.form.name' | t }}"
+              required
             >
             <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
           </div>
@@ -110,6 +111,7 @@
             pattern="[0-9\-]*"
             value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
             placeholder="{{ 'templates.contact.form.phone' | t }}"
+            required
           >
           <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
         </div>
@@ -127,6 +129,19 @@
             {{- 'templates.contact.form.comment' | t -}}
           </label>
         </div>
+
+        <select id="ContactForm-select" name="contact[request_type]" class="field__input">
+          <option>What’s your query regarding</option>
+          <option>Select-1</option>
+          <option>Select-2</option>
+          <option>Select-3</option>
+        </select>
+
+        <div class="">
+          <input type="checkbox" id="ContactForm-consent">
+          <label class="" for="ContactForm-consent"> I consent to being contacted by DockPot. </label>
+        </div>
+
         <div class="contact__button">
           <button type="submit" class="button">
             {{ 'templates.contact.form.send' | t }}
