@@ -2,7 +2,7 @@
   display: flex;
   position: relative;
   line-height: 1;
-  padding: 1.5rem 0;
+  padding: 35px 0;
   padding-left: 30px;
 }
 
@@ -52,7 +52,7 @@
   height: 48px;
   width: 48px;
   padding: 17px;
-  top: 12px;
+  top: 35px;
 }
 
 .accordion details[open] > summary .icon-accordion-plus {
