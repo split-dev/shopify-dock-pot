@@ -117,7 +117,7 @@
           "settings": {
             "heading": "A question that will test the theory of time",
             "icon": "none",
-            "row_content": "",
+            "row_content": "<p>Test</p>",
             "page": ""
           }
         },
@@ -126,7 +126,7 @@
           "settings": {
             "heading": "Are your rates competitive?",
             "icon": "none",
-            "row_content": "",
+            "row_content": "<p>Test</p>",
             "page": ""
           }
         },
@@ -135,7 +135,7 @@
           "settings": {
             "heading": "Collapsible row",
             "icon": "none",
-            "row_content": "",
+            "row_content": "<p>Test</p>",
             "page": ""
           }
         },
@@ -144,7 +144,7 @@
           "settings": {
             "heading": "Do you really want to increase you yield?",
             "icon": "none",
-            "row_content": "",
+            "row_content": "<p>Test</p>",
             "page": ""
           }
         }

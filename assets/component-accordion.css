@@ -3,6 +3,7 @@
   position: relative;
   line-height: 1;
   padding: 1.5rem 0;
+  padding-left: 30px;
 }
 
 .accordion .summary__title {
@@ -32,6 +33,9 @@
   min-height: 1.6rem;
   margin: 0;
   word-break: break-word;
+  font-size: 25px;
+  line-height: 40px;
+  font-weight: 700;
 }
 
 .accordion .svg-wrapper {
@@ -42,8 +46,21 @@
   width: calc(var(--font-heading-scale) * 2rem);
 }
 
-.accordion details[open] > summary .icon-caret {
-  transform: rotate(180deg);
+.icon-accordion-plus {
+  background: #FAFBFB;
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+  padding: 17px;
+  top: 12px;
+}
+
+.accordion details[open] > summary .icon-accordion-plus {
+  transform: rotate(45deg);
+  background: #0F1C1F;
+}
+.accordion details[open] > summary .icon-accordion-plus path {
+  fill: #FAFBFB;
 }
 
 .accordion__content {
@@ -51,6 +68,10 @@
   word-break: break-word;
   overflow-x: auto;
   padding: 0 0.6rem;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  padding-left: 30px;
 }
 
 .accordion__content img {
