@@ -91,3 +91,10 @@
   border: 1px solid rgb(var(--color-foreground));
   margin-bottom: 2rem;
 }
+
+.social-link__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
+}
