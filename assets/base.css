@@ -3669,6 +3669,8 @@ details-disclosure > details {
 .card__media--link {
   text-decoration: none;
   color: inherit;
+  grid-row-start: 1;
+  grid-row-end: 4;
 }
 .card__media--link:hover {
   text-decoration: none !important;
