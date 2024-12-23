@@ -3665,3 +3665,20 @@ details-disclosure > details {
     width: calc(16.8% - .8rem);
   }
 } */
+
+.card__media--link {
+  text-decoration: none;
+  color: inherit;
+}
+.card__media--link:hover {
+  text-decoration: none !important;
+}
+
+.crop-height {
+  /* width: 300px; */
+  width: auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow-y: hidden;
+}
