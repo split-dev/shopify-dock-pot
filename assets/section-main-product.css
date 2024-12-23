@@ -93,6 +93,9 @@ product-info {
   text-decoration: underline;
   cursor: pointer;
 }
+.product__info-wrapper .btn__quantity--update.is-disabled {
+  pointer-events: none;
+}
 .product__info-wrapper .btn__quantity--update:hover {
   text-decoration: none;
 }
