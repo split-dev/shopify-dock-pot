@@ -113,45 +113,36 @@
         "collapsible_row_8mgC9r": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Alright, but what exactly do you do?",
+            "heading": "{{ product.metafields.custom.faq_title_1.value }}",
             "icon": "none",
-            "row_content": "<p>Timperdiet gravida scelerisque odio nunc. Eget felis, odio bibendum quis eget sit lorem donec diam. Volutpat sed orci turpis sit dolor est a pretium eget. Vitae turpis orci vel tellus cursus lorem vestibulum quis eu. Ut commodo, eget lorem venenatis urna.</p>",
+            "row_content": "{{ product.metafields.custom.faq_content_1 | metafield_tag }}",
             "page": ""
           }
         },
         "collapsible_row_jkhTjW": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "A question that will test the theory of time",
+            "heading": "{{ product.metafields.custom.faq_title_2.value }}",
             "icon": "none",
-            "row_content": "<p>Test</p>",
+            "row_content": "{{ product.metafields.custom.faq_content_2 | metafield_tag }}",
             "page": ""
           }
         },
         "collapsible_row_6cD77k": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Are your rates competitive?",
+            "heading": "{{ product.metafields.custom.faq_title_3.value }}",
             "icon": "none",
-            "row_content": "<p>Test</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_Nedk6k": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Collapsible row",
-            "icon": "none",
-            "row_content": "<p>Test</p>",
+            "row_content": "{{ product.metafields.custom.faq_content_3 | metafield_tag }}",
             "page": ""
           }
         },
         "collapsible_row_7Aa86W": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Do you really want to increase you yield?",
+            "heading": "{{ product.metafields.custom.faq_title_4.value }}",
             "icon": "none",
-            "row_content": "<p>Test</p>",
+            "row_content": "{{ product.metafields.custom.faq_content_4 | metafield_tag }}",
             "page": ""
           }
         }
@@ -160,7 +151,6 @@
         "collapsible_row_8mgC9r",
         "collapsible_row_jkhTjW",
         "collapsible_row_6cD77k",
-        "collapsible_row_Nedk6k",
         "collapsible_row_7Aa86W"
       ],
       "settings": {
