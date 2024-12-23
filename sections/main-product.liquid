@@ -667,6 +667,27 @@
   </div>
 </product-info>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const quantity = document.querySelector('.product-form__quantity .quantity__input');
+    const btnQuantity = document.querySelector('.product-form__quantity .btn__quantity--update');
+    const price = document.querySelector('.price__container .price-item');
+
+    quantity.addEventListener('change', () => {
+      btnQuantity.classList.remove('is-disabled');
+    });
+
+    if (!btnQuantity.classList.contains('is-disabled')) {
+      btnQuantity.addEventListener('click', () => {
+        price.innerHTML = `$${(price.dataset.price.match(/\d+/)[0] * quantity.value).toFixed(2)}`;
+        btnQuantity.classList.add('is-disabled');
+      });
+    } else {
+      btnQuantity.classList.remove('is-disabled');
+    }
+  });
+</script>
+
 {% schema %}
 {
   "name": "t:sections.main-product.name",
