@@ -1,5 +1,6 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -19,7 +20,7 @@
 {%- endif -%}
 
 <div class="customer login section-{{ section.id }}-padding">
-  <h1 id="recover" tabindex="-1">
+  <h1 class="font-body-bold" id="recover" tabindex="-1">
     {{ 'customer.recover_password.title' | t }}
   </h1>
   <div>
@@ -58,17 +59,17 @@
         </small>
       {%- endif -%}
 
-      <button>
+      <button class="button button--primary">
         {{ 'customer.login_page.submit' | t }}
       </button>
 
-      <a href="#login">
+      <a class="btn__cancel" href="#login">
         {{ 'customer.login_page.cancel' | t }}
       </a>
     {%- endform -%}
   </div>
 
-  <h1 id="login" tabindex="-1">
+  <h1 class="font-body-bold" id="login" tabindex="-1">
     {{ 'customer.login_page.title' | t }}
   </h1>
   <div>
@@ -140,16 +141,16 @@
           </label>
         </div>
 
-        <a href="#recover">
+        <a class="btn__cancel" href="#recover">
           {{ 'customer.login_page.forgot_password' | t }}
         </a>
       {%- endif -%}
 
-      <button>
+      <button class="button button--primary">
         {{ 'customer.login_page.sign_in' | t }}
       </button>
 
-      <a href="{{ routes.account_register_url }}">
+      <a class="btn__cancel" href="{{ routes.account_register_url }}">
         {{ 'customer.login_page.create_account' | t }}
       </a>
     {%- endform -%}
@@ -161,7 +162,7 @@
       <h2>{{ 'customer.login_page.guest_title' | t }}</h2>
 
       {%- form 'guest_login' -%}
-        <button>
+        <button  class="button button--primary">
           {{ 'customer.login_page.guest_continue' | t }}
         </button>
       {%- endform -%}

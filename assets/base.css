@@ -3138,6 +3138,13 @@ details-disclosure > details {
   font-weight: var(--font-body-weight-bold);
 }
 
+.font-subtitle {
+  font-size: 30px;
+  line-height: 60px;
+  font-weight: 700;
+}
+
+
 /* outline and border styling for Windows High Contrast Mode */
 @media (forced-colors: active) {
   .button,
@@ -3683,4 +3690,18 @@ details-disclosure > details {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow-y: hidden;
+}
+
+
+/* Default page */
+
+
+.shopify-policy__container {
+  padding-bottom: 60px;
+}
+
+@media (max-width: 768.98px) {
+  .shopify-policy__container {
+    padding-bottom: 30px;
+  }
 }

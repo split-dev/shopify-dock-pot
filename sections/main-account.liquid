@@ -16,8 +16,8 @@
 
 <div class="customer account section-{{ section.id }}-padding">
   <div>
-    <h1 class="customer__title">{{ 'customer.account.title' | t }}</h1>
-    <a href="{{ routes.account_logout_url }}">
+    <h1 class="customer__title font-body-bold">{{ 'customer.account.title' | t }}</h1>
+    <a  class="btn__cancel" href="{{ routes.account_logout_url }}">
       <span class="svg-wrapper">
         {{- 'icon-account.svg' | inline_asset_content -}}
       </span>
@@ -27,7 +27,7 @@
 
   <div>
     <div>
-      <h2>{{ 'customer.orders.title' | t }}</h2>
+      <h2 class="font-subtitle">{{ 'customer.orders.title' | t }}</h2>
 
       {% paginate customer.orders by 20 %}
         {%- if customer.orders.size > 0 -%}
@@ -139,11 +139,11 @@
     </div>
 
     <div>
-      <h2>{{ 'customer.account.details' | t }}</h2>
+      <h2 class="font-subtitle">{{ 'customer.account.details' | t }}</h2>
 
       {{ customer.default_address | format_address }}
 
-      <a href="{{ routes.account_addresses_url }}">
+      <a  class="btn__cancel" href="{{ routes.account_addresses_url }}">
         {{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})
       </a>
     </div>

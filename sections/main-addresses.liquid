@@ -18,8 +18,8 @@
 
 {%- paginate customer.addresses by 5 -%}
   <div class="customer addresses section-{{ section.id }}-padding" data-customer-addresses>
-    <h1>{{ 'customer.addresses.title' | t }}</h1>
-    <a href="{{ routes.account_url }}">
+    <h1 class="font-body-bold">{{ 'customer.addresses.title' | t }}</h1>
+    <a class="btn__cancel" href="{{ routes.account_url }}">
       {{ 'customer.account.return' | t }}
     </a>
 
@@ -169,7 +169,7 @@
       {%- for address in customer.addresses -%}
         <li data-address>
           {%- if address == customer.default_address -%}
-            <h2>{{ 'customer.addresses.default' | t }}</h2>
+            <h2 class="font-subtitle">{{ 'customer.addresses.default' | t }}</h2>
           {%- endif -%}
           {{ address | format_address }}
           <button
