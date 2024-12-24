@@ -12,6 +12,13 @@
   }
 }
 
+main .btn__cancel {
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 500;
+  color: #8F9394;
+}
+
 .customer > h1,
 .customer__title {
   margin-top: 0;
