@@ -11,7 +11,11 @@
 
 <div class="build-system__wrapper section-{{ section.id }}-padding page-width">
   <div class="bs-section room-size__wrapper">
-    <div class="bs__images-wrapp">image</div>
+    <div class="bs__images-wrapp">
+      {%- if section.settings.room_size_image != blank -%}
+        {{ section.settings.room_size_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}
+      {%- endif -%}
+    </div>
     <div class="bs__buttons-wrapp">button</div>
   </div>
   <div class="bs-section skate-options__wrapper">
@@ -73,6 +77,11 @@
     {
       "type": "header",
       "content": "Room size"
+    },
+    {
+      "type": "image_picker",
+      "id": "room_size_image",
+      "label": "Animated GIF"
     },
     {
       "type": "header",
