@@ -70,6 +70,11 @@
       "settings": {
         "room_size_image": "shopify://shop_images/emptyroom0001.jpg",
         "r_s_popup_image": "shopify://shop_images/banner-bg_44be21bc-672b-4813-8cd9-975ac1f80ad7.png",
+        "s_o_products": [
+          "trellis-handles-copy",
+          "skate-pro",
+          "skate-pro-copy"
+        ],
         "padding_top": 0,
         "padding_bottom": 0,
         "margin_top": 36,
