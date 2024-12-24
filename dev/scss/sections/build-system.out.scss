@@ -1,0 +1,29 @@
+.build-system {
+    .build-system__wrapper {
+       .bs-section {
+            display: flex;
+            align-items: center;
+            gap: 58px;
+            margin-bottom: 30px;
+            @media screen and (max-width: 768px) {
+                flex-direction: column;
+            }
+            .bs__images-wrapp {
+                background: #F9F9F9;
+                width: 100%;
+                aspect-ratio: 378 / 265;
+                overflow: hidden;
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    // object-position: top;
+                }
+            }
+            .bs__buttons-wrapp {
+                border: 1px dashed grey;
+                width: 328px;
+            }
+        }
+    }
+}
