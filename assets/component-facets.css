@@ -262,6 +262,9 @@
 
 .facets__summary .icon-caret {
   right: 0;
+  width: 12px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .facets__display {
