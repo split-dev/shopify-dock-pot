@@ -13,16 +13,74 @@
                 width: 100%;
                 aspect-ratio: 378 / 265;
                 overflow: hidden;
+                border-radius: 12px;
                 img {
                     height: 100%;
                     width: 100%;
                     object-fit: cover;
-                    // object-position: top;
                 }
             }
             .bs__buttons-wrapp {
                 border: 1px dashed grey;
                 width: 328px;
+                min-width: 328px;
+                article {
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+                    fieldset:nth-child(1) {
+                        background: #F3F4F6;
+                    }
+                }
+                legend,
+                h3,
+                h2 {
+                    font-size: 21.75px;
+                    line-height: 28px;
+                    font-weight: 700;
+                    letter-spacing: 0.22px;
+                    span {
+                        color: #86868B;
+                    }
+                }
+                label:not(.popup-label) {
+                    outline: 1px solid #8F9394;
+                    display: block;
+                    border-radius: 12px;
+                    padding: 20px 16px;
+                    display: flex;
+                    gap: 6px;
+                    justify-content: space-between;
+                    cursor: pointer;
+                    p {
+                        font-size: 17px;
+                        line-height: 21px;
+                        font-weight: 700;
+                        letter-spacing: 0.37px;
+                        color:#39474A;
+                        display: flex;
+                        flex-direction: column;
+                        margin: 0;
+                        span {
+                            font-size: 12px;
+                            line-height: 16px;
+                            font-weight: 400;
+                            letter-spacing: 0.12px;
+                        }
+                    }
+                    p.bs__label-price {
+                        font-size: 12px;
+                        line-height: 16px;
+                        font-weight: 400;
+                        letter-spacing: 0.12px;
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+                label:not(.popup-label):has(input[type=radio]:checked) {
+                    outline: 2px solid #8FC85A;
+                }
             }
         }
     }
