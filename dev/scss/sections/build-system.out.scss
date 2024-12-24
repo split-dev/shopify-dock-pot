@@ -19,11 +19,21 @@
                     width: 100%;
                     object-fit: cover;
                 }
+                ul {
+                    padding-left: 0;
+                }
+                .swiper-button-next:after,
+                .swiper-button-prev:after {
+                    display: none;
+                }
             }
             .bs__buttons-wrapp {
                 border: 1px dashed grey;
                 width: 328px;
                 min-width: 328px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
                 article {
                     img {
                         width: 100%;
@@ -40,6 +50,7 @@
                     line-height: 28px;
                     font-weight: 700;
                     letter-spacing: 0.22px;
+                    margin: 0;
                     span {
                         color: #86868B;
                     }
