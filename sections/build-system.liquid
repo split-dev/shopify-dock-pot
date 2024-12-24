@@ -1,0 +1,95 @@
+{{ 'build-system.out.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+      margin-top: {{ section.settings.margin_top }}px;
+      margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+{%- endstyle -%}
+
+<div class="build-system__wrapper section-{{ section.id }}-padding page-width">
+  <div class="room-size__wrapper"></div>
+  <div class="skate-options__wrapper"></div>
+  <div class="plant-capacity__wrapper"></div>
+  <div class="your-grow-style__wrapper"></div>
+  <div class="growing-medium__wrapper"></div>
+  <div class="trellis-support__wrapper"></div>
+  <div class="trellis-netting__wrapper"></div>
+  <div class="drainage__wrapper"></div>
+  <div class="hardware__wrapper"></div>
+  <div class="total__wrapper"></div>
+  <div class="total__wrapper"></div>
+  <div class="submit__wrapper"></div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {});
+</script>
+
+{% schema %}
+{
+  "name": "Build system",
+  "tag": "section",
+  "class": "build-system",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Margin"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Build system"
+    }
+  ],
+  "enabled_on": {
+    "templates": ["*"]
+  }
+}
+{% endschema %}
