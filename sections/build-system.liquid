@@ -16,7 +16,35 @@
         {{ section.settings.room_size_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}
       {%- endif -%}
     </div>
-    <div class="bs__buttons-wrapp">button</div>
+    <div class="bs__buttons-wrapp">
+      <article>
+        <h3>Measure your grow room.</h3>
+        {%- if section.settings.r_s_popup_image != blank -%}
+          {{ section.settings.r_s_popup_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}
+        {%- endif -%}
+        <form>
+          <fieldset>
+            <legend>
+              <h2>Measurement system.<span>Choose your preference</span></h2>
+            </legend>
+            <label class="popup-label">Imperial<input type="radio" name="measurement" value="imperial"></label>
+            <label class="popup-label">Metric<input type="radio" name="measurement" value="metric"></label>
+          </fieldset>
+          <fieldset>
+            <legend><h2>Enter Dimensions.</h2></legend>
+            <label class="popup-label"><input type="number" placeholder="Length" value="" title="Length" required></label>
+            <label class="popup-label"><input type="number" placeholder="Width" value="" title="Width" required></label>
+          </fieldset>
+          <button>Continue</button>
+        </form>
+      </article>
+      <h2>Room size. <span>Enter dimensions</span></h2>
+      <label>
+        <input type="radio" name="roomsize" value="">
+        <p class="bs__title-subtitle">Enter room size<span>850 bays requried</span></p>
+        <p class="bs__label-price">USD 3,629</p>
+      </label>
+    </div>
   </div>
   <div class="bs-section skate-options__wrapper">
     <div class="bs__images-wrapp">image</div>
@@ -82,6 +110,15 @@
       "type": "image_picker",
       "id": "room_size_image",
       "label": "Animated GIF"
+    },
+    {
+      "type": "header",
+      "content": "Room size POPUP"
+    },
+    {
+      "type": "image_picker",
+      "id": "r_s_popup_image",
+      "label": "Image for Popup room size"
     },
     {
       "type": "header",
