@@ -449,6 +449,7 @@ table:not([class]) td,
 table:not([class]) th {
   padding: 1em;
   border: 0.1rem solid rgba(var(--color-foreground), 0.2);
+  vertical-align: baseline;
 }
 
 @media screen and (max-width: 749px) {
