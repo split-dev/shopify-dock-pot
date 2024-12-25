@@ -234,8 +234,11 @@ cart-drawer-items {
 }
 
 .cart-drawer .cart-items thead tr {
-  display: table-row;
+  /* display: table-row; */
   margin-bottom: 0;
+}
+.cart-drawer .cart-items .right {
+  margin-left: auto;
 }
 
 .cart-drawer .cart-items th {
