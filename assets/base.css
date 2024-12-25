@@ -1737,7 +1737,9 @@ details[open] > .share-button__fallback {
   pointer-events: none;
   position: absolute;
   top: calc(50% - 0.2rem);
-  right: 0;
+  /* right: 0; */
+  right: 6px;
+  
 }
 @media screen and (max-width: 749px) {
   .select .svg-wrapper {
