@@ -113,7 +113,8 @@
   margin: 0;
   padding-left: 0;
   padding-right: 1.75rem;
-  width: 90px;
+  /* width: 90px; */
+  border-bottom: 1px solid #8F9394;
 }
 
 .facet-filters__sort + .icon-caret {
