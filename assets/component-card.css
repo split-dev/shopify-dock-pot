@@ -20,9 +20,29 @@
 .card-two-coll .card {
   flex-direction: row-reverse;
 }
+
 .card-two-coll .card__inner,
 .card-two-coll .card__wrapp-content {
   width: 50%;
+}
+
+@media screen and (max-width: 1024px) {
+  .card-two-coll .card {
+    flex-direction: column;
+  }
+ .card-two-coll .card__inner,
+ .card-two-coll .card__wrapp-content {
+   width: 100%;
+ }
+}
+@media screen and (max-width: 500px) {
+  .card-two-coll .card {
+    flex-direction: row-reverse;
+  }
+ .card-two-coll .card__inner,
+ .card-two-coll .card__wrapp-content {
+   width: 50%;
+ }
 }
 
 

@@ -139,8 +139,12 @@ cart-remove-button .button:after {
   content: none;
 }
 
-cart-remove-button .button:not([disabled]):hover {
+cart-remove-button .button:not([disabled]) {
   color: rgb(var(--color-foreground));
+}
+cart-remove-button .button:not([disabled]):hover {
+  /* color: rgb(var(--color-foreground)); */
+  opacity: 0.5;
 }
 
 @media screen and (min-width: 750px) {
