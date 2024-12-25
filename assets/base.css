@@ -3733,6 +3733,7 @@ details-disclosure > details {
 
 .shopify-policy__container {
   padding-bottom: 60px;
+  max-width: calc(var(--page-width) - 10rem);
 }
 
 @media (max-width: 768.98px) {
