@@ -179,8 +179,9 @@
   font-size: 21px;
   line-height: 32px;
   font-weight: 700;
+  color: #0F1C1F;
 }
-.card__content-description h3 + p {
+.card__content-description p:first-child {
   font-size: 15px;
   margin-bottom: 14px;
 }
@@ -684,12 +685,12 @@
   text-align: center;
   font-size: 16px;
   line-height: 21px;
-  font-weight: 600;
+  font-weight: 500;
   color: #8F9394;
   transition: all 0.3s;
 }
 .btn__learn-more:hover {
   color: rgb(var(--color-foreground));
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
 }

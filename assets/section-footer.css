@@ -147,6 +147,12 @@
   margin-top: 0;
 }
 
+.footer-block.footer-block--menu a {
+  font-size: 14px;
+  font-weight: 400;
+  color: #FAFBFB;
+}
+
 @media screen and (max-width: 749px) {
   .footer-block.footer-block--menu:only-child {
     text-align: left;
