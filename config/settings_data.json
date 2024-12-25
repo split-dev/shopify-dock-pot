@@ -147,7 +147,7 @@
               "content": "Get More!",
               "page": "contact",
               "bg_color": "#67b035",
-              "text_color": "#ffffff"
+              "text_color": "#fafbfb"
             }
           },
           "bar_item_7zqYVK": {
@@ -156,7 +156,7 @@
               "content": "Need help?",
               "page": "build-your-sustem",
               "bg_color": "#67b035",
-              "text_color": "#ffffff"
+              "text_color": "#fafbfb"
             }
           },
           "bar_item_kqVCAM": {
@@ -165,7 +165,7 @@
               "content": "Contact us!",
               "page": "contact",
               "bg_color": "#0f1c1f",
-              "text_color": "#67b035"
+              "text_color": "#8fc85a"
             }
           },
           "bar_item_NCbdei": {
@@ -174,7 +174,7 @@
               "content": "FAQs",
               "page": "build-your-sustem",
               "bg_color": "#0f1c1f",
-              "text_color": "#67b035"
+              "text_color": "#8fc85a"
             }
           }
         },
