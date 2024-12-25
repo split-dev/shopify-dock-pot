@@ -1725,6 +1725,11 @@ details[open] > .share-button__fallback {
   top: calc(50% - 0.2rem);
   right: 0;
 }
+@media screen and (max-width: 749px) {
+  .select .svg-wrapper {
+    right: 6px;
+  }
+}
 
 .select__select,
 .customer select {
