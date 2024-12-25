@@ -146,10 +146,7 @@
       {%- endif -%}
     </div>
     {%- if search.performed -%}
-      {%- if section.settings.enable_sorting
-        and section.settings.filter_type == 'vertical'
-        and search.filters != empty
-      -%}
+      {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' and search.filters != empty -%}
         <facet-filters-form class="facets facets-vertical-sort page-width small-hide">
           <form class="facets-vertical-form" id="FacetSortForm">
             <div class="facet-filters sorting caption">
@@ -191,10 +188,7 @@
                   {%- elsif search.products_count == search.all_products_count -%}
                     {{ 'products.facets.product_count_simple' | t: count: search.products_count }}
                   {%- else -%}
-                    {{
-                      'products.facets.product_count'
-                      | t: product_count: search.products_count, count: search.all_products_count
-                    }}
+                    {{ 'products.facets.product_count' | t: product_count: search.products_count, count: search.all_products_count }}
                   {%- endif -%}
                 </span>
               </h2>
@@ -216,13 +210,7 @@
               id="main-search-filters"
               data-id="{{ section.id }}"
             >
-              {% render 'facets',
-                results: search,
-                enable_filtering: section.settings.enable_filtering,
-                enable_sorting: section.settings.enable_sorting,
-                filter_type: section.settings.filter_type,
-                paginate: paginate
-              %}
+              {% render 'facets', results: search, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, filter_type: section.settings.filter_type, paginate: paginate %}
             </aside>
           {%- endif -%}
         {%- endif -%}
@@ -238,10 +226,7 @@
                 <h2 class="title title--primary">
                   {{ 'sections.collection_template.empty' | t -}}
                   <br>
-                  {{
-                    'sections.collection_template.use_fewer_filters_html'
-                    | t: link: search_url, class: 'underlined-link link'
-                  }}
+                  {{ 'sections.collection_template.use_fewer_filters_html' | t: link: search_url, class: 'underlined-link link' }}
                 </h2>
               </div>
             </div>
@@ -263,60 +248,45 @@
                     {%- assign lazy_load = true -%}
                   {%- endif -%}
 
-                  <li
-                    class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-                    {% if settings.animations_reveal_on_scroll %}
-                      data-cascade
-                    {% endif %}
-                  >
-                    {%- case item.object_type -%}
-                      {%- when 'product' -%}
-                        {%- capture product_settings -%}{%- if section.settings.product_show_vendor -%}vendor,{%- endif -%}title,price{%- endcapture -%}
-                        {% render 'card-product',
-                          card_product: item,
-                          media_aspect_ratio: section.settings.image_ratio,
-                          image_shape: section.settings.image_shape,
-                          show_secondary_image: section.settings.show_secondary_image,
-                          show_vendor: section.settings.show_vendor,
-                          show_rating: section.settings.show_rating,
-                          lazy_load: lazy_load,
-                          skip_styles: skip_card_product_styles
-                        %}
-                        {%- assign skip_card_product_styles = true -%}
-                      {%- when 'article' -%}
-                        {% render 'article-card',
-                          article: item,
-                          show_image: true,
-                          show_date: section.settings.article_show_date,
-                          show_author: section.settings.article_show_author,
-                          show_badge: true,
-                          media_aspect_ratio: 1,
-                          lazy_load: lazy_load
-                        %}
-                      {%- when 'page' -%}
-                        <div class="article-card-wrapper card-wrapper underline-links-hover">
-                          <div
-                            class="card card--card card--text ratio color-{{ settings.blog_card_color_scheme }}"
-                            style="--ratio-percent: 100%;"
-                          >
-                            <div class="card__content">
-                              <div class="card__information">
-                                <h3 class="card__heading">
-                                  <a href="{{ item.url }}" class="full-unstyled-link">
-                                    {{ item.title | truncate: 50 | escape }}
-                                  </a>
-                                </h3>
-                              </div>
-                              <div class="card__badge {{ settings.badge_position }}">
-                                <span class="badge color-{{ settings.color_schemes | first }}">
-                                  {{- 'templates.search.page' | t -}}
-                                </span>
+                  {% if item.tags contains 'product' %}
+                    <li
+                      class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                      {% if settings.animations_reveal_on_scroll %}
+                        data-cascade
+                      {% endif %}
+                    >
+                      {%- case item.object_type -%}
+                        {%- when 'product' -%}
+                          {%- capture product_settings -%}{%- if section.settings.product_show_vendor -%}vendor,{%- endif -%}title,price{%- endcapture -%}
+                          {% render 'card-product', card_product: item, media_aspect_ratio: section.settings.image_ratio, image_shape: section.settings.image_shape, show_secondary_image: section.settings.show_secondary_image, show_vendor: section.settings.show_vendor, show_rating: section.settings.show_rating, lazy_load: lazy_load, skip_styles: skip_card_product_styles %}
+                          {%- assign skip_card_product_styles = true -%}
+                        {%- when 'article' -%}
+                          {% render 'article-card', article: item, show_image: true, show_date: section.settings.article_show_date, show_author: section.settings.article_show_author, show_badge: true, media_aspect_ratio: 1, lazy_load: lazy_load %}
+                        {%- when 'page' -%}
+                          <div class="article-card-wrapper card-wrapper underline-links-hover">
+                            <div
+                              class="card card--card card--text ratio color-{{ settings.blog_card_color_scheme }}"
+                              style="--ratio-percent: 100%;"
+                            >
+                              <div class="card__content">
+                                <div class="card__information">
+                                  <h3 class="card__heading">
+                                    <a href="{{ item.url }}" class="full-unstyled-link">
+                                      {{ item.title | truncate: 50 | escape }}
+                                    </a>
+                                  </h3>
+                                </div>
+                                <div class="card__badge {{ settings.badge_position }}">
+                                  <span class="badge color-{{ settings.color_schemes | first }}">
+                                    {{- 'templates.search.page' | t -}}
+                                  </span>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                    {%- endcase -%}
-                  </li>
+                      {%- endcase -%}
+                    </li>
+                  {% endif %}
                 {%- endfor -%}
               </ul>
               {%- if paginate.pages > 1 -%}
