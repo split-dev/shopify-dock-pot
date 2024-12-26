@@ -88,17 +88,25 @@
   src: local('Proximanova'), local('Proximanova'),
     url('proximanova_bold.otf') format('otf');
 }
-/* @font-face {
-  font-family: 'Proxima';
-  src: url('proximanova_regular.ttf');
-  src: local('Proximanova'), local('Proximanova'),
-    url('Montserrat-ExtraLight.eot?#iefix') format('embedded-opentype'),
-    url('Montserrat-ExtraLight.woff2') format('woff2'),
-    url('Montserrat-ExtraLight.woff') format('woff'),
-    url('Montserrat-ExtraLight.ttf') format('truetype');
-  font-weight: 200;
-  font-style: normal;
-} */
+
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat-Light"),
+    url("Montserrat-Light.ttf") format("truetype");
+    font-weight: 300;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat-Regular"),
+    url("Montserrat-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat-SemiBold"),
+    url("Montserrat-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+}
 
 .page-width {
   max-width: var(--page-width);
