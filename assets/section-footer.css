@@ -488,8 +488,11 @@
 }
 
 .footer-block__details-content {
-  width: 250px;
+  /* width: 250px; */
   font-weight: 600;
+}
+.footer-block__details-content.footer-block-image {
+  width: 250px;
 }
 
 .footer-block__details-content .placeholder-svg {
