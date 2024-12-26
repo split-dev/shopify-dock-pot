@@ -3775,6 +3775,7 @@ details-disclosure > details {
 .swiper-button-prev {
   width: inherit !important;
   height: inherit !important;
+  top: 42.6% !important;
 }
 .swiper-button-next:after,
 .swiper-button-prev:after {
