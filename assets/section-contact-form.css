@@ -119,6 +119,7 @@
   padding-bottom: 0;
   border: 1px solid rgb(var(--color-foreground));
   margin-bottom: 2rem;
+  appearance: auto;
 }
 
 .social-link__wrapper {
