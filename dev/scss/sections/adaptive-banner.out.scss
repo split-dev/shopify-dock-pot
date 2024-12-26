@@ -5,6 +5,10 @@
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid #F3F4F6;
+    @media screen and (max-width: 768px) {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
     &.fit-to-container {
         &--all {
             margin-right: 1.5rem;
