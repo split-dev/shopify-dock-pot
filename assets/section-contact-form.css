@@ -97,6 +97,15 @@
 .contact__r-emaile p span {
   font-size: 13px;
   line-height: 20px;
+  font-family: "Montserrat", serif;
+}
+.contact__r-emaile p span:nth-child(1) {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.contact__r-emaile p span:nth-child(2) {
+  font-weight: 400;
+
 }
 
 #ContactForm-select.field__input {
