@@ -1646,7 +1646,8 @@ details[open] > .share-button__fallback {
   box-sizing: border-box;
   transition: box-shadow var(--duration-short) ease;
   border-radius: var(--inputs-radius);
-  height: 4.5rem;
+  /* height: 4.5rem; */
+  height: 50px;
   min-height: calc(var(--inputs-border-width) * 2);
   min-width: calc(7rem + (var(--inputs-border-width) * 2));
   position: relative;
@@ -1857,6 +1858,10 @@ details[open] > .share-button__fallback {
   right: 0;
   top: 0;
   width: 4.4rem;
+}
+
+.contact input[type=checkbox] {
+  margin-left: 0;
 }
 
 .field__button > .svg-wrapper {
