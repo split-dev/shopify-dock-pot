@@ -2,6 +2,15 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'section-related-products.css' | asset_url | stylesheet_tag }}
 
+{% comment %}
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  >
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+{% endcomment %}
+
 {% if section.settings.image_shape == 'blob' %}
   {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
@@ -33,24 +42,73 @@
       >
         {{ section.settings.heading }}
       </h2>
-      <ul
-        class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
-        role="list"
-      >
-        {% assign skip_card_product_styles = false %}
-        {% for recommendation in recommendations.products %}
-          <li class="grid__item">
-            {% render 'card-product', card_product: recommendation, media_aspect_ratio: section.settings.image_ratio, image_shape: section.settings.image_shape, show_secondary_image: section.settings.show_secondary_image, show_vendor: section.settings.show_vendor, show_rating: section.settings.show_rating, skip_styles: skip_card_product_styles %}
-          </li>
-          {%- assign skip_card_product_styles = true -%}
-        {% endfor %}
-      </ul>
+      <div class="swiper related-prod">
+        <ul
+          {% comment %} class="swiper-wrapper grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down" {% endcomment %}
+          class="swiper-wrapper product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
+          role="list"
+          style="padding-left: 0;"
+        >
+          {% assign skip_card_product_styles = false %}
+          {% for recommendation in recommendations.products %}
+            <li class="swiper-slide grid__item">
+              {% render 'card-product', card_product: recommendation, media_aspect_ratio: section.settings.image_ratio, image_shape: section.settings.image_shape, show_secondary_image: section.settings.show_secondary_image, show_vendor: section.settings.show_vendor, show_rating: section.settings.show_rating, skip_styles: skip_card_product_styles %}
+            </li>
+            {%- assign skip_card_product_styles = true -%}
+          {% endfor %}
+        </ul>
+        <div class="swiper-button-prev">
+          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+            <rect x="36.3809" y="36.9994" width="36.1374" height="36.1374" rx="12" transform="rotate(-180 36.3809 36.9994)" fill="#DFDFE3"/>
+            <path d="M12.7321 20.0188C12.1439 19.4326 12.1419 18.483 12.7261 17.8927L19.7097 10.8439C20.0038 10.5468 20.3913 10.3982 20.7787 10.3982C21.1622 10.3982 21.5457 10.5438 21.8388 10.8349C22.43 11.4201 22.433 12.3727 21.8478 12.964L15.9212 18.9467L21.8848 24.8913C22.4731 25.4776 22.4751 26.4313 21.8879 27.0204C21.3016 27.6097 20.346 27.6107 19.7588 27.0234L12.7321 20.0188Z" fill="black" fill-opacity="0.56"/>
+          </svg>
+        </div>
+        <div class="swiper-button-next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+            <rect x="0.820312" y="0.861938" width="36.1374" height="36.1374" rx="12" fill="#DFDFE3"/>
+            <path d="M24.469 17.8425C25.0573 18.4287 25.0593 19.3783 24.4751 19.9686L17.4915 27.0174C17.1974 27.3145 16.8099 27.4631 16.4224 27.4631C16.039 27.4631 15.6555 27.3175 15.3624 27.0264C14.7712 26.4412 14.7681 25.4886 15.3534 24.8973L21.28 18.9146L15.3163 12.97C14.7281 12.3837 14.7261 11.43 15.3133 10.8409C15.8996 10.2516 16.8552 10.2506 17.4424 10.8379L24.469 17.8425Z" fill="black" fill-opacity="0.56"/>
+          </svg>
+        </div>
+      </div>
     {% endif %}
   </product-recommendations>
   {% if section.settings.image_shape == 'arch' %}
     {{ 'mask-arch.svg' | inline_asset_content }}
   {%- endif -%}
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    let i = setInterval(() => {
+      // code check
+      if (document.querySelector('.related-prod')) {
+        clearInterval(i);
+
+        const swiper = new Swiper('.swiper', {
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          slidesPerView: 1,
+          spaceBetween: 10,
+          grabCursor: true,
+          breakpoints: {
+            430: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+              grabCursor: true,
+            },
+            769: {
+              slidesPerView: 3,
+              spaceBetween: 52,
+              grabCursor: true,
+            },
+          },
+        });
+      }
+    }, 1000);
+  });
+</script>
 
 {% schema %}
 {

@@ -94,7 +94,7 @@
       "settings": {
         "heading": "Customers also bought.",
         "heading_size": "h1",
-        "products_to_show": 3,
+        "products_to_show": 10,
         "columns_desktop": 3,
         "color_scheme": "scheme-1",
         "image_ratio": "square",
