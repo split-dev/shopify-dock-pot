@@ -388,3 +388,14 @@ slider-component.swiper {
 .slider-button--prev:not([disabled]):hover .icon {
   transform: rotate(90deg) scale(1.1);
 }
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  display: none;
+}
+@media screen and (max-width: 450px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+}
