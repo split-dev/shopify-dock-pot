@@ -50,14 +50,14 @@
 }
 
 .contact__left-wrapper {
-  width: 50%;
+  width: calc(50% - 39px);
 }
 .contact__right-wrapper {
   background: #39474A;
   border-radius: 12px;
   color: white;
   padding: 50px 39px;
-  width: 50%;
+  width: calc(50% - 39px);
 }
 @media screen and (max-width: 768px) {
   .contact__left-wrapper,
