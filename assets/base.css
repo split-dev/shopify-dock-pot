@@ -3764,3 +3764,25 @@ details-disclosure > details {
     padding-bottom: 30px;
   }
 }
+
+/* swiper */
+.swiper-button-next,
+.swiper-button-prev {
+  width: inherit !important;
+  height: inherit !important;
+}
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  display: none;
+}
+.swiper-button-next svg,
+.swiper-button-prev svg {
+  width: 36px !important;
+  height: 36px !important;
+}
+@media screen and (max-width: 450px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+}
