@@ -389,13 +389,23 @@ slider-component.swiper {
   transform: rotate(90deg) scale(1.1);
 }
 
+/* .swiper-button-next,
+.swiper-button-prev {
+  width: inherit;
+  height: inherit;
+}
 .swiper-button-next:after,
 .swiper-button-prev:after {
   display: none;
+}
+.swiper-button-next svg,
+.swiper-button-prev svg {
+  width: 36px;
+  height: 36px;
 }
 @media screen and (max-width: 450px) {
   .swiper-button-next,
   .swiper-button-prev {
     display: none;
   }
-}
+} */
