@@ -1419,6 +1419,7 @@ a.product__text {
   --constrained-height: max(var(--constrained-min-height), calc(100vh - var(--viewport-offset)));
   margin-right: auto;
   margin-left: auto;
+  border-radius: 12px;
 }
 
 .product-media-container.constrain-height.media-fit-contain {
@@ -1432,6 +1433,7 @@ a.product__text {
 
 .product-media-container.constrain-height .media {
   padding-top: min(var(--constrained-height), var(--ratio-percent));
+  border-radius: 12px;
 }
 
 @media screen and (max-width: 749px) {
