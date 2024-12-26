@@ -53,9 +53,9 @@
         "heading": "",
         "heading_size": "h1",
         "color_scheme": "scheme-5",
-        "facebook_link": "#",
-        "instagram_link": "#",
-        "linkedin_link": "#",
+        "facebook_link": "https://facebook.com/shopify",
+        "instagram_link": "https://instagram.com/shopify",
+        "linkedin_link": "https://linkedin.com/shopify",
         "padding_top": 60,
         "padding_bottom": 72
       }

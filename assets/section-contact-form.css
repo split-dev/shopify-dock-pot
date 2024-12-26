@@ -94,18 +94,24 @@
   display: flex;
   flex-direction: column;
 }
+.contact__r-emaile p a,
 .contact__r-emaile p span {
   font-size: 13px;
   line-height: 20px;
   font-family: "Montserrat", serif;
+  color: #FAFBFB;
+  text-decoration: none;
 }
-.contact__r-emaile p span:nth-child(1) {
+.contact__r-emaile p span {
   font-weight: 600;
   text-transform: uppercase;
 }
-.contact__r-emaile p span:nth-child(2) {
+.contact__r-emaile p a {
   font-weight: 400;
-
+  transition: all 0.3s;
+}
+.contact__r-emaile p a:hover {
+  text-decoration: underline;
 }
 
 #ContactForm-select.field__input {
