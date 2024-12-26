@@ -55,9 +55,23 @@
 .contact__right-wrapper {
   background: #39474A;
   border-radius: 12px;
-  color: white;
+  color: #FAFBFB;
   padding: 50px 39px;
   width: calc(50% - 39px);
+}
+.contact__left-wrapper .consent {
+  display: flex;
+  align-items: center;
+  line-height: normal;
+  gap: 7px;
+}
+.contact__left-wrapper .consent label {
+  color: #000000;
+}
+@media screen and (min-width: 768px) {
+  .contact__left-wrapper .consent label {
+    font-size: 12px;
+  }
 }
 @media screen and (max-width: 768px) {
   .contact__left-wrapper,
