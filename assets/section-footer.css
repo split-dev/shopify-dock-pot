@@ -147,6 +147,17 @@
   margin-top: 0;
 }
 
+.footer-block .footer-block__details-content {
+  width: fit-content;
+}
+@media screen and (max-width: 450px) {
+  .footer-block.footer-block--menu {
+    margin-top: 30px;
+  }
+}
+.footer-block.footer-block--menu li {
+  max-width: fit-content;
+}
 .footer-block.footer-block--menu a {
   font-size: 16px;
   font-weight: 400;
@@ -477,8 +488,11 @@
 }
 
 .footer-block__details-content {
-  width: 250px;
+  /* width: 250px; */
   font-weight: 600;
+}
+.footer-block__details-content.footer-block-image {
+  width: 250px;
 }
 
 .footer-block__details-content .placeholder-svg {
