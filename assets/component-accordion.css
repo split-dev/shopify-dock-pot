@@ -26,6 +26,12 @@
   border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
   border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
 }
+.accordion:nth-child(1) {
+  border-top: none;
+}
+.accordion:last-child {
+  border-bottom: none;
+}
 
 .accordion__title {
   display: inline-block;
