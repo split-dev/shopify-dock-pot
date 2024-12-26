@@ -42,6 +42,10 @@
   font-size: 25px;
   line-height: 40px;
   font-weight: 700;
+  color: #39474A;
+}
+.accordion__content .metafield-rich_text_field {
+  color: #8F9394;
 }
 
 .accordion .svg-wrapper {
