@@ -672,6 +672,7 @@
     const quantity = document.querySelector('.product-form__quantity .quantity__input');
     const btnQuantity = document.querySelector('.product-form__quantity .btn__quantity--update');
     const price = document.querySelector('.price__container .price-item');
+    const btnAddCart = document.querySelector('.template-product .product-form__submit');
 
     quantity.addEventListener('change', () => {
       btnQuantity.classList.remove('is-disabled');
@@ -685,6 +686,10 @@
     } else {
       btnQuantity.classList.remove('is-disabled');
     }
+
+    btnAddCart.addEventListener('click', () => {
+      price.innerHTML = `${price.dataset.price}`;
+    });
   });
 </script>
 
