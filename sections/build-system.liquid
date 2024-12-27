@@ -124,7 +124,7 @@
   <div class="bs-section your-grow-style__wrapper">
     <div class="bs__images-wrapp swiper">
       <ul class="swiper-wrapper">
-        {%- for product in section.settings.s_o_products -%}
+        {%- for product in section.settings.g_s_products -%}
           <li class="swiper-slide">{{ product.featured_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}</li>
         {%- endfor -%}
       </ul>
@@ -144,7 +144,7 @@
     </div>
     <div class="bs__buttons-wrapp">
       <h2>Your grow style. <span>Choose the system that supports your grow better</span></h2>
-      {%- for product in section.settings.s_o_products -%}
+      {%- for product in section.settings.g_s_products -%}
         <label>
           <input type="radio" name="scateoption" value="">
           <p class="bs__title-subtitle">
@@ -254,6 +254,16 @@
       "type": "product_list",
       "id": "p_c_products",
       "label": "Plant capacity. - Products",
+      "limit": 3
+    },
+    {
+      "type": "header",
+      "content": "Your grow style"
+    },
+    {
+      "type": "product_list",
+      "id": "g_s_products",
+      "label": "Your grow style. - Products",
       "limit": 3
     },
     {
