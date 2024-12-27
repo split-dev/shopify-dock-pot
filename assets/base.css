@@ -3801,3 +3801,12 @@ details-disclosure > details {
     display: none;
   }
 }
+
+.btn-buy__product {
+  display: none;
+}
+.template-product .btn-buy__product {
+  display: block;
+  margin: 0 auto 20px auto;
+  width: fit-content;
+}
