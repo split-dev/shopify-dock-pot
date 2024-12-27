@@ -997,7 +997,7 @@ summary::-webkit-details-marker {
 @media screen and (max-width: 989px) {
   .grid--3-col-desktop .grid__item:not(.swiper-slide) {
     width: calc(50% - var(--grid-desktop-horizontal-spacing) * 2 / 4);
-    max-width: calc(50% - var(--grid-desktop-horizontal-spacing) * 2 / 4);
+    /* max-width: calc(50% - var(--grid-desktop-horizontal-spacing) * 2 / 4); */
   }
 }
 @media screen and (max-width: 500px) {
