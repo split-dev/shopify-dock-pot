@@ -201,6 +201,7 @@
   justify-content: center;
   gap: 6px;
   margin-bottom: 25px;
+  flex-wrap: wrap;
 }
 .wrapper__price-info .price {
   font-size: 17px;
@@ -208,12 +209,14 @@
   font-weight: 700;
   color: #404546;
   letter-spacing: -0.12px;
+  min-width: fit-content;
 }
 .wrapper__price-info .price-info__add-text {
   font-size: 14px;
   line-height: 18px;
   font-weight: 400;
   color: #6E6E73;
+  min-width: fit-content;
 }
 .card__content--auto-margins {
   grid-template-rows: minmax(0, auto) max-content minmax(0, auto);
