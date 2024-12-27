@@ -11,15 +11,21 @@ slider-component.slider-component-full-width {
   --desktop-margin-left-first-item: 1.5rem;
 }
 
+
+/* @media screen and (min-width: 749px) and (max-width: 990px) { */
+@media screen and (min-width: 750px) and (max-width: 1199px) {
+  slider-component.page-width {
+    /* padding: 0 5rem; */
+    margin-right: 5rem;
+    margin-left: 5rem;
+  }
+}
 @media screen and (max-width: 749px) {
   slider-component.page-width {
     padding: 0 1.5rem;
-  }
-}
-
-@media screen and (min-width: 749px) and (max-width: 990px) {
-  slider-component.page-width {
-    padding: 0 5rem;
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
+    padding: 0;
   }
 }
 

@@ -931,7 +931,7 @@ summary::-webkit-details-marker {
   margin-bottom: 0;
 }
 
-.grid__item {
+.grid__item:not(.swiper-slide) {
   width: calc(25% - var(--grid-mobile-horizontal-spacing) * 3 / 4);
   max-width: calc(50% - var(--grid-mobile-horizontal-spacing) / 2);
   flex-grow: 1;
@@ -3787,6 +3787,12 @@ details-disclosure > details {
   height: inherit !important;
   top: 42.6% !important;
 }
+.template-page-build-system .swiper-button-next,
+.template-page-build-system .swiper-button-prev {
+  width: auto !important;
+  top: 50% !important;
+}
+
 .swiper-button-next:after,
 .swiper-button-prev:after {
   display: none;
