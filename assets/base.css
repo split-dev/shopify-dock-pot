@@ -939,7 +939,7 @@ summary::-webkit-details-marker {
 }
 
 @media screen and (min-width: 750px) {
-  .grid__item {
+  .grid__item:not(.swiper-slide) {
     width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
     max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
   }
@@ -995,7 +995,7 @@ summary::-webkit-details-marker {
 }
 
 @media screen and (max-width: 989px) {
-  .grid--3-col-desktop .grid__item {
+  .grid--3-col-desktop .grid__item:not(.swiper-slide) {
     width: calc(50% - var(--grid-desktop-horizontal-spacing) * 2 / 4);
     max-width: calc(50% - var(--grid-desktop-horizontal-spacing) * 2 / 4);
   }
