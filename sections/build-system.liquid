@@ -46,6 +46,7 @@
       </label>
     </div>
   </div>
+
   <div class="bs-section skate-options__wrapper">
     <div class="bs__images-wrapp swiper">
       <ul class="swiper-wrapper">
@@ -81,6 +82,7 @@
       {%- endfor -%}
     </div>
   </div>
+
   <div class="bs-section plant-capacity__wrapper">
     <div class="bs__images-wrapp swiper">
       <ul class="swiper-wrapper">
@@ -104,51 +106,92 @@
     </div>
     <div class="bs__buttons-wrapp">
       <h2>Plant capacity. <span>Choose the amount of plants per rail</span></h2>
-      {%- for product in section.settings.p_c_products -%}
+      <div class="bs__label-wrapp">
+        {%- for product in section.settings.p_c_products -%}
+          <label>
+            <input type="radio" name="scateoption" value="">
+            <span>{{ product.metafields.custom.bs_plant_image | metafield_tag }}</span>
+            <p class="bs__title-subtitle">
+              {{ product.title }}
+              <span>{{ product.metafields.custom.bs_plant_subtitle | metafield_tag }}</span>
+            </p>
+          </label>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+
+  <div class="bs-section your-grow-style__wrapper">
+    <div class="bs__images-wrapp swiper">
+      <ul class="swiper-wrapper">
+        {%- for product in section.settings.s_o_products -%}
+          <li class="swiper-slide">{{ product.featured_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}</li>
+        {%- endfor -%}
+      </ul>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev">
+        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+          <rect x="36.3809" y="36.9994" width="36.1374" height="36.1374" rx="12" transform="rotate(-180 36.3809 36.9994)" fill="#DFDFE3"/>
+          <path d="M12.7321 20.0188C12.1439 19.4326 12.1419 18.483 12.7261 17.8927L19.7097 10.8439C20.0038 10.5468 20.3913 10.3982 20.7787 10.3982C21.1622 10.3982 21.5457 10.5438 21.8388 10.8349C22.43 11.4201 22.433 12.3727 21.8478 12.964L15.9212 18.9467L21.8848 24.8913C22.4731 25.4776 22.4751 26.4313 21.8879 27.0204C21.3016 27.6097 20.346 27.6107 19.7588 27.0234L12.7321 20.0188Z" fill="black" fill-opacity="0.56"/>
+        </svg>
+      </div>
+      <div class="swiper-button-next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+          <rect x="0.820312" y="0.861938" width="36.1374" height="36.1374" rx="12" fill="#DFDFE3"/>
+          <path d="M24.469 17.8425C25.0573 18.4287 25.0593 19.3783 24.4751 19.9686L17.4915 27.0174C17.1974 27.3145 16.8099 27.4631 16.4224 27.4631C16.039 27.4631 15.6555 27.3175 15.3624 27.0264C14.7712 26.4412 14.7681 25.4886 15.3534 24.8973L21.28 18.9146L15.3163 12.97C14.7281 12.3837 14.7261 11.43 15.3133 10.8409C15.8996 10.2516 16.8552 10.2506 17.4424 10.8379L24.469 17.8425Z" fill="black" fill-opacity="0.56"/>
+        </svg>
+      </div>
+    </div>
+    <div class="bs__buttons-wrapp">
+      <h2>Your grow style. <span>Choose the system that supports your grow better</span></h2>
+      {%- for product in section.settings.s_o_products -%}
         <label>
           <input type="radio" name="scateoption" value="">
-          <span>{{ product.metafields.custom.bs_plant_image | metafield_tag }}</span>
           <p class="bs__title-subtitle">
             {{ product.title }}
-            <span>{{ product.metafields.custom.bs_plant_subtitle | metafield_tag }}</span>
+            <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
           </p>
           <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
         </label>
       {%- endfor -%}
     </div>
   </div>
-  <div class="bs-section your-grow-style__wrapper">
-    <div class="bs__images-wrapp">image</div>
-    <div class="bs__buttons-wrapp">button</div>
-  </div>
+
   <div class="bs-section growing-medium__wrapper">
     <div class="bs__images-wrapp">image</div>
     <div class="bs__buttons-wrapp">button</div>
   </div>
+
   <div class="bs-section trellis-support__wrapper">
     <div class="bs__images-wrapp">image</div>
     <div class="bs__buttons-wrapp">button</div>
   </div>
+
   <div class="bs-section trellis-netting__wrapper">
     <div class="bs__images-wrapp">image</div>
     <div class="bs__buttons-wrapp">button</div>
   </div>
+
   <div class="bs-section drainage__wrapper">
     <div class="bs__images-wrapp">image</div>
     <div class="bs__buttons-wrapp">button</div>
   </div>
+
   <div class="bs-section hardware__wrapper">
     <div class="bs__images-wrapp">image</div>
     <div class="bs__buttons-wrapp">button</div>
   </div>
+
   <div class="bs-section total__wrapper">
     <div class="bs__images-wrapp">image</div>
     <div class="bs__buttons-wrapp">button</div>
   </div>
+
   <div class="bs-section total__wrapper">
     <div class="bs__images-wrapp">image</div>
     <div class="bs__buttons-wrapp">button</div>
   </div>
+
   <div class="bs-section submit__wrapper">
     <div class="bs__images-wrapp">image</div>
     <div class="bs__buttons-wrapp">button</div>
