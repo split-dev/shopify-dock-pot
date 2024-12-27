@@ -72,7 +72,10 @@ product-info {
   display: none
 }
 .product__info-wrapper .quantity {
-  width: 50px;
+  width: 40px;
+  height: 32px;
+  max-height: 32px;
+  min-height: 32px;
 }
 .product__info-wrapper .product-form__quantity {
   display: flex;
