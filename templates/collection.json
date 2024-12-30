@@ -129,7 +129,7 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
-        "products_per_page": 16,
+        "products_per_page": 12,
         "columns_desktop": 2,
         "color_scheme": "scheme-5",
         "card_two_columns": true,
