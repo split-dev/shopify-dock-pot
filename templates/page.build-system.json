@@ -80,6 +80,19 @@
           "3x-pots-or-cocobags-copy",
           "4x-pots-or-cocobags-copy"
         ],
+        "g_s_products": [
+          "dockpots",
+          "infinity-trays-300",
+          "infinity-trays-450"
+        ],
+        "g_m_products": [
+          "cocobags",
+          "cocopuck-meshdisk"
+        ],
+        "t_s_products": [
+          "trellis-handles",
+          "trellis-stakes"
+        ],
         "padding_top": 0,
         "padding_bottom": 0,
         "margin_top": 36,
