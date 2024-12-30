@@ -93,6 +93,18 @@
           "trellis-handles",
           "trellis-stakes"
         ],
+        "t_n_products": [
+          "trellis-netting",
+          "trellis-netting-roll-800"
+        ],
+        "d_products": [
+          "flexible-pipes-and-joins",
+          "source-own"
+        ],
+        "h_products": [
+          "u-track",
+          "source-own-1"
+        ],
         "padding_top": 0,
         "padding_bottom": 0,
         "margin_top": 36,
