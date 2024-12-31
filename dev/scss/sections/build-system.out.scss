@@ -32,6 +32,9 @@
             cursor: pointer;
             background: white;
             width: 328px;
+            @media screen and (max-width: 450px) {
+                width: 100%;
+            }
             p {
                 font-size: 17px;
                 line-height: 21px;
@@ -60,6 +63,35 @@
         label:not(.popup-label):has(input[type=radio]:checked) {
             outline: 2px solid #8FC85A;
         }
+        .skate-options__wrapper,
+        .your-grow-style__wrapper {
+            .bs__label-3 {
+                order: 1;
+            }
+        }
+        .bs__label-info {
+            border-radius: 12px;
+            padding: 18px 14px;
+            background: #F3F4F6;
+            width: 328px;
+            @media screen and (max-width: 450px) {
+                width: 100%;
+            }
+            p {
+                font-size: 14px;
+                line-height: 18px;
+                font-weight: 400;
+                color: #39474A;
+            }
+            p:nth-child(1) {
+                font-weight: 700;
+                margin-top: 0;
+            }
+            a {
+                color: #8F9394;
+                font-weight: 700;
+            }
+        }
        .bs-section {
             display: flex;
             align-items: center;
@@ -69,11 +101,12 @@
                 flex-direction: column;
             }
             .bs__images-wrapp {
-                background: #F9F9F9;
+                // background: #F9F9F9;
                 width: 100%;
                 aspect-ratio: 378 / 265;
                 overflow: hidden;
                 border-radius: 12px;
+                display: none;
                 img {
                     height: 100%;
                     width: 100%;
@@ -81,7 +114,12 @@
                 }
                 ul {
                     padding-left: 0;
+                    margin: 0;
                 }
+            }
+            .bs__images-wrapp:has(img),
+            .bs__images-wrapp:has(li.swiper-slide) {
+                display: block;
             }
             .bs__buttons-wrapp {
                 width: 328px;
@@ -165,20 +203,51 @@
             border-top: 2px solid #8FC85A;
             padding-top: 40px;
             padding-bottom: 41px;
+            position: sticky;
+            bottom: 0;
+            z-index: 1;
+            @media screen and (max-width: 1161px) {
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
             .bs__total-wrapper {
                 display: flex;
-                align-items: baseline;
                 gap: 27px;
+                flex-wrap: wrap;
+                @media screen and (max-width: 1161px) {
+                    row-gap: 5px;
+                }
                 @media screen and (max-width: 768px) {
                     flex-direction: column;
                     width: 100%;
                 }
                 & > div h3 {
                     margin-bottom: 17px;
+                    @media screen and (max-width: 1161px) {
+                        margin-bottom: 8px;
+                    }
+                }
+                & > div {
+                    @media screen and (max-width: 450px) {
+                        width: 100%;
+                    }
+                }
+                & > div.bs__btn-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    button {
+                        width: 100%;
+                        min-width: 151px;
+                    }
                 }
                 & > div.bs__price-delivery {
                     h3 {
                         font-size: 24px;
+                        @media screen and (max-width: 1161px) {
+                            font-size: 18px;
+                            line-height: 20px;
+                        }
                     }
                     & > div {
                         padding-top: 10px;
@@ -212,12 +281,29 @@
                     font-weight: 700;
                     letter-spacing: 0.22px;
                     margin: 0;
+                    @media screen and (max-width: 1161px) {
+                        font-size: 18px;
+                        line-height: 20px;
+                    }
                     span {
                         color: #86868B;
                     }
                 }
                 label {
                     outline: 2px solid #8FC85A;
+                    @media screen and (max-width: 1161px) {
+                        width: auto;
+                        padding: 7px 16px;
+                    }
+                    .bs__label-price {
+                        font-size: 25px;
+                        font-weight: 700;
+                        line-height: 40px;
+                        @media screen and (max-width: 1161px) {
+                            font-size: 18px;
+                            line-height: 20px;
+                        }
+                    }
                 }
                 p.bs__share {
                     margin: 0;
