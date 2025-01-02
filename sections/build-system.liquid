@@ -18,6 +18,7 @@
         {%- endif -%}
       </div>
       <div class="bs__buttons-wrapp">
+        <span class="bs__overlay"></span>
         <article class="popup__room-size">
           <h3>Measure your grow room.</h3>
           {%- if section.settings.r_s_popup_image != blank -%}
@@ -28,8 +29,8 @@
               <legend>
                 <h2>Measurement system.<span>Choose your preference</span></h2>
               </legend>
-              <label class="popup-label">Imperial<input type="radio" name="measurement" value="imperial"></label>
-              <label class="popup-label">Metric<input type="radio" name="measurement" value="metric"></label>
+              <label class="popup-label button--primary">Imperial<input type="radio" name="measurement" value="imperial"></label>
+              <label class="popup-label button--secondary">Metric<input type="radio" name="measurement" value="metric"></label>
             </fieldset>
             <fieldset>
               <legend><h2>Enter Dimensions.</h2></legend>
@@ -40,7 +41,7 @@
           </form>
         </article>
         <h2>Room size. <span>Enter dimensions</span></h2>
-        <label class="js-label">
+        <label class="js-popup-room js-label">
           <input type="radio" name="roomsize" value="">
           <p class="bs__title-subtitle">Enter room size<span>850 bays requried</span></p>
           <p class="bs__label-price">USD 3,629</p>
@@ -512,6 +513,16 @@
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+    });
+
+    let btnPopupRoom = document.querySelector('.build-system .js-popup-room');
+    btnPopupRoom.addEventListener('click', () => {
+      document.querySelector('.popup__room-size').classList.add('popup--opened');
+      document.querySelector('.bs__overlay').classList.add('popup--opened');
+    });
+    document.querySelector('.bs__overlay').addEventListener('click', () => {
+      document.querySelector('.popup__room-size').classList.remove('popup--opened');
+      document.querySelector('.bs__overlay').classList.remove('popup--opened');
     });
 
     let btnMainSubmit = document.querySelector('.build-system .btn-main-submit');
