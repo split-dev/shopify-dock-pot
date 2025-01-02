@@ -10,493 +10,496 @@
 {%- endstyle -%}
 
 <div class="build-system__wrapper section-{{ section.id }}-padding">
-  <div class="bs-section room-size__wrapper page-width">
-    <div class="bs__images-wrapp">
-      {%- if section.settings.room_size_image != blank -%}
-        {{ section.settings.room_size_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}
-      {%- endif -%}
-    </div>
-    <div class="bs__buttons-wrapp">
-      <article>
-        <h3>Measure your grow room.</h3>
-        {%- if section.settings.r_s_popup_image != blank -%}
-          {{ section.settings.r_s_popup_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}
+  <form method="post" action="/cart/add">
+    <div class="bs-section room-size__wrapper page-width">
+      <div class="bs__images-wrapp">
+        {%- if section.settings.room_size_image != blank -%}
+          {{ section.settings.room_size_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}
         {%- endif -%}
-        <form>
-          <fieldset>
-            <legend>
-              <h2>Measurement system.<span>Choose your preference</span></h2>
-            </legend>
-            <label class="popup-label">Imperial<input type="radio" name="measurement" value="imperial"></label>
-            <label class="popup-label">Metric<input type="radio" name="measurement" value="metric"></label>
-          </fieldset>
-          <fieldset>
-            <legend><h2>Enter Dimensions.</h2></legend>
-            <label class="popup-label"><input type="number" placeholder="Length" value="" title="Length" required></label>
-            <label class="popup-label"><input type="number" placeholder="Width" value="" title="Width" required></label>
-          </fieldset>
-          <button>Continue</button>
-        </form>
-      </article>
-      <h2>Room size. <span>Enter dimensions</span></h2>
-      <label>
-        <input type="radio" name="roomsize" value="">
-        <p class="bs__title-subtitle">Enter room size<span>850 bays requried</span></p>
-        <p class="bs__label-price">USD 3,629</p>
-      </label>
-    </div>
-  </div>
-
-  <div class="bs-section skate-options__wrapper page-width">
-    <div class="bs__images-wrapp swiper">
-      <ul class="swiper-wrapper">
-        {%- for product in section.settings.s_o_products -%}
-          {%- if product.featured_image != blank -%}
-            <li class="swiper-slide">
-              {{ product.featured_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}
-            </li>
+      </div>
+      <div class="bs__buttons-wrapp">
+        <article class="popup__room-size">
+          <h3>Measure your grow room.</h3>
+          {%- if section.settings.r_s_popup_image != blank -%}
+            {{ section.settings.r_s_popup_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}
           {%- endif -%}
-        {%- endfor -%}
-      </ul>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev">
-        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
-          <rect x="36.3809" y="36.9994" width="36.1374" height="36.1374" rx="12" transform="rotate(-180 36.3809 36.9994)" fill="#DFDFE3"/>
-          <path d="M12.7321 20.0188C12.1439 19.4326 12.1419 18.483 12.7261 17.8927L19.7097 10.8439C20.0038 10.5468 20.3913 10.3982 20.7787 10.3982C21.1622 10.3982 21.5457 10.5438 21.8388 10.8349C22.43 11.4201 22.433 12.3727 21.8478 12.964L15.9212 18.9467L21.8848 24.8913C22.4731 25.4776 22.4751 26.4313 21.8879 27.0204C21.3016 27.6097 20.346 27.6107 19.7588 27.0234L12.7321 20.0188Z" fill="black" fill-opacity="0.56"/>
-        </svg>
-      </div>
-      <div class="swiper-button-next">
-        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
-          <rect x="0.820312" y="0.861938" width="36.1374" height="36.1374" rx="12" fill="#DFDFE3"/>
-          <path d="M24.469 17.8425C25.0573 18.4287 25.0593 19.3783 24.4751 19.9686L17.4915 27.0174C17.1974 27.3145 16.8099 27.4631 16.4224 27.4631C16.039 27.4631 15.6555 27.3175 15.3624 27.0264C14.7712 26.4412 14.7681 25.4886 15.3534 24.8973L21.28 18.9146L15.3163 12.97C14.7281 12.3837 14.7261 11.43 15.3133 10.8409C15.8996 10.2516 16.8552 10.2506 17.4424 10.8379L24.469 17.8425Z" fill="black" fill-opacity="0.56"/>
-        </svg>
-      </div>
-    </div>
-    <div class="bs__buttons-wrapp">
-      <h2>Skate options. <span>Choose skates with or without handles</span></h2>
-      {%- for product in section.settings.s_o_products -%}
-        <label class="bs__label-{{ forloop.index }}">
-          <input type="radio" name="scateoption" value="">
-          <p class="bs__title-subtitle">
-            {{ product.title }}
-            <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
-          </p>
-          <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
+          <form>
+            <fieldset>
+              <legend>
+                <h2>Measurement system.<span>Choose your preference</span></h2>
+              </legend>
+              <label class="popup-label">Imperial<input type="radio" name="measurement" value="imperial"></label>
+              <label class="popup-label">Metric<input type="radio" name="measurement" value="metric"></label>
+            </fieldset>
+            <fieldset>
+              <legend><h2>Enter Dimensions.</h2></legend>
+              <label class="popup-label"><input type="number" placeholder="Length" value="" title="Length" required></label>
+              <label class="popup-label"><input type="number" placeholder="Width" value="" title="Width" required></label>
+            </fieldset>
+            <button>Continue</button>
+          </form>
+        </article>
+        <h2>Room size. <span>Enter dimensions</span></h2>
+        <label class="js-label">
+          <input type="radio" name="roomsize" value="">
+          <p class="bs__title-subtitle">Enter room size<span>850 bays requried</span></p>
+          <p class="bs__label-price">USD 3,629</p>
         </label>
-      {%- endfor -%}
-      <div class="bs__label-info">
-        <p>Trellis handles and netting.</p>
-        <p>Trellis handles are only compatible with the Skate and handle system</p>
-        <a href="#">More info</a>
       </div>
     </div>
-  </div>
 
-  <div class="bs-section plant-capacity__wrapper page-width">
-    <div class="bs__images-wrapp swiper">
-      <ul class="swiper-wrapper">
-        {%- for product in section.settings.p_c_products -%}
-          {%- if product.featured_image != blank -%}
-            <li class="swiper-slide">{{ product.featured_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}</li>
-          {%- endif -%}
-        {%- endfor -%}
-      </ul>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev">
-        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
-          <rect x="36.3809" y="36.9994" width="36.1374" height="36.1374" rx="12" transform="rotate(-180 36.3809 36.9994)" fill="#DFDFE3"/>
-          <path d="M12.7321 20.0188C12.1439 19.4326 12.1419 18.483 12.7261 17.8927L19.7097 10.8439C20.0038 10.5468 20.3913 10.3982 20.7787 10.3982C21.1622 10.3982 21.5457 10.5438 21.8388 10.8349C22.43 11.4201 22.433 12.3727 21.8478 12.964L15.9212 18.9467L21.8848 24.8913C22.4731 25.4776 22.4751 26.4313 21.8879 27.0204C21.3016 27.6097 20.346 27.6107 19.7588 27.0234L12.7321 20.0188Z" fill="black" fill-opacity="0.56"/>
-        </svg>
+    <div class="bs-section skate-options__wrapper page-width">
+      <div class="bs__images-wrapp swiper">
+        <ul class="swiper-wrapper">
+          {%- for product in section.settings.s_o_products -%}
+            {%- if product.featured_image != blank -%}
+              <li class="swiper-slide">
+                {{ product.featured_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev">
+          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+            <rect x="36.3809" y="36.9994" width="36.1374" height="36.1374" rx="12" transform="rotate(-180 36.3809 36.9994)" fill="#DFDFE3"/>
+            <path d="M12.7321 20.0188C12.1439 19.4326 12.1419 18.483 12.7261 17.8927L19.7097 10.8439C20.0038 10.5468 20.3913 10.3982 20.7787 10.3982C21.1622 10.3982 21.5457 10.5438 21.8388 10.8349C22.43 11.4201 22.433 12.3727 21.8478 12.964L15.9212 18.9467L21.8848 24.8913C22.4731 25.4776 22.4751 26.4313 21.8879 27.0204C21.3016 27.6097 20.346 27.6107 19.7588 27.0234L12.7321 20.0188Z" fill="black" fill-opacity="0.56"/>
+          </svg>
+        </div>
+        <div class="swiper-button-next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+            <rect x="0.820312" y="0.861938" width="36.1374" height="36.1374" rx="12" fill="#DFDFE3"/>
+            <path d="M24.469 17.8425C25.0573 18.4287 25.0593 19.3783 24.4751 19.9686L17.4915 27.0174C17.1974 27.3145 16.8099 27.4631 16.4224 27.4631C16.039 27.4631 15.6555 27.3175 15.3624 27.0264C14.7712 26.4412 14.7681 25.4886 15.3534 24.8973L21.28 18.9146L15.3163 12.97C14.7281 12.3837 14.7261 11.43 15.3133 10.8409C15.8996 10.2516 16.8552 10.2506 17.4424 10.8379L24.469 17.8425Z" fill="black" fill-opacity="0.56"/>
+          </svg>
+        </div>
       </div>
-      <div class="swiper-button-next">
-        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
-          <rect x="0.820312" y="0.861938" width="36.1374" height="36.1374" rx="12" fill="#DFDFE3"/>
-          <path d="M24.469 17.8425C25.0573 18.4287 25.0593 19.3783 24.4751 19.9686L17.4915 27.0174C17.1974 27.3145 16.8099 27.4631 16.4224 27.4631C16.039 27.4631 15.6555 27.3175 15.3624 27.0264C14.7712 26.4412 14.7681 25.4886 15.3534 24.8973L21.28 18.9146L15.3163 12.97C14.7281 12.3837 14.7261 11.43 15.3133 10.8409C15.8996 10.2516 16.8552 10.2506 17.4424 10.8379L24.469 17.8425Z" fill="black" fill-opacity="0.56"/>
-        </svg>
-      </div>
-    </div>
-    <div class="bs__buttons-wrapp">
-      <h2>Plant capacity. <span>Choose the amount of plants per rail</span></h2>
-      <div class="bs__label-wrapp">
-        {%- for product in section.settings.p_c_products -%}
-          <label>
-            <input type="radio" name="scateoption" value="">
-            <span>{{ product.metafields.custom.bs_plant_image | metafield_tag }}</span>
+      <div class="bs__buttons-wrapp">
+        <h2>Skate options. <span>Choose skates with or without handles</span></h2>
+
+        {%- for product in section.settings.s_o_products -%}
+          <label class="bs__label-{{ forloop.index }} js-label">
+            <input type="radio" name="s_o_products" value="{{ product.variants.first.id }}">
             <p class="bs__title-subtitle">
               {{ product.title }}
-              <span>{{ product.metafields.custom.bs_plant_subtitle | metafield_tag }}</span>
+              <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
             </p>
+            <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
+          </label>
+        {%- endfor -%}
+        <div class="bs__label-info">
+          <p>Trellis handles and netting.</p>
+          <p>Trellis handles are only compatible with the Skate and handle system</p>
+          <a href="#">More info</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="bs-section plant-capacity__wrapper page-width">
+      <div class="bs__images-wrapp swiper">
+        <ul class="swiper-wrapper">
+          {%- for product in section.settings.p_c_products -%}
+            {%- if product.featured_image != blank -%}
+              <li class="swiper-slide">{{ product.featured_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}</li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev">
+          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+            <rect x="36.3809" y="36.9994" width="36.1374" height="36.1374" rx="12" transform="rotate(-180 36.3809 36.9994)" fill="#DFDFE3"/>
+            <path d="M12.7321 20.0188C12.1439 19.4326 12.1419 18.483 12.7261 17.8927L19.7097 10.8439C20.0038 10.5468 20.3913 10.3982 20.7787 10.3982C21.1622 10.3982 21.5457 10.5438 21.8388 10.8349C22.43 11.4201 22.433 12.3727 21.8478 12.964L15.9212 18.9467L21.8848 24.8913C22.4731 25.4776 22.4751 26.4313 21.8879 27.0204C21.3016 27.6097 20.346 27.6107 19.7588 27.0234L12.7321 20.0188Z" fill="black" fill-opacity="0.56"/>
+          </svg>
+        </div>
+        <div class="swiper-button-next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+            <rect x="0.820312" y="0.861938" width="36.1374" height="36.1374" rx="12" fill="#DFDFE3"/>
+            <path d="M24.469 17.8425C25.0573 18.4287 25.0593 19.3783 24.4751 19.9686L17.4915 27.0174C17.1974 27.3145 16.8099 27.4631 16.4224 27.4631C16.039 27.4631 15.6555 27.3175 15.3624 27.0264C14.7712 26.4412 14.7681 25.4886 15.3534 24.8973L21.28 18.9146L15.3163 12.97C14.7281 12.3837 14.7261 11.43 15.3133 10.8409C15.8996 10.2516 16.8552 10.2506 17.4424 10.8379L24.469 17.8425Z" fill="black" fill-opacity="0.56"/>
+          </svg>
+        </div>
+      </div>
+      <div class="bs__buttons-wrapp">
+        <h2>Plant capacity. <span>Choose the amount of plants per rail</span></h2>
+        <div class="bs__label-wrapp">
+          {%- for product in section.settings.p_c_products -%}
+            <label class="js-label">
+              <input type="radio" name="p_c_products" value="{{ product.variants.first.id }}">
+              <span>{{ product.metafields.custom.bs_plant_image | metafield_tag }}</span>
+              <p class="bs__title-subtitle">
+                {{ product.title }}
+                <span>{{ product.metafields.custom.bs_plant_subtitle | metafield_tag }}</span>
+              </p>
+            </label>
+          {%- endfor -%}
+        </div>
+        <div class="bs__label-info">
+          <p>Plant capacity.</p>
+          <p>Information about the advantages and disadvantages of using a number of pots.</p>
+          <a href="#">More info</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="bs-section your-grow-style__wrapper page-width">
+      <div class="bs__images-wrapp swiper">
+        <ul class="swiper-wrapper">
+          {%- for product in section.settings.g_s_products -%}
+            {%- if product.featured_image != blank -%}
+              <li class="swiper-slide">{{ product.featured_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}</li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev">
+          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+            <rect x="36.3809" y="36.9994" width="36.1374" height="36.1374" rx="12" transform="rotate(-180 36.3809 36.9994)" fill="#DFDFE3"/>
+            <path d="M12.7321 20.0188C12.1439 19.4326 12.1419 18.483 12.7261 17.8927L19.7097 10.8439C20.0038 10.5468 20.3913 10.3982 20.7787 10.3982C21.1622 10.3982 21.5457 10.5438 21.8388 10.8349C22.43 11.4201 22.433 12.3727 21.8478 12.964L15.9212 18.9467L21.8848 24.8913C22.4731 25.4776 22.4751 26.4313 21.8879 27.0204C21.3016 27.6097 20.346 27.6107 19.7588 27.0234L12.7321 20.0188Z" fill="black" fill-opacity="0.56"/>
+          </svg>
+        </div>
+        <div class="swiper-button-next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+            <rect x="0.820312" y="0.861938" width="36.1374" height="36.1374" rx="12" fill="#DFDFE3"/>
+            <path d="M24.469 17.8425C25.0573 18.4287 25.0593 19.3783 24.4751 19.9686L17.4915 27.0174C17.1974 27.3145 16.8099 27.4631 16.4224 27.4631C16.039 27.4631 15.6555 27.3175 15.3624 27.0264C14.7712 26.4412 14.7681 25.4886 15.3534 24.8973L21.28 18.9146L15.3163 12.97C14.7281 12.3837 14.7261 11.43 15.3133 10.8409C15.8996 10.2516 16.8552 10.2506 17.4424 10.8379L24.469 17.8425Z" fill="black" fill-opacity="0.56"/>
+          </svg>
+        </div>
+      </div>
+      <div class="bs__buttons-wrapp">
+        <h2>Your grow style. <span>Choose the system that supports your grow better</span></h2>
+        {%- for product in section.settings.g_s_products -%}
+          <label class="bs__label-{{ forloop.index }} js-label">
+            <input type="radio" name="g_s_products" value="{{ product.variants.first.id }}">
+            <p class="bs__title-subtitle">
+              {{ product.title }}
+              <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
+            </p>
+            <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
+          </label>
+        {%- endfor -%}
+        <div class="bs__label-info">
+          <p>Compatibility.</p>
+          <p>Infinity trays are not compatible with theDockPot system, Expandable CocoBagsare whats required when using infinity trays.</p>
+          <a href="#">More info</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="bs-section growing-medium__wrapper page-width">
+      <div class="bs__images-wrapp swiper">
+        <ul class="swiper-wrapper">
+          {%- for product in section.settings.g_m_products -%}
+            {%- if product.featured_image != blank -%}
+              <li class="swiper-slide">{{ product.featured_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}</li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev">
+          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+            <rect x="36.3809" y="36.9994" width="36.1374" height="36.1374" rx="12" transform="rotate(-180 36.3809 36.9994)" fill="#DFDFE3"/>
+            <path d="M12.7321 20.0188C12.1439 19.4326 12.1419 18.483 12.7261 17.8927L19.7097 10.8439C20.0038 10.5468 20.3913 10.3982 20.7787 10.3982C21.1622 10.3982 21.5457 10.5438 21.8388 10.8349C22.43 11.4201 22.433 12.3727 21.8478 12.964L15.9212 18.9467L21.8848 24.8913C22.4731 25.4776 22.4751 26.4313 21.8879 27.0204C21.3016 27.6097 20.346 27.6107 19.7588 27.0234L12.7321 20.0188Z" fill="black" fill-opacity="0.56"/>
+          </svg>
+        </div>
+        <div class="swiper-button-next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+            <rect x="0.820312" y="0.861938" width="36.1374" height="36.1374" rx="12" fill="#DFDFE3"/>
+            <path d="M24.469 17.8425C25.0573 18.4287 25.0593 19.3783 24.4751 19.9686L17.4915 27.0174C17.1974 27.3145 16.8099 27.4631 16.4224 27.4631C16.039 27.4631 15.6555 27.3175 15.3624 27.0264C14.7712 26.4412 14.7681 25.4886 15.3534 24.8973L21.28 18.9146L15.3163 12.97C14.7281 12.3837 14.7261 11.43 15.3133 10.8409C15.8996 10.2516 16.8552 10.2506 17.4424 10.8379L24.469 17.8425Z" fill="black" fill-opacity="0.56"/>
+          </svg>
+        </div>
+      </div>
+      <div class="bs__buttons-wrapp">
+        <h2>Growing medium. <span>Choose the growing medium that supports your garden</span></h2>
+        {%- for product in section.settings.g_m_products -%}
+          <label class="js-label">
+            <input type="radio" name="g_m_products" value="{{ product.variants.first.id }}">
+            <p class="bs__title-subtitle">
+              {{ product.title }}
+              <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
+            </p>
+            <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
+          </label>
+        {%- endfor -%}
+        <div class="bs__label-info">
+          <p>CocoBags VS CocoPuck & MeshDisk</p>
+          <p>Trellis handles are only compatible with the Skate and handle system</p>
+          <a href="#">More info</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="bs-section trellis-support__wrapper page-width">
+      <div class="bs__images-wrapp swiper">
+        <ul class="swiper-wrapper">
+          {%- for product in section.settings.t_s_products -%}
+            {%- if product.featured_image != blank -%}
+              <li class="swiper-slide">{{ product.featured_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}</li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev">
+          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+            <rect x="36.3809" y="36.9994" width="36.1374" height="36.1374" rx="12" transform="rotate(-180 36.3809 36.9994)" fill="#DFDFE3"/>
+            <path d="M12.7321 20.0188C12.1439 19.4326 12.1419 18.483 12.7261 17.8927L19.7097 10.8439C20.0038 10.5468 20.3913 10.3982 20.7787 10.3982C21.1622 10.3982 21.5457 10.5438 21.8388 10.8349C22.43 11.4201 22.433 12.3727 21.8478 12.964L15.9212 18.9467L21.8848 24.8913C22.4731 25.4776 22.4751 26.4313 21.8879 27.0204C21.3016 27.6097 20.346 27.6107 19.7588 27.0234L12.7321 20.0188Z" fill="black" fill-opacity="0.56"/>
+          </svg>
+        </div>
+        <div class="swiper-button-next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+            <rect x="0.820312" y="0.861938" width="36.1374" height="36.1374" rx="12" fill="#DFDFE3"/>
+            <path d="M24.469 17.8425C25.0573 18.4287 25.0593 19.3783 24.4751 19.9686L17.4915 27.0174C17.1974 27.3145 16.8099 27.4631 16.4224 27.4631C16.039 27.4631 15.6555 27.3175 15.3624 27.0264C14.7712 26.4412 14.7681 25.4886 15.3534 24.8973L21.28 18.9146L15.3163 12.97C14.7281 12.3837 14.7261 11.43 15.3133 10.8409C15.8996 10.2516 16.8552 10.2506 17.4424 10.8379L24.469 17.8425Z" fill="black" fill-opacity="0.56"/>
+          </svg>
+        </div>
+      </div>
+      <div class="bs__buttons-wrapp">
+        <h2>Trellis support. <span>Choose the trellis support that works for you</span></h2>
+        {%- for product in section.settings.t_s_products -%}
+          <label class="js-label">
+            <input type="radio" name="t_s_products" value="{{ product.variants.first.id }}">
+            <p class="bs__title-subtitle">
+              {{ product.title }}
+              <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
+            </p>
+            <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
+          </label>
+        {%- endfor -%}
+        <div class="bs__label-info">
+          <p>TrellisHandles VS TrellisStakes</p>
+          <p>Trellis handles are only compatible with the Skate and handle system</p>
+          <a href="#">More info</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="bs-section trellis-netting__wrapper page-width">
+      <div class="bs__images-wrapp swiper">
+        <ul class="swiper-wrapper">
+          {%- for product in section.settings.t_n_products -%}
+            {%- if product.featured_image != blank -%}
+              <li class="swiper-slide">{{ product.featured_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}</li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev">
+          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+            <rect x="36.3809" y="36.9994" width="36.1374" height="36.1374" rx="12" transform="rotate(-180 36.3809 36.9994)" fill="#DFDFE3"/>
+            <path d="M12.7321 20.0188C12.1439 19.4326 12.1419 18.483 12.7261 17.8927L19.7097 10.8439C20.0038 10.5468 20.3913 10.3982 20.7787 10.3982C21.1622 10.3982 21.5457 10.5438 21.8388 10.8349C22.43 11.4201 22.433 12.3727 21.8478 12.964L15.9212 18.9467L21.8848 24.8913C22.4731 25.4776 22.4751 26.4313 21.8879 27.0204C21.3016 27.6097 20.346 27.6107 19.7588 27.0234L12.7321 20.0188Z" fill="black" fill-opacity="0.56"/>
+          </svg>
+        </div>
+        <div class="swiper-button-next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+            <rect x="0.820312" y="0.861938" width="36.1374" height="36.1374" rx="12" fill="#DFDFE3"/>
+            <path d="M24.469 17.8425C25.0573 18.4287 25.0593 19.3783 24.4751 19.9686L17.4915 27.0174C17.1974 27.3145 16.8099 27.4631 16.4224 27.4631C16.039 27.4631 15.6555 27.3175 15.3624 27.0264C14.7712 26.4412 14.7681 25.4886 15.3534 24.8973L21.28 18.9146L15.3163 12.97C14.7281 12.3837 14.7261 11.43 15.3133 10.8409C15.8996 10.2516 16.8552 10.2506 17.4424 10.8379L24.469 17.8425Z" fill="black" fill-opacity="0.56"/>
+          </svg>
+        </div>
+      </div>
+      <div class="bs__buttons-wrapp">
+        <h2>Trellis netting. <span>Choose the netting that fits your system</span></h2>
+        {%- for product in section.settings.t_n_products -%}
+          <label class="js-label">
+            <input type="radio" name="t_n_products" value="{{ product.variants.first.id }}">
+            <p class="bs__title-subtitle">
+              {{ product.title }}
+              <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
+            </p>
+            <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
           </label>
         {%- endfor -%}
       </div>
-      <div class="bs__label-info">
-        <p>Plant capacity.</p>
-        <p>Information about the advantages and disadvantages of using a number of pots.</p>
-        <a href="#">More info</a>
-      </div>
     </div>
-  </div>
 
-  <div class="bs-section your-grow-style__wrapper page-width">
-    <div class="bs__images-wrapp swiper">
-      <ul class="swiper-wrapper">
-        {%- for product in section.settings.g_s_products -%}
-          {%- if product.featured_image != blank -%}
-            <li class="swiper-slide">{{ product.featured_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}</li>
-          {%- endif -%}
-        {%- endfor -%}
-      </ul>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev">
-        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
-          <rect x="36.3809" y="36.9994" width="36.1374" height="36.1374" rx="12" transform="rotate(-180 36.3809 36.9994)" fill="#DFDFE3"/>
-          <path d="M12.7321 20.0188C12.1439 19.4326 12.1419 18.483 12.7261 17.8927L19.7097 10.8439C20.0038 10.5468 20.3913 10.3982 20.7787 10.3982C21.1622 10.3982 21.5457 10.5438 21.8388 10.8349C22.43 11.4201 22.433 12.3727 21.8478 12.964L15.9212 18.9467L21.8848 24.8913C22.4731 25.4776 22.4751 26.4313 21.8879 27.0204C21.3016 27.6097 20.346 27.6107 19.7588 27.0234L12.7321 20.0188Z" fill="black" fill-opacity="0.56"/>
-        </svg>
-      </div>
-      <div class="swiper-button-next">
-        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
-          <rect x="0.820312" y="0.861938" width="36.1374" height="36.1374" rx="12" fill="#DFDFE3"/>
-          <path d="M24.469 17.8425C25.0573 18.4287 25.0593 19.3783 24.4751 19.9686L17.4915 27.0174C17.1974 27.3145 16.8099 27.4631 16.4224 27.4631C16.039 27.4631 15.6555 27.3175 15.3624 27.0264C14.7712 26.4412 14.7681 25.4886 15.3534 24.8973L21.28 18.9146L15.3163 12.97C14.7281 12.3837 14.7261 11.43 15.3133 10.8409C15.8996 10.2516 16.8552 10.2506 17.4424 10.8379L24.469 17.8425Z" fill="black" fill-opacity="0.56"/>
-        </svg>
-      </div>
-    </div>
-    <div class="bs__buttons-wrapp">
-      <h2>Your grow style. <span>Choose the system that supports your grow better</span></h2>
-      {%- for product in section.settings.g_s_products -%}
-        <label class="bs__label-{{ forloop.index }}">
-          <input type="radio" name="scateoption" value="">
-          <p class="bs__title-subtitle">
-            {{ product.title }}
-            <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
-          </p>
-          <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
-        </label>
-      {%- endfor -%}
-      <div class="bs__label-info">
-        <p>Compatibility.</p>
-        <p>Infinity trays are not compatible with theDockPot system, Expandable CocoBagsare whats required when using infinity trays.</p>
-        <a href="#">More info</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="bs-section growing-medium__wrapper page-width">
-    <div class="bs__images-wrapp swiper">
-      <ul class="swiper-wrapper">
-        {%- for product in section.settings.g_m_products -%}
-          {%- if product.featured_image != blank -%}
-            <li class="swiper-slide">{{ product.featured_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}</li>
-          {%- endif -%}
-        {%- endfor -%}
-      </ul>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev">
-        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
-          <rect x="36.3809" y="36.9994" width="36.1374" height="36.1374" rx="12" transform="rotate(-180 36.3809 36.9994)" fill="#DFDFE3"/>
-          <path d="M12.7321 20.0188C12.1439 19.4326 12.1419 18.483 12.7261 17.8927L19.7097 10.8439C20.0038 10.5468 20.3913 10.3982 20.7787 10.3982C21.1622 10.3982 21.5457 10.5438 21.8388 10.8349C22.43 11.4201 22.433 12.3727 21.8478 12.964L15.9212 18.9467L21.8848 24.8913C22.4731 25.4776 22.4751 26.4313 21.8879 27.0204C21.3016 27.6097 20.346 27.6107 19.7588 27.0234L12.7321 20.0188Z" fill="black" fill-opacity="0.56"/>
-        </svg>
-      </div>
-      <div class="swiper-button-next">
-        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
-          <rect x="0.820312" y="0.861938" width="36.1374" height="36.1374" rx="12" fill="#DFDFE3"/>
-          <path d="M24.469 17.8425C25.0573 18.4287 25.0593 19.3783 24.4751 19.9686L17.4915 27.0174C17.1974 27.3145 16.8099 27.4631 16.4224 27.4631C16.039 27.4631 15.6555 27.3175 15.3624 27.0264C14.7712 26.4412 14.7681 25.4886 15.3534 24.8973L21.28 18.9146L15.3163 12.97C14.7281 12.3837 14.7261 11.43 15.3133 10.8409C15.8996 10.2516 16.8552 10.2506 17.4424 10.8379L24.469 17.8425Z" fill="black" fill-opacity="0.56"/>
-        </svg>
-      </div>
-    </div>
-    <div class="bs__buttons-wrapp">
-      <h2>Growing medium. <span>Choose the growing medium that supports your garden</span></h2>
-      {%- for product in section.settings.g_m_products -%}
-        <label>
-          <input type="radio" name="scateoption" value="">
-          <p class="bs__title-subtitle">
-            {{ product.title }}
-            <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
-          </p>
-          <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
-        </label>
-      {%- endfor -%}
-      <div class="bs__label-info">
-        <p>CocoBags VS CocoPuck & MeshDisk</p>
-        <p>Trellis handles are only compatible with the Skate and handle system</p>
-        <a href="#">More info</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="bs-section trellis-support__wrapper page-width">
-    <div class="bs__images-wrapp swiper">
-      <ul class="swiper-wrapper">
-        {%- for product in section.settings.t_s_products -%}
-          {%- if product.featured_image != blank -%}
-            <li class="swiper-slide">{{ product.featured_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}</li>
-          {%- endif -%}
-        {%- endfor -%}
-      </ul>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev">
-        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
-          <rect x="36.3809" y="36.9994" width="36.1374" height="36.1374" rx="12" transform="rotate(-180 36.3809 36.9994)" fill="#DFDFE3"/>
-          <path d="M12.7321 20.0188C12.1439 19.4326 12.1419 18.483 12.7261 17.8927L19.7097 10.8439C20.0038 10.5468 20.3913 10.3982 20.7787 10.3982C21.1622 10.3982 21.5457 10.5438 21.8388 10.8349C22.43 11.4201 22.433 12.3727 21.8478 12.964L15.9212 18.9467L21.8848 24.8913C22.4731 25.4776 22.4751 26.4313 21.8879 27.0204C21.3016 27.6097 20.346 27.6107 19.7588 27.0234L12.7321 20.0188Z" fill="black" fill-opacity="0.56"/>
-        </svg>
-      </div>
-      <div class="swiper-button-next">
-        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
-          <rect x="0.820312" y="0.861938" width="36.1374" height="36.1374" rx="12" fill="#DFDFE3"/>
-          <path d="M24.469 17.8425C25.0573 18.4287 25.0593 19.3783 24.4751 19.9686L17.4915 27.0174C17.1974 27.3145 16.8099 27.4631 16.4224 27.4631C16.039 27.4631 15.6555 27.3175 15.3624 27.0264C14.7712 26.4412 14.7681 25.4886 15.3534 24.8973L21.28 18.9146L15.3163 12.97C14.7281 12.3837 14.7261 11.43 15.3133 10.8409C15.8996 10.2516 16.8552 10.2506 17.4424 10.8379L24.469 17.8425Z" fill="black" fill-opacity="0.56"/>
-        </svg>
-      </div>
-    </div>
-    <div class="bs__buttons-wrapp">
-      <h2>Trellis support. <span>Choose the trellis support that works for you</span></h2>
-      {%- for product in section.settings.t_s_products -%}
-        <label>
-          <input type="radio" name="scateoption" value="">
-          <p class="bs__title-subtitle">
-            {{ product.title }}
-            <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
-          </p>
-          <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
-        </label>
-      {%- endfor -%}
-      <div class="bs__label-info">
-        <p>TrellisHandles VS TrellisStakes</p>
-        <p>Trellis handles are only compatible with the Skate and handle system</p>
-        <a href="#">More info</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="bs-section trellis-netting__wrapper page-width">
-    <div class="bs__images-wrapp swiper">
-      <ul class="swiper-wrapper">
-        {%- for product in section.settings.t_n_products -%}
-          {%- if product.featured_image != blank -%}
-            <li class="swiper-slide">{{ product.featured_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}</li>
-          {%- endif -%}
-        {%- endfor -%}
-      </ul>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev">
-        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
-          <rect x="36.3809" y="36.9994" width="36.1374" height="36.1374" rx="12" transform="rotate(-180 36.3809 36.9994)" fill="#DFDFE3"/>
-          <path d="M12.7321 20.0188C12.1439 19.4326 12.1419 18.483 12.7261 17.8927L19.7097 10.8439C20.0038 10.5468 20.3913 10.3982 20.7787 10.3982C21.1622 10.3982 21.5457 10.5438 21.8388 10.8349C22.43 11.4201 22.433 12.3727 21.8478 12.964L15.9212 18.9467L21.8848 24.8913C22.4731 25.4776 22.4751 26.4313 21.8879 27.0204C21.3016 27.6097 20.346 27.6107 19.7588 27.0234L12.7321 20.0188Z" fill="black" fill-opacity="0.56"/>
-        </svg>
-      </div>
-      <div class="swiper-button-next">
-        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
-          <rect x="0.820312" y="0.861938" width="36.1374" height="36.1374" rx="12" fill="#DFDFE3"/>
-          <path d="M24.469 17.8425C25.0573 18.4287 25.0593 19.3783 24.4751 19.9686L17.4915 27.0174C17.1974 27.3145 16.8099 27.4631 16.4224 27.4631C16.039 27.4631 15.6555 27.3175 15.3624 27.0264C14.7712 26.4412 14.7681 25.4886 15.3534 24.8973L21.28 18.9146L15.3163 12.97C14.7281 12.3837 14.7261 11.43 15.3133 10.8409C15.8996 10.2516 16.8552 10.2506 17.4424 10.8379L24.469 17.8425Z" fill="black" fill-opacity="0.56"/>
-        </svg>
-      </div>
-    </div>
-    <div class="bs__buttons-wrapp">
-      <h2>Trellis netting. <span>Choose the netting that fits your system</span></h2>
-      {%- for product in section.settings.t_n_products -%}
-        <label>
-          <input type="radio" name="scateoption" value="">
-          <p class="bs__title-subtitle">
-            {{ product.title }}
-            <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
-          </p>
-          <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
-        </label>
-      {%- endfor -%}
-    </div>
-  </div>
-
-  <div class="bs-section drainage__wrapper page-width">
-    <div class="bs__images-wrapp swiper">
-      <ul class="swiper-wrapper">
-        {%- for product in section.settings.d_products -%}
-          {%- if product.featured_image != blank -%}
-            <li class="swiper-slide">{{ product.featured_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}</li>
-          {%- endif -%}
-        {%- endfor -%}
-      </ul>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev">
-        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
-          <rect x="36.3809" y="36.9994" width="36.1374" height="36.1374" rx="12" transform="rotate(-180 36.3809 36.9994)" fill="#DFDFE3"/>
-          <path d="M12.7321 20.0188C12.1439 19.4326 12.1419 18.483 12.7261 17.8927L19.7097 10.8439C20.0038 10.5468 20.3913 10.3982 20.7787 10.3982C21.1622 10.3982 21.5457 10.5438 21.8388 10.8349C22.43 11.4201 22.433 12.3727 21.8478 12.964L15.9212 18.9467L21.8848 24.8913C22.4731 25.4776 22.4751 26.4313 21.8879 27.0204C21.3016 27.6097 20.346 27.6107 19.7588 27.0234L12.7321 20.0188Z" fill="black" fill-opacity="0.56"/>
-        </svg>
-      </div>
-      <div class="swiper-button-next">
-        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
-          <rect x="0.820312" y="0.861938" width="36.1374" height="36.1374" rx="12" fill="#DFDFE3"/>
-          <path d="M24.469 17.8425C25.0573 18.4287 25.0593 19.3783 24.4751 19.9686L17.4915 27.0174C17.1974 27.3145 16.8099 27.4631 16.4224 27.4631C16.039 27.4631 15.6555 27.3175 15.3624 27.0264C14.7712 26.4412 14.7681 25.4886 15.3534 24.8973L21.28 18.9146L15.3163 12.97C14.7281 12.3837 14.7261 11.43 15.3133 10.8409C15.8996 10.2516 16.8552 10.2506 17.4424 10.8379L24.469 17.8425Z" fill="black" fill-opacity="0.56"/>
-        </svg>
-      </div>
-    </div>
-    <div class="bs__buttons-wrapp">
-      <h2>Drainage. <span>Choose from our supporting drainage or source your own</span></h2>
-      {%- for product in section.settings.d_products -%}
-        <label>
-          <input type="radio" name="scateoption" value="">
-          <p class="bs__title-subtitle">
-            {{ product.title }}
-            <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
-          </p>
-          <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
-        </label>
-      {%- endfor -%}
-    </div>
-  </div>
-
-  <div class="bs-section hardware__wrapper page-width">
-    <div class="bs__images-wrapp swiper">
-      <ul class="swiper-wrapper">
-        {%- for product in section.settings.h_products -%}
-          {%- if product.featured_image != blank -%}
-            <li class="swiper-slide">{{ product.featured_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}</li>
-          {%- endif -%}
-        {%- endfor -%}
-      </ul>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev">
-        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
-          <rect x="36.3809" y="36.9994" width="36.1374" height="36.1374" rx="12" transform="rotate(-180 36.3809 36.9994)" fill="#DFDFE3"/>
-          <path d="M12.7321 20.0188C12.1439 19.4326 12.1419 18.483 12.7261 17.8927L19.7097 10.8439C20.0038 10.5468 20.3913 10.3982 20.7787 10.3982C21.1622 10.3982 21.5457 10.5438 21.8388 10.8349C22.43 11.4201 22.433 12.3727 21.8478 12.964L15.9212 18.9467L21.8848 24.8913C22.4731 25.4776 22.4751 26.4313 21.8879 27.0204C21.3016 27.6097 20.346 27.6107 19.7588 27.0234L12.7321 20.0188Z" fill="black" fill-opacity="0.56"/>
-        </svg>
-      </div>
-      <div class="swiper-button-next">
-        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
-          <rect x="0.820312" y="0.861938" width="36.1374" height="36.1374" rx="12" fill="#DFDFE3"/>
-          <path d="M24.469 17.8425C25.0573 18.4287 25.0593 19.3783 24.4751 19.9686L17.4915 27.0174C17.1974 27.3145 16.8099 27.4631 16.4224 27.4631C16.039 27.4631 15.6555 27.3175 15.3624 27.0264C14.7712 26.4412 14.7681 25.4886 15.3534 24.8973L21.28 18.9146L15.3163 12.97C14.7281 12.3837 14.7261 11.43 15.3133 10.8409C15.8996 10.2516 16.8552 10.2506 17.4424 10.8379L24.469 17.8425Z" fill="black" fill-opacity="0.56"/>
-        </svg>
-      </div>
-    </div>
-    <div class="bs__buttons-wrapp">
-      <h2>Hardware. <span>Choose from our supporting hardware or source your own</span></h2>
-      {%- for product in section.settings.h_products -%}
-        <label>
-          <input type="radio" name="scateoption" value="">
-          <p class="bs__title-subtitle">
-            {{ product.title }}
-            <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
-          </p>
-          <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
-        </label>
-      {%- endfor -%}
-    </div>
-  </div>
-
-  <div class="bs-section total__wrapper">
-    <div class="bs__total-wrapper page-width">
-      <div>
-        <h3>Room area. <span>1600sf</span></h3>
-        <label>
-          {% comment %} <input type="radio" name="scateoption" value=""> {% endcomment %}
-          <p class="bs__title-subtitle">
-            Canopy area
-            <span>Total flower canopy area</span>
-          </p>
-          <p class="bs__label-price">1536.00 sf</p>
-        </label>
-      </div>
-      <div>
-        <h3>Plant count. <span>1525</span></h3>
-        <label>
-          {% comment %} <input type="radio" name="scateoption" value=""> {% endcomment %}
-          <p class="bs__title-subtitle">
-            Yield increase
-            <span>Fixed pot or aisle system</span>
-          </p>
-          <p class="bs__label-price">74%</p>
-        </label>
-        <p class="bs__share">
-          Share
-          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="21" viewBox="0 0 19 21" fill="none">
-            <path d="M6.08979 12.195L12.2549 15.7875M12.2459 5.87639L6.08979 9.46896M17.2917 4.51338C17.2917 6.00895 16.0793 7.22135 14.5838 7.22135C13.0882 7.22135 11.8758 6.00895 11.8758 4.51338C11.8758 3.01782 13.0882 1.80542 14.5838 1.80542C16.0793 1.80542 17.2917 3.01782 17.2917 4.51338ZM6.45987 10.832C6.45987 12.3275 5.24748 13.5399 3.75191 13.5399C2.25634 13.5399 1.04395 12.3275 1.04395 10.832C1.04395 9.3364 2.25634 8.124 3.75191 8.124C5.24748 8.124 6.45987 9.3364 6.45987 10.832ZM17.2917 17.1506C17.2917 18.6461 16.0793 19.8585 14.5838 19.8585C13.0882 19.8585 11.8758 18.6461 11.8758 17.1506C11.8758 15.655 13.0882 14.4426 14.5838 14.4426C16.0793 14.4426 17.2917 15.655 17.2917 17.1506Z" stroke="#39474A" stroke-width="2.03097" stroke-linecap="round" stroke-linejoin="round"/>
+    <div class="bs-section drainage__wrapper page-width">
+      <div class="bs__images-wrapp swiper">
+        <ul class="swiper-wrapper">
+          {%- for product in section.settings.d_products -%}
+            {%- if product.featured_image != blank -%}
+              <li class="swiper-slide">{{ product.featured_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}</li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev">
+          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+            <rect x="36.3809" y="36.9994" width="36.1374" height="36.1374" rx="12" transform="rotate(-180 36.3809 36.9994)" fill="#DFDFE3"/>
+            <path d="M12.7321 20.0188C12.1439 19.4326 12.1419 18.483 12.7261 17.8927L19.7097 10.8439C20.0038 10.5468 20.3913 10.3982 20.7787 10.3982C21.1622 10.3982 21.5457 10.5438 21.8388 10.8349C22.43 11.4201 22.433 12.3727 21.8478 12.964L15.9212 18.9467L21.8848 24.8913C22.4731 25.4776 22.4751 26.4313 21.8879 27.0204C21.3016 27.6097 20.346 27.6107 19.7588 27.0234L12.7321 20.0188Z" fill="black" fill-opacity="0.56"/>
           </svg>
-        </p>
+        </div>
+        <div class="swiper-button-next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+            <rect x="0.820312" y="0.861938" width="36.1374" height="36.1374" rx="12" fill="#DFDFE3"/>
+            <path d="M24.469 17.8425C25.0573 18.4287 25.0593 19.3783 24.4751 19.9686L17.4915 27.0174C17.1974 27.3145 16.8099 27.4631 16.4224 27.4631C16.039 27.4631 15.6555 27.3175 15.3624 27.0264C14.7712 26.4412 14.7681 25.4886 15.3534 24.8973L21.28 18.9146L15.3163 12.97C14.7281 12.3837 14.7261 11.43 15.3133 10.8409C15.8996 10.2516 16.8552 10.2506 17.4424 10.8379L24.469 17.8425Z" fill="black" fill-opacity="0.56"/>
+          </svg>
+        </div>
       </div>
+      <div class="bs__buttons-wrapp">
+        <h2>Drainage. <span>Choose from our supporting drainage or source your own</span></h2>
+        {%- for product in section.settings.d_products -%}
+          <label class="js-label">
+            <input type="radio" name="d_products" value="{{ product.variants.first.id }}">
+            <p class="bs__title-subtitle">
+              {{ product.title }}
+              <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
+            </p>
+            <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
+          </label>
+        {%- endfor -%}
+      </div>
+    </div>
 
-      <div class="bs__price-delivery">
-        <h3>USD 20,807.98</h3>
+    <div class="bs-section hardware__wrapper page-width">
+      <div class="bs__images-wrapp swiper">
+        <ul class="swiper-wrapper">
+          {%- for product in section.settings.h_products -%}
+            {%- if product.featured_image != blank -%}
+              <li class="swiper-slide">{{ product.featured_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}</li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev">
+          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+            <rect x="36.3809" y="36.9994" width="36.1374" height="36.1374" rx="12" transform="rotate(-180 36.3809 36.9994)" fill="#DFDFE3"/>
+            <path d="M12.7321 20.0188C12.1439 19.4326 12.1419 18.483 12.7261 17.8927L19.7097 10.8439C20.0038 10.5468 20.3913 10.3982 20.7787 10.3982C21.1622 10.3982 21.5457 10.5438 21.8388 10.8349C22.43 11.4201 22.433 12.3727 21.8478 12.964L15.9212 18.9467L21.8848 24.8913C22.4731 25.4776 22.4751 26.4313 21.8879 27.0204C21.3016 27.6097 20.346 27.6107 19.7588 27.0234L12.7321 20.0188Z" fill="black" fill-opacity="0.56"/>
+          </svg>
+        </div>
+        <div class="swiper-button-next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+            <rect x="0.820312" y="0.861938" width="36.1374" height="36.1374" rx="12" fill="#DFDFE3"/>
+            <path d="M24.469 17.8425C25.0573 18.4287 25.0593 19.3783 24.4751 19.9686L17.4915 27.0174C17.1974 27.3145 16.8099 27.4631 16.4224 27.4631C16.039 27.4631 15.6555 27.3175 15.3624 27.0264C14.7712 26.4412 14.7681 25.4886 15.3534 24.8973L21.28 18.9146L15.3163 12.97C14.7281 12.3837 14.7261 11.43 15.3133 10.8409C15.8996 10.2516 16.8552 10.2506 17.4424 10.8379L24.469 17.8425Z" fill="black" fill-opacity="0.56"/>
+          </svg>
+        </div>
+      </div>
+      <div class="bs__buttons-wrapp">
+        <h2>Hardware. <span>Choose from our supporting hardware or source your own</span></h2>
+        {%- for product in section.settings.h_products -%}
+          <label class="js-label">
+            <input type="radio" name="h_products" value="{{ product.variants.first.id }}">
+            <p class="bs__title-subtitle">
+              {{ product.title }}
+              <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
+            </p>
+            <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
+          </label>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="bs-section total__wrapper">
+      <div class="bs__total-wrapper page-width">
         <div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="18" viewBox="0 0 23 18" fill="none">
-            <path d="M22.482 8.84712L19.562 5.63812C19.3646 5.41937 19.12 5.24829 18.8469 5.13777C18.5737 5.02726 18.279 4.98019 17.985 5.00012H16V2.49512C16 1.83208 15.7366 1.19619 15.2678 0.72735C14.7989 0.258509 14.163 -0.00488281 13.5 -0.00488281H2.5C1.83696 -0.00488281 1.20107 0.258509 0.732233 0.72735C0.263392 1.19619 0 1.83208 0 2.49512V12.2451C0 12.9082 0.263392 13.544 0.732233 14.0129C1.20107 14.4817 1.83696 14.7451 2.5 14.7451H3.048C3.15881 15.3816 3.49048 15.9586 3.98468 16.3747C4.47887 16.7908 5.10396 17.0193 5.75 17.0201C6.36124 17.0488 6.96321 16.8624 7.45133 16.4934C7.93946 16.1244 8.2829 15.596 8.422 15.0001H15.103C15.2666 15.6004 15.6295 16.1273 16.1319 16.4943C16.6344 16.8613 17.2467 17.0467 17.8683 17.0199C18.49 16.9932 19.0841 16.756 19.5532 16.3472C20.0223 15.9384 20.3385 15.3823 20.45 14.7701H21.185C21.4272 14.7944 21.6717 14.765 21.9013 14.684C22.1308 14.603 22.3396 14.4723 22.5129 14.3014C22.6862 14.1305 22.8197 13.9235 22.9039 13.6951C22.9881 13.4667 23.0209 13.2226 23 12.9801V10.1721C23.0016 9.68073 22.8165 9.20709 22.482 8.84712ZM7.426 14.7451C7.32389 15.1111 7.10478 15.4336 6.80215 15.6634C6.49951 15.8932 6.12998 16.0175 5.75 16.0175C5.37002 16.0175 5.00049 15.8932 4.69785 15.6634C4.39522 15.4336 4.17611 15.1111 4.074 14.7451C3.97037 14.419 3.97564 14.068 4.089 13.7451C4.19838 13.39 4.41871 13.0793 4.71765 12.8585C5.01659 12.6378 5.3784 12.5187 5.75 12.5187C6.1216 12.5187 6.48341 12.6378 6.78235 12.8585C7.08129 13.0793 7.30162 13.39 7.411 13.7451C7.52429 14.068 7.52956 14.419 7.426 14.7451ZM8.447 14.0001C8.38724 13.3449 8.09254 12.7334 7.61725 12.2785C7.14197 11.8235 6.51819 11.5558 5.86099 11.5248C5.2038 11.4937 4.55754 11.7013 4.04146 12.1094C3.52538 12.5175 3.1743 13.0985 3.053 13.7451H2.5C2.10234 13.7446 1.72111 13.5864 1.43992 13.3052C1.15873 13.024 1.00053 12.6428 1 12.2451V2.49512C1.00053 2.09746 1.15873 1.71623 1.43992 1.43504C1.72111 1.15385 2.10234 0.995646 2.5 0.995117H13.5C13.8977 0.995646 14.2789 1.15385 14.5601 1.43504C14.8413 1.71623 14.9995 2.09746 15 2.49512V14.0001H8.447ZM19.419 14.7701C19.3137 15.1311 19.0942 15.4483 18.7933 15.6739C18.4925 15.8996 18.1266 16.0215 17.7505 16.0215C17.3744 16.0215 17.0085 15.8996 16.7077 15.6739C16.4068 15.4483 16.1873 15.1311 16.082 14.7701C15.9732 14.4457 15.9732 14.0946 16.082 13.7701C16.145 13.5479 16.2515 13.3405 16.3954 13.1599C16.5393 12.9792 16.7177 12.829 16.9202 12.7179C17.1227 12.6069 17.3452 12.5372 17.5749 12.5129C17.8046 12.4887 18.0368 12.5103 18.258 12.5766C18.4792 12.6429 18.6851 12.7525 18.8635 12.8991C19.042 13.0457 19.1895 13.2263 19.2976 13.4304C19.4056 13.6345 19.472 13.8581 19.4928 14.0881C19.5137 14.3181 19.4886 14.5499 19.419 14.7701ZM22 12.9801C22 13.5491 21.771 13.7701 21.185 13.7701H20.45C20.3657 13.298 20.1585 12.8564 19.8494 12.4899C19.5402 12.1233 19.1399 11.8446 18.6887 11.6819C18.2376 11.5192 17.7516 11.4782 17.2796 11.563C16.8076 11.6478 16.3662 11.8555 16 12.1651V6.00012H17.986C18.1406 5.98183 18.2973 6.00079 18.4431 6.05541C18.5889 6.11004 18.7195 6.19874 18.824 6.31412L21.751 9.52812C21.9118 9.70396 22.0007 9.93382 22 10.1721V12.9801ZM20.676 9.62012C20.7301 9.66766 20.7736 9.72608 20.8035 9.79155C20.8335 9.85703 20.8494 9.9281 20.85 10.0001H17.544C17.4723 10.0068 17.4 9.99778 17.332 9.97382C17.2641 9.94986 17.2022 9.91148 17.1505 9.86131C17.0988 9.81114 17.0586 9.75038 17.0326 9.6832C17.0066 9.61602 16.9955 9.54401 17 9.47212V7.00012H18.073C18.1857 6.99795 18.2974 7.02087 18.4002 7.06722C18.5029 7.11357 18.5941 7.1822 18.667 7.26812L20.676 9.62012Z" fill="#39474A"/>
+          <h3>Room area. <span>1600sf</span></h3>
+          <label>
+            {% comment %} <input type="radio" name="scateoption" value=""> {% endcomment %}
+            <p class="bs__title-subtitle">
+              Canopy area
+              <span>Total flower canopy area</span>
+            </p>
+            <p class="bs__label-price">1536.00 sf</p>
+          </label>
+        </div>
+        <div>
+          <h3>Plant count. <span>1525</span></h3>
+          <label>
+            {% comment %} <input type="radio" name="scateoption" value=""> {% endcomment %}
+            <p class="bs__title-subtitle">
+              Yield increase
+              <span>Fixed pot or aisle system</span>
+            </p>
+            <p class="bs__label-price">74%</p>
+          </label>
+          <p class="bs__share">
+            Share
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="21" viewBox="0 0 19 21" fill="none">
+              <path d="M6.08979 12.195L12.2549 15.7875M12.2459 5.87639L6.08979 9.46896M17.2917 4.51338C17.2917 6.00895 16.0793 7.22135 14.5838 7.22135C13.0882 7.22135 11.8758 6.00895 11.8758 4.51338C11.8758 3.01782 13.0882 1.80542 14.5838 1.80542C16.0793 1.80542 17.2917 3.01782 17.2917 4.51338ZM6.45987 10.832C6.45987 12.3275 5.24748 13.5399 3.75191 13.5399C2.25634 13.5399 1.04395 12.3275 1.04395 10.832C1.04395 9.3364 2.25634 8.124 3.75191 8.124C5.24748 8.124 6.45987 9.3364 6.45987 10.832ZM17.2917 17.1506C17.2917 18.6461 16.0793 19.8585 14.5838 19.8585C13.0882 19.8585 11.8758 18.6461 11.8758 17.1506C11.8758 15.655 13.0882 14.4426 14.5838 14.4426C16.0793 14.4426 17.2917 15.655 17.2917 17.1506Z" stroke="#39474A" stroke-width="2.03097" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </p>
+        </div>
+
+        <div class="bs__price-delivery">
+          <h3>USD 20,807.98</h3>
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="18" viewBox="0 0 23 18" fill="none">
+              <path d="M22.482 8.84712L19.562 5.63812C19.3646 5.41937 19.12 5.24829 18.8469 5.13777C18.5737 5.02726 18.279 4.98019 17.985 5.00012H16V2.49512C16 1.83208 15.7366 1.19619 15.2678 0.72735C14.7989 0.258509 14.163 -0.00488281 13.5 -0.00488281H2.5C1.83696 -0.00488281 1.20107 0.258509 0.732233 0.72735C0.263392 1.19619 0 1.83208 0 2.49512V12.2451C0 12.9082 0.263392 13.544 0.732233 14.0129C1.20107 14.4817 1.83696 14.7451 2.5 14.7451H3.048C3.15881 15.3816 3.49048 15.9586 3.98468 16.3747C4.47887 16.7908 5.10396 17.0193 5.75 17.0201C6.36124 17.0488 6.96321 16.8624 7.45133 16.4934C7.93946 16.1244 8.2829 15.596 8.422 15.0001H15.103C15.2666 15.6004 15.6295 16.1273 16.1319 16.4943C16.6344 16.8613 17.2467 17.0467 17.8683 17.0199C18.49 16.9932 19.0841 16.756 19.5532 16.3472C20.0223 15.9384 20.3385 15.3823 20.45 14.7701H21.185C21.4272 14.7944 21.6717 14.765 21.9013 14.684C22.1308 14.603 22.3396 14.4723 22.5129 14.3014C22.6862 14.1305 22.8197 13.9235 22.9039 13.6951C22.9881 13.4667 23.0209 13.2226 23 12.9801V10.1721C23.0016 9.68073 22.8165 9.20709 22.482 8.84712ZM7.426 14.7451C7.32389 15.1111 7.10478 15.4336 6.80215 15.6634C6.49951 15.8932 6.12998 16.0175 5.75 16.0175C5.37002 16.0175 5.00049 15.8932 4.69785 15.6634C4.39522 15.4336 4.17611 15.1111 4.074 14.7451C3.97037 14.419 3.97564 14.068 4.089 13.7451C4.19838 13.39 4.41871 13.0793 4.71765 12.8585C5.01659 12.6378 5.3784 12.5187 5.75 12.5187C6.1216 12.5187 6.48341 12.6378 6.78235 12.8585C7.08129 13.0793 7.30162 13.39 7.411 13.7451C7.52429 14.068 7.52956 14.419 7.426 14.7451ZM8.447 14.0001C8.38724 13.3449 8.09254 12.7334 7.61725 12.2785C7.14197 11.8235 6.51819 11.5558 5.86099 11.5248C5.2038 11.4937 4.55754 11.7013 4.04146 12.1094C3.52538 12.5175 3.1743 13.0985 3.053 13.7451H2.5C2.10234 13.7446 1.72111 13.5864 1.43992 13.3052C1.15873 13.024 1.00053 12.6428 1 12.2451V2.49512C1.00053 2.09746 1.15873 1.71623 1.43992 1.43504C1.72111 1.15385 2.10234 0.995646 2.5 0.995117H13.5C13.8977 0.995646 14.2789 1.15385 14.5601 1.43504C14.8413 1.71623 14.9995 2.09746 15 2.49512V14.0001H8.447ZM19.419 14.7701C19.3137 15.1311 19.0942 15.4483 18.7933 15.6739C18.4925 15.8996 18.1266 16.0215 17.7505 16.0215C17.3744 16.0215 17.0085 15.8996 16.7077 15.6739C16.4068 15.4483 16.1873 15.1311 16.082 14.7701C15.9732 14.4457 15.9732 14.0946 16.082 13.7701C16.145 13.5479 16.2515 13.3405 16.3954 13.1599C16.5393 12.9792 16.7177 12.829 16.9202 12.7179C17.1227 12.6069 17.3452 12.5372 17.5749 12.5129C17.8046 12.4887 18.0368 12.5103 18.258 12.5766C18.4792 12.6429 18.6851 12.7525 18.8635 12.8991C19.042 13.0457 19.1895 13.2263 19.2976 13.4304C19.4056 13.6345 19.472 13.8581 19.4928 14.0881C19.5137 14.3181 19.4886 14.5499 19.419 14.7701ZM22 12.9801C22 13.5491 21.771 13.7701 21.185 13.7701H20.45C20.3657 13.298 20.1585 12.8564 19.8494 12.4899C19.5402 12.1233 19.1399 11.8446 18.6887 11.6819C18.2376 11.5192 17.7516 11.4782 17.2796 11.563C16.8076 11.6478 16.3662 11.8555 16 12.1651V6.00012H17.986C18.1406 5.98183 18.2973 6.00079 18.4431 6.05541C18.5889 6.11004 18.7195 6.19874 18.824 6.31412L21.751 9.52812C21.9118 9.70396 22.0007 9.93382 22 10.1721V12.9801ZM20.676 9.62012C20.7301 9.66766 20.7736 9.72608 20.8035 9.79155C20.8335 9.85703 20.8494 9.9281 20.85 10.0001H17.544C17.4723 10.0068 17.4 9.99778 17.332 9.97382C17.2641 9.94986 17.2022 9.91148 17.1505 9.86131C17.0988 9.81114 17.0586 9.75038 17.0326 9.6832C17.0066 9.61602 16.9955 9.54401 17 9.47212V7.00012H18.073C18.1857 6.99795 18.2974 7.02087 18.4002 7.06722C18.5029 7.11357 18.5941 7.1822 18.667 7.26812L20.676 9.62012Z" fill="#39474A"/>
+            </svg>
+            <p>
+              <span><strong>Ships: </strong>2-3 weeks</span>
+              <a href="">
+                Get delivery dates
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13" viewBox="0 0 15 13" fill="none">
+                  <path d="M7.38579 12.5833C6.44625 12.5833 5.56178 12.4034 4.73238 12.0438C3.90297 11.6842 3.17134 11.1874 2.53749 10.5536C1.90364 9.91972 1.4069 9.18809 1.04726 8.35869C0.687629 7.52928 0.507812 6.64481 0.507812 5.70527C0.507812 4.76573 0.687629 3.88126 1.04726 3.05185C1.4069 2.22245 1.90251 1.49082 2.53412 0.856968C3.16573 0.223115 3.89623 -0.273628 4.72563 -0.633262C5.55504 -0.992894 6.43951 -1.17271 7.37905 -1.17271C8.31859 -1.17271 9.20419 -0.992894 10.0358 -0.633262C10.8675 -0.273628 11.6002 0.223115 12.2341 0.856968C12.8679 1.49082 13.3647 2.22245 13.7243 3.05185C14.084 3.88126 14.2638 4.76573 14.2638 5.70527C14.2638 6.64481 14.084 7.52928 13.7243 8.35869C13.3647 9.18809 12.8679 9.91972 12.2341 10.5536C11.6002 11.1874 10.8686 11.6842 10.0392 12.0438C9.20981 12.4034 8.32534 12.5833 7.38579 12.5833ZM7.38579 11.4369C8.18148 11.4369 8.92547 11.2886 9.61777 10.9919C10.3101 10.6952 10.9192 10.285 11.4452 9.76126C11.9711 9.23754 12.3813 8.62954 12.6758 7.93724C12.9702 7.24495 13.1174 6.50096 13.1174 5.70527C13.1174 4.90958 12.9691 4.16559 12.6724 3.4733C12.3757 2.781 11.9655 2.17188 11.4418 1.64591C10.9181 1.11995 10.3089 0.709743 9.6144 0.415294C8.91985 0.120844 8.17474 -0.0263805 7.37905 -0.0263805C6.58336 -0.0263805 5.83937 0.120844 5.14708 0.415294C4.45478 0.709743 3.8479 1.11995 3.32644 1.64591C2.80497 2.17188 2.39701 2.781 2.10256 3.4733C1.80811 4.16559 1.66089 4.90958 1.66089 5.70527C1.66089 6.50096 1.80811 7.24495 2.10256 7.93724C2.39701 8.62954 2.80609 9.23754 3.32981 9.76126C3.85352 10.285 4.46153 10.6952 5.15382 10.9919C5.84612 11.2886 6.59011 11.4369 7.38579 11.4369ZM4.25699 5.70527C4.25699 5.53444 4.30981 5.39621 4.41545 5.29057C4.52109 5.18493 4.65933 5.13211 4.83015 5.13211H6.81263V3.14963C6.81263 2.9788 6.86433 2.83945 6.96772 2.73155C7.07112 2.62366 7.20598 2.56972 7.37231 2.56972C7.54313 2.56972 7.68137 2.62254 7.78701 2.72818C7.89265 2.83383 7.94547 2.97431 7.94547 3.14963V5.13211H9.93469C10.1055 5.13211 10.2438 5.18493 10.3494 5.29057C10.455 5.39621 10.5079 5.53444 10.5079 5.70527C10.5079 5.86711 10.4539 5.99972 10.346 6.10311C10.2381 6.20651 10.101 6.25821 9.93469 6.25821H7.94547V8.24743C7.94547 8.41825 7.89265 8.55649 7.78701 8.66213C7.68137 8.76777 7.54313 8.82059 7.37231 8.82059C7.20598 8.82059 7.07112 8.76777 6.96772 8.66213C6.86433 8.55649 6.81263 8.41825 6.81263 8.24743V6.25821H4.83015C4.65933 6.25821 4.52109 6.20651 4.41545 6.10311C4.30981 5.99972 4.25699 5.86711 4.25699 5.70527Z" fill="#67B035"/>
+                </svg>
+              </a>
+            </p>
+          </div>
+        </div>
+        <div class="bs__btn-wrapper">
+          <input type="submit" class="button button--primary btn-main-submit" value="Continue">
+          <button class="button button--secondary">Save Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bs-section submit__wrapper page-width">
+      <div class="bs__buttons-wrapp">
+        <div class="bs__installment-options">
+          <span
+            style="
+              font-size: 14px;
+              line-height: 22px;
+              font-weight: 400; color: #666666;
+            "
+            >Installment options with</span
+          >
+          <p style="margin-top: 8px;display: flex;align-items: center;gap: 8px;">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="43" height="19" viewBox="0 0 43 19" fill="none">
+              <rect width="42" height="18" transform="translate(0.980469 0.0224609)" fill="url(#pattern0_323_3719)"/>
+              <defs>
+              <pattern id="pattern0_323_3719" patternContentUnits="objectBoundingBox" width="1" height="1">
+              <use xlink:href="#image0_323_3719" transform="scale(0.0119048 0.0277778)"/>
+              </pattern>
+              <image id="image0_323_3719" width="84" height="36" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAAAkCAYAAAAXSR0AAAAACXBIWXMAAAsTAAALEwEAmpwYAAAHZGlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDIgNzkuMTY0NDYwLCAyMDIwLzA1LzEyLTE2OjA0OjE3ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjIuMyAoTWFjaW50b3NoKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjEtMDUtMDVUMDk6NTU6NTgrMDE6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjEtMDgtMjdUMTE6NTA6MDgrMDE6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDIxLTA4LTI3VDExOjUwOjA4KzAxOjAwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjcwYWZkZTYwLWNiZjktNDVjOS05NmIzLTQ3YTY4ZDExM2U1NiIgeG1wTU06RG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjYwOTAxOGI0LTk1M2EtN2E0NS1iMWJmLTM5MjA2MDQ2NDk2MCIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjNjNmJiZDE4LTJhNTUtNDllNC1hNWZjLTljMDExZWU1OGQzYiIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSI+IDx4bXBNTTpIaXN0b3J5PiA8cmRmOlNlcT4gPHJkZjpsaSBzdEV2dDphY3Rpb249ImNyZWF0ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6M2M2YmJkMTgtMmE1NS00OWU0LWE1ZmMtOWMwMTFlZTU4ZDNiIiBzdEV2dDp3aGVuPSIyMDIxLTA1LTA1VDA5OjU1OjU4KzAxOjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjIuMyAoTWFjaW50b3NoKSIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6Yjg4ZDc2YjQtNTE1Ny00MDFlLTlhYzItNDIyYTYwYTI0MDExIiBzdEV2dDp3aGVuPSIyMDIxLTA1LTA1VDA5OjU1OjU4KzAxOjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjIuMyAoTWFjaW50b3NoKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6NzBhZmRlNjAtY2JmOS00NWM5LTk2YjMtNDdhNjhkMTEzZTU2IiBzdEV2dDp3aGVuPSIyMDIxLTA4LTI3VDExOjUwOjA4KzAxOjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjEuMiAoTWFjaW50b3NoKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPHBob3Rvc2hvcDpEb2N1bWVudEFuY2VzdG9ycz4gPHJkZjpCYWc+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9z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"/>
+              </defs>
+            </svg>
+            &
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="92" height="19" viewBox="0 0 92 19" fill="none">
+              <rect width="90.98" height="18" transform="translate(0.950195 0.0224609)" fill="url(#pattern0_323_3723)"/>
+              <defs>
+              <pattern id="pattern0_323_3723" patternContentUnits="objectBoundingBox" width="1" height="1">
+              <use xlink:href="#image0_323_3723" transform="scale(0.00549451 0.0277778)"/>
+              </pattern>
+              <image id="image0_323_3723" width="182" height="36" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALYAAAAkCAYAAAAkXsBMAAAACXBIWXMAAAsTAAALEwEAmpwYAAAHW2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDYgNzkuMTY0NzUzLCAyMDIxLzAyLzE1LTExOjUyOjEzICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjIuMyAoTWFjaW50b3NoKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjEtMDUtMDVUMDk6NTU6NTgrMDE6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjEtMDUtMTlUMTE6NDErMDE6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDIxLTA1LTE5VDExOjQxKzAxOjAwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOmU3M2U3OWU2LTA1NTYtNGJiMy05MjFjLTY2YThjYTlmMjc3ZSIgeG1wTU06RG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjdhYjYzOWYzLThjYTctOGQ0NS1hYWZkLTYwN2JlYzdhNmI0YiIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjNjNmJiZDE4LTJhNTUtNDllNC1hNWZjLTljMDExZWU1OGQzYiIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSI+IDx4bXBNTTpIaXN0b3J5PiA8cmRmOlNlcT4gPHJkZjpsaSBzdEV2dDphY3Rpb249ImNyZWF0ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6M2M2YmJkMTgtMmE1NS00OWU0LWE1ZmMtOWMwMTFlZTU4ZDNiIiBzdEV2dDp3aGVuPSIyMDIxLTA1LTA1VDA5OjU1OjU4KzAxOjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjIuMyAoTWFjaW50b3NoKSIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6Yjg4ZDc2YjQtNTE1Ny00MDFlLTlhYzItNDIyYTYwYTI0MDExIiBzdEV2dDp3aGVuPSIyMDIxLTA1LTA1VDA5OjU1OjU4KzAxOjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjIuMyAoTWFjaW50b3NoKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6ZTczZTc5ZTYtMDU1Ni00YmIzLTkyMWMtNjZhOGNhOWYyNzdlIiBzdEV2dDp3aGVuPSIyMDIxLTA1LTE5VDExOjQxKzAxOjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjIuMyAoTWFjaW50b3NoKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPHBob3Rvc2hvcDpEb2N1bWVudEFuY2VzdG9ycz4gPHJkZjpCYWc+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmIwYzZh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"/>
+              </defs>
+            </svg>
+          </p>
+        </div>
+        <h3>DockPot Grow System</h3>
+        <div class="bs__delivery">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" fill="none">
+            <path d="M22.6851 9.06977L19.7651 5.86077C19.5677 5.64202 19.3232 5.47094 19.05 5.36043C18.7768 5.24991 18.4821 5.20285 18.1881 5.22277H16.2031V2.71777C16.2031 2.05473 15.9397 1.41885 15.4709 0.950006C15.0021 0.481166 14.3662 0.217773 13.7031 0.217773H2.70312C2.04008 0.217773 1.4042 0.481166 0.935358 0.950006C0.466517 1.41885 0.203125 2.05473 0.203125 2.71777V12.4678C0.203125 13.1308 0.466517 13.7667 0.935358 14.2355C1.4042 14.7044 2.04008 14.9678 2.70312 14.9678H3.25112C3.36194 15.6042 3.6936 16.1813 4.1878 16.5974C4.682 17.0135 5.30708 17.242 5.95312 17.2428C6.56437 17.2714 7.16633 17.085 7.65446 16.716C8.14258 16.347 8.48602 15.8187 8.62512 15.2228H15.3061C15.4698 15.8231 15.8326 16.35 16.335 16.717C16.8375 17.084 17.4498 17.2693 18.0715 17.2426C18.6931 17.2158 19.2872 16.9786 19.7563 16.5698C20.2254 16.161 20.5416 15.6049 20.6531 14.9928H21.3881C21.6303 15.017 21.8749 14.9876 22.1044 14.9066C22.3339 14.8256 22.5428 14.695 22.7161 14.5241C22.8894 14.3532 23.0229 14.1462 23.107 13.9178C23.1912 13.6894 23.224 13.4453 23.2031 13.2028V10.3948C23.2048 9.90339 23.0196 9.42975 22.6851 9.06977ZM7.62912 14.9678C7.52702 15.3338 7.30791 15.6563 7.00527 15.8861C6.70263 16.1158 6.3331 16.2402 5.95312 16.2402C5.57315 16.2402 5.20362 16.1158 4.90098 15.8861C4.59834 15.6563 4.37923 15.3338 4.27712 14.9678C4.1735 14.6416 4.17876 14.2907 4.29213 13.9678C4.40151 13.6126 4.62183 13.3019 4.92077 13.0812C5.21971 12.8605 5.58153 12.7414 5.95312 12.7414C6.32472 12.7414 6.68654 12.8605 6.98548 13.0812C7.28442 13.3019 7.50474 13.6126 7.61413 13.9678C7.72742 14.2907 7.73268 14.6416 7.62912 14.9678ZM8.65012 14.2228C8.59037 13.5676 8.29566 12.9561 7.82038 12.5011C7.3451 12.0462 6.72131 11.7785 6.06412 11.7474C5.40693 11.7163 4.76067 11.924 4.24459 12.3321C3.72851 12.7402 3.37743 13.3211 3.25612 13.9678H2.70312C2.30546 13.9672 1.92424 13.809 1.64305 13.5279C1.36186 13.2467 1.20365 12.8654 1.20312 12.4678V2.71777C1.20365 2.32011 1.36186 1.93889 1.64305 1.6577C1.92424 1.37651 2.30546 1.2183 2.70312 1.21777H13.7031C14.1008 1.2183 14.482 1.37651 14.7632 1.6577C15.0444 1.93889 15.2026 2.32011 15.2031 2.71777V14.2228H8.65012ZM19.6221 14.9928C19.5168 15.3538 19.2973 15.6709 18.9965 15.8966C18.6956 16.1222 18.3297 16.2442 17.9536 16.2442C17.5776 16.2442 17.2116 16.1222 16.9108 15.8966C16.61 15.6709 16.3904 15.3538 16.2851 14.9928C16.1764 14.6683 16.1764 14.3172 16.2851 13.9928C16.3481 13.7706 16.4547 13.5631 16.5986 13.3825C16.7425 13.2019 16.9208 13.0517 17.1233 12.9406C17.3258 12.8295 17.5484 12.7599 17.778 12.7356C18.0077 12.7113 18.2399 12.733 18.4611 12.7993C18.6823 12.8656 18.8882 12.9752 19.0666 13.1217C19.2451 13.2683 19.3927 13.4489 19.5007 13.653C19.6087 13.8571 19.6751 14.0807 19.696 14.3107C19.7168 14.5407 19.6917 14.7726 19.6221 14.9928ZM22.2031 13.2028C22.2031 13.7718 21.9741 13.9928 21.3881 13.9928H20.6531C20.5688 13.5207 20.3617 13.0791 20.0525 12.7125C19.7433 12.3459 19.343 12.0672 18.8919 11.9045C18.4407 11.7418 17.9547 11.7008 17.4827 11.7857C17.0107 11.8705 16.5694 12.0782 16.2031 12.3878V6.22277H18.1891C18.3437 6.20449 18.5005 6.22345 18.6462 6.27807C18.792 6.33269 18.9226 6.4214 19.0271 6.53677L21.9541 9.75077C22.115 9.92661 22.2038 10.1565 22.2031 10.3948V13.2028ZM20.8791 9.84277C20.9332 9.89031 20.9767 9.94873 21.0067 10.0142C21.0366 10.0797 21.0525 10.1508 21.0531 10.2228H17.7471C17.6754 10.2294 17.6031 10.2204 17.5352 10.1965C17.4672 10.1725 17.4053 10.1341 17.3536 10.084C17.3019 10.0338 17.2617 9.97304 17.2357 9.90586C17.2098 9.83867 17.1986 9.76666 17.2031 9.69477V7.22277H18.2761C18.3888 7.2206 18.5006 7.24353 18.6033 7.28988C18.706 7.33623 18.7972 7.40485 18.8701 7.49077L20.8791 9.84277Z" fill="#404546"/>
           </svg>
           <p>
-            <span><strong>Ships: </strong>2-3 weeks</span>
+            <span><strong>Delivery:</strong></span>
+            <span>In stock</span>
+            <span>Free shipping</span>
             <a href="">
               Get delivery dates
               <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13" viewBox="0 0 15 13" fill="none">
-                <path d="M7.38579 12.5833C6.44625 12.5833 5.56178 12.4034 4.73238 12.0438C3.90297 11.6842 3.17134 11.1874 2.53749 10.5536C1.90364 9.91972 1.4069 9.18809 1.04726 8.35869C0.687629 7.52928 0.507812 6.64481 0.507812 5.70527C0.507812 4.76573 0.687629 3.88126 1.04726 3.05185C1.4069 2.22245 1.90251 1.49082 2.53412 0.856968C3.16573 0.223115 3.89623 -0.273628 4.72563 -0.633262C5.55504 -0.992894 6.43951 -1.17271 7.37905 -1.17271C8.31859 -1.17271 9.20419 -0.992894 10.0358 -0.633262C10.8675 -0.273628 11.6002 0.223115 12.2341 0.856968C12.8679 1.49082 13.3647 2.22245 13.7243 3.05185C14.084 3.88126 14.2638 4.76573 14.2638 5.70527C14.2638 6.64481 14.084 7.52928 13.7243 8.35869C13.3647 9.18809 12.8679 9.91972 12.2341 10.5536C11.6002 11.1874 10.8686 11.6842 10.0392 12.0438C9.20981 12.4034 8.32534 12.5833 7.38579 12.5833ZM7.38579 11.4369C8.18148 11.4369 8.92547 11.2886 9.61777 10.9919C10.3101 10.6952 10.9192 10.285 11.4452 9.76126C11.9711 9.23754 12.3813 8.62954 12.6758 7.93724C12.9702 7.24495 13.1174 6.50096 13.1174 5.70527C13.1174 4.90958 12.9691 4.16559 12.6724 3.4733C12.3757 2.781 11.9655 2.17188 11.4418 1.64591C10.9181 1.11995 10.3089 0.709743 9.6144 0.415294C8.91985 0.120844 8.17474 -0.0263805 7.37905 -0.0263805C6.58336 -0.0263805 5.83937 0.120844 5.14708 0.415294C4.45478 0.709743 3.8479 1.11995 3.32644 1.64591C2.80497 2.17188 2.39701 2.781 2.10256 3.4733C1.80811 4.16559 1.66089 4.90958 1.66089 5.70527C1.66089 6.50096 1.80811 7.24495 2.10256 7.93724C2.39701 8.62954 2.80609 9.23754 3.32981 9.76126C3.85352 10.285 4.46153 10.6952 5.15382 10.9919C5.84612 11.2886 6.59011 11.4369 7.38579 11.4369ZM4.25699 5.70527C4.25699 5.53444 4.30981 5.39621 4.41545 5.29057C4.52109 5.18493 4.65933 5.13211 4.83015 5.13211H6.81263V3.14963C6.81263 2.9788 6.86433 2.83945 6.96772 2.73155C7.07112 2.62366 7.20598 2.56972 7.37231 2.56972C7.54313 2.56972 7.68137 2.62254 7.78701 2.72818C7.89265 2.83383 7.94547 2.97431 7.94547 3.14963V5.13211H9.93469C10.1055 5.13211 10.2438 5.18493 10.3494 5.29057C10.455 5.39621 10.5079 5.53444 10.5079 5.70527C10.5079 5.86711 10.4539 5.99972 10.346 6.10311C10.2381 6.20651 10.101 6.25821 9.93469 6.25821H7.94547V8.24743C7.94547 8.41825 7.89265 8.55649 7.78701 8.66213C7.68137 8.76777 7.54313 8.82059 7.37231 8.82059C7.20598 8.82059 7.07112 8.76777 6.96772 8.66213C6.86433 8.55649 6.81263 8.41825 6.81263 8.24743V6.25821H4.83015C4.65933 6.25821 4.52109 6.20651 4.41545 6.10311C4.30981 5.99972 4.25699 5.86711 4.25699 5.70527Z" fill="#67B035"/>
+                <path d="M7.59277 12.8083C6.96764 12.8083 6.36388 12.7263 5.78148 12.5621C5.19908 12.398 4.65154 12.1641 4.13885 11.8605C3.62616 11.557 3.16069 11.1961 2.74244 10.7778C2.32419 10.3596 1.96328 9.89411 1.65972 9.38142C1.35615 8.86873 1.12229 8.32118 0.958141 7.73878C0.79399 7.15638 0.711914 6.55262 0.711914 5.9275C0.711914 5.29788 0.79399 4.69299 0.958141 4.11284C1.12229 3.53269 1.35503 2.98627 1.65634 2.47358C1.95766 1.96089 2.31745 1.49542 2.73569 1.07717C3.15394 0.658925 3.61941 0.298018 4.1321 -0.00554943C4.64479 -0.309116 5.19234 -0.542975 5.77474 -0.707127C6.35714 -0.871278 6.9609 -0.953353 7.58602 -0.953353C8.21564 -0.953353 8.82165 -0.871278 9.40405 -0.707127C9.98645 -0.542975 10.5329 -0.309116 11.0433 -0.00554943C11.5538 0.298018 12.0192 0.658925 12.4397 1.07717C12.8602 1.49542 13.2222 1.96089 13.5258 2.47358C13.8294 2.98627 14.0632 3.53269 14.2274 4.11284C14.3915 4.69299 14.4736 5.29788 14.4736 5.9275C14.4736 6.55262 14.3915 7.15638 14.2274 7.73878C14.0632 8.32118 13.8294 8.86873 13.5258 9.38142C13.2222 9.89411 12.8613 10.3596 12.4431 10.7778C12.0248 11.1961 11.5594 11.557 11.0467 11.8605C10.534 12.1641 9.98757 12.398 9.40742 12.5621C8.82727 12.7263 8.22239 12.8083 7.59277 12.8083ZM7.59277 11.6615C8.23138 11.6615 8.83739 11.566 9.41079 11.3748C9.9842 11.1837 10.5093 10.9127 10.986 10.562C11.4627 10.2112 11.8764 9.79742 12.2272 9.3207C12.578 8.84399 12.849 8.31893 13.0401 7.74553C13.2312 7.17212 13.3268 6.56611 13.3268 5.9275C13.3268 5.28888 13.2301 4.68287 13.0367 4.10947C12.8433 3.53607 12.5713 3.01101 12.2205 2.53429C11.8697 2.05758 11.4559 1.64383 10.9792 1.29304C10.5025 0.942254 9.97745 0.671292 9.40405 0.480158C8.83064 0.289023 8.22463 0.193456 7.58602 0.193456C6.9474 0.193456 6.34252 0.289023 5.77136 0.480158C5.20021 0.671292 4.67627 0.942254 4.19956 1.29304C3.72285 1.64383 3.31022 2.05758 2.96168 2.53429C2.61314 3.01101 2.34331 3.53607 2.15217 4.10947C1.96104 4.68287 1.86547 5.28888 1.86547 5.9275C1.86547 6.56611 1.96104 7.17212 2.15217 7.74553C2.34331 8.31893 2.61314 8.84399 2.96168 9.3207C3.31022 9.79742 3.72285 10.2112 4.19956 10.562C4.67627 10.9127 5.20133 11.1837 5.77474 11.3748C6.34814 11.566 6.95415 11.6615 7.59277 11.6615ZM7.57927 9.12507C7.39938 9.12507 7.26109 9.06661 7.1644 8.94968C7.06771 8.83275 7.01936 8.67759 7.01936 8.48421V6.49416H4.91463C4.72574 6.49416 4.57059 6.44581 4.44916 6.34912C4.32773 6.25243 4.26702 6.11414 4.26702 5.93424C4.26702 5.74986 4.32549 5.60819 4.44241 5.50925C4.55934 5.41031 4.71675 5.36084 4.91463 5.36084H7.01936V3.24262C7.01936 3.04923 7.06771 2.89408 7.1644 2.77715C7.26109 2.66022 7.39938 2.60175 7.57927 2.60175C7.75916 2.60175 7.89971 2.65909 8.00089 2.77378C8.10208 2.88846 8.15268 3.04474 8.15268 3.24262V5.36084H10.2642C10.462 5.36084 10.6183 5.41031 10.733 5.50925C10.8477 5.60819 10.905 5.74986 10.905 5.93424C10.905 6.11414 10.8454 6.25243 10.7263 6.34912C10.6071 6.44581 10.453 6.49416 10.2642 6.49416H8.15268V8.48421C8.15268 8.68209 8.10208 8.83837 8.00089 8.95305C7.89971 9.06773 7.75916 9.12507 7.57927 9.12507Z" fill="#0066CC"/>
               </svg>
             </a>
           </p>
         </div>
-      </div>
-      <div class="bs__btn-wrapper">
-        <button class="button button--primary">Continue</button>
-        <button class="button button--secondary">Save Cart</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="bs-section submit__wrapper page-width">
-    <div class="bs__buttons-wrapp">
-      <div class="bs__installment-options">
-        <span
-          style="
-            font-size: 14px;
-            line-height: 22px;
-            font-weight: 400; color: #666666;
-          "
-          >Installment options with</span
-        >
-        <p style="margin-top: 8px;display: flex;align-items: center;gap: 8px;">
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="43" height="19" viewBox="0 0 43 19" fill="none">
-            <rect width="42" height="18" transform="translate(0.980469 0.0224609)" fill="url(#pattern0_323_3719)"/>
-            <defs>
-            <pattern id="pattern0_323_3719" patternContentUnits="objectBoundingBox" width="1" height="1">
-            <use xlink:href="#image0_323_3719" transform="scale(0.0119048 0.0277778)"/>
-            </pattern>
-            <image id="image0_323_3719" width="84" height="36" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAAAkCAYAAAAXSR0AAAAACXBIWXMAAAsTAAALEwEAmpwYAAAHZGlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDIgNzkuMTY0NDYwLCAyMDIwLzA1LzEyLTE2OjA0OjE3ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjIuMyAoTWFjaW50b3NoKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjEtMDUtMDVUMDk6NTU6NTgrMDE6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjEtMDgtMjdUMTE6NTA6MDgrMDE6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDIxLTA4LTI3VDExOjUwOjA4KzAxOjAwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjcwYWZkZTYwLWNiZjktNDVjOS05NmIzLTQ3YTY4ZDExM2U1NiIgeG1wTU06RG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjYwOTAxOGI0LTk1M2EtN2E0NS1iMWJmLTM5MjA2MDQ2NDk2MCIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjNjNmJiZDE4LTJhNTUtNDllNC1hNWZjLTljMDExZWU1OGQzYiIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSI+IDx4bXBNTTpIaXN0b3J5PiA8cmRmOlNlcT4gPHJkZjpsaSBzdEV2dDphY3Rpb249ImNyZWF0ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6M2M2YmJkMTgtMmE1NS00OWU0LWE1ZmMtOWMwMTFlZTU4ZDNiIiBzdEV2dDp3aGVuPSIyMDIxLTA1LTA1VDA5OjU1OjU4KzAxOjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjIuMyAoTWFjaW50b3NoKSIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6Yjg4ZDc2YjQtNTE1Ny00MDFlLTlhYzItNDIyYTYwYTI0MDExIiBzdEV2dDp3aGVuPSIyMDIxLTA1LTA1VDA5OjU1OjU4KzAxOjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjIuMyAoTWFjaW50b3NoKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6NzBhZmRlNjAtY2JmOS00NWM5LTk2YjMtNDdhNjhkMTEzZTU2IiBzdEV2dDp3aGVuPSIyMDIxLTA4LTI3VDExOjUwOjA4KzAxOjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjEuMiAoTWFjaW50b3NoKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPHBob3Rvc2hvcDpEb2N1bWVudEFuY2VzdG9ycz4gPHJkZjpCYWc+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmIwYzZhZGY2LTI3NjMtZjA0YS1iMDVmLWEyYjIzY2FmYjY1NjwvcmRmOmxpPiA8L3JkZjpCYWc+IDwvcGhvdG9zaG9wOkRvY3VtZW50QW5jZXN0b3JzPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PunnVHkAAAbXSURBVGiB7Zp7jFxVHcc/59y5Mzu7O8/ddrs7+yjd1gotUGolKLUlUh6moPiIEh9VIynRWkz6hyRE0PhK/AMDGgk2mGhMSkDFVwiJEWKNCFGx0iCltEuh285jn/PYmZ3Hvff4x+3oVnbu3t2ZuwvJfpOTmXvu9/6+Z75zHr9z7xVKKVbROohE1/BKaV8DfB24CpgEfgXc14icnhzh5l13cejzDzKdA8uhH/h1+/M7P9rLS6eeIR5JtLDZjXFu4jS+ZVF6MzYBz8057gEuA24CrgWMuWQpNUzAMg18K9Vil5ArpHt3g/qrgW/PrRBCUq7MALDj8o8Czr1zpbFShg44nLsD7JEjhaRmlBnPJ/nYnnu58X3vZ3xqeRq4VKyUoc87nOsCfJr0kZsZI5Md5dbdX+HL+75JfgYMw+HKtwCWxVBN06kZFc5PjpCaHKFaK39fSq00b4OkdrRSLZbPjp9EKcnBTz7M3Xc+wGwZ8gWQK9UFXGJZpvjSbJZ4JMHNuz5HNj/J0b89nhvPn39PvGPNE22BTjvNEIJyeSY1VRy7IxSIccuu/XzkpnvYsnGI1DiUK6Bpy9Ha5rAshuaLE2wauoaDn/0WlgV7du7nqaMPHf/nS09tnMyOflwpa6NSKhMJrf3ZrbsPGHuvO8C2Sy+lWIYz50Hw1u+ZdSyLoVJoWMokmQGl4IrN27jqssO8MpJiNPXy47PlPLovwGBiK1s3DVIz4GzK5kqxeD0BmAosy0SIJQRoAj7g90CvhxpCCnl/zagcsSwQknszE9wmJWqgt5fNG3qp/+RSGZJjtpFC2GUpepbied3HAZ/mx7KM64D7gWaTrTIwCvwd+CNwfD6SD9gCXNKkmCP8evDGXD59ZKZUIh5t765W2a4U5Gfs8v9otlOZFkPhIAfi0X5qZk0B25uLeBFuv/D5JPBV4OW5JyXwbAvF5oWut/XkCmNMZc8R0HnBaz3LQg/oBNZ0rceEV2m+d86HvcC/gdvmVkrgvAdiF8Gn+RPF2Wmmckl03Xs9ICwEQ9FwLxpkFGrMQ61fAzvqBxI446EYAELI/ppZ8ecKKTTpvR6AYbE+3NmDLnVLKZXyWO539S8SeN1jMaSUMQP6UmMnEYKzgOcbSKNGfzySINgWxTSr55yowDRQcCgLTRm9wCfAXpROAi+6bKd1obzLJb+Oe4BMNDyApTCwp5n4ImMsCpUa/fHoAJHQWnKF9Cnd19aIagBXAlmHcFHgA8APAX8DzmeAx3zYPXTbItq6G/iTS+4xEF/I5jPHNqzbyvXv3UeuAEAKuHwRmotGzWC4syNMuLObianX3yDYkNqGnboWHMIVgMOACTzSgPMOWPxefh/wC5fc7wHbpZTHZqoFrt2xj6GETtHewXu+MBkG6zuCEO5cS9UoJxegu02rfk7j4R8H9zulHux/6IMuuK8B+4GnAXKFDJsH3s2HbjjEVPa/HKc5rSVQFr0BP4RDazGVOboAvdtl2AGgUZasgTtDbwceAmIuuIeBu4BKvcIwqrQHo0RDGggwLfBpjLiI1RSUIqH76Ih09hRN+082ufCj58EWoMMhnACGgZ84cLLgPORD2F38URY2M42d4N7JHDMB4tF+Toz8mUPf3cNMsUo8Akrx2gLxmoaCdilJxGMDSBhbIHU6iD1qnMq/cF6MT0BjQ28BXgE+7aLtR7CfEf12/tOK7tggx08/zU9/+Q1iERACr/NCAAyTvu7YIAHpRynLSVPDXskblYgLuUfgzYYK4AfYN0z6XAT5EvApYJ4duQ2lFChFd2gdf3j2Af7yjxN0RUkCRRfxm4JhsD4SXkcwGMG0al4uhC8CT8D/5lAJ7AR+DLxzEYFuwH6w1jDJA1Aogm1hJgrp+5557uFTV1/xYEkIkkqxafFtd4+qwXC4s4eO9hjF0nTSIRdtBmeB6+sHdUPbgKNLCPZht0TLMtHhyfxM+lSpDFKQND02tGaQCLXHCbV3kc2n32icii4ZjwJfBHL1irqhs0ASd8N8yQj4O9Zkc2kKRfDrnDEr7PZSzzTobw8KQp1rqNVmTy9AP42dwDvdPCxh59AvAL/B3mVehLqh6kJATw316+1D2UKaXGGavp7YSLmy8DXNwDS5JNwJsUgfNau2UC76NeCxZjXnLkrLcRtv4+xsjkIxg9/nfXJvwaDfT6Q7Nohpj0AnbGiF5lxDx1sR0Amapl9ZKufJFcbw+ZYhdVL4pWA4GulDQlqhag7sna2QnLtTOoY9uXr1oosQQparRlmfyp6rScmr2LfNpJeahkksHuknoAVMZVl/FVLbNo+eAPSWCK6+zthavE2edr99sGpoi7FqaIuxamiL8R9yKktA6Y6clAAAAABJRU5ErkJggg=="/>
-            </defs>
-          </svg>
-          &
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="92" height="19" viewBox="0 0 92 19" fill="none">
-            <rect width="90.98" height="18" transform="translate(0.950195 0.0224609)" fill="url(#pattern0_323_3723)"/>
-            <defs>
-            <pattern id="pattern0_323_3723" patternContentUnits="objectBoundingBox" width="1" height="1">
-            <use xlink:href="#image0_323_3723" transform="scale(0.00549451 0.0277778)"/>
-            </pattern>
-            <image id="image0_323_3723" width="182" height="36" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALYAAAAkCAYAAAAkXsBMAAAACXBIWXMAAAsTAAALEwEAmpwYAAAHW2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDYgNzkuMTY0NzUzLCAyMDIxLzAyLzE1LTExOjUyOjEzICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjIuMyAoTWFjaW50b3NoKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjEtMDUtMDVUMDk6NTU6NTgrMDE6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjEtMDUtMTlUMTE6NDErMDE6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDIxLTA1LTE5VDExOjQxKzAxOjAwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOmU3M2U3OWU2LTA1NTYtNGJiMy05MjFjLTY2YThjYTlmMjc3ZSIgeG1wTU06RG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjdhYjYzOWYzLThjYTctOGQ0NS1hYWZkLTYwN2JlYzdhNmI0YiIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjNjNmJiZDE4LTJhNTUtNDllNC1hNWZjLTljMDExZWU1OGQzYiIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSI+IDx4bXBNTTpIaXN0b3J5PiA8cmRmOlNlcT4gPHJkZjpsaSBzdEV2dDphY3Rpb249ImNyZWF0ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6M2M2YmJkMTgtMmE1NS00OWU0LWE1ZmMtOWMwMTFlZTU4ZDNiIiBzdEV2dDp3aGVuPSIyMDIxLTA1LTA1VDA5OjU1OjU4KzAxOjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjIuMyAoTWFjaW50b3NoKSIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6Yjg4ZDc2YjQtNTE1Ny00MDFlLTlhYzItNDIyYTYwYTI0MDExIiBzdEV2dDp3aGVuPSIyMDIxLTA1LTA1VDA5OjU1OjU4KzAxOjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjIuMyAoTWFjaW50b3NoKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6ZTczZTc5ZTYtMDU1Ni00YmIzLTkyMWMtNjZhOGNhOWYyNzdlIiBzdEV2dDp3aGVuPSIyMDIxLTA1LTE5VDExOjQxKzAxOjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjIuMyAoTWFjaW50b3NoKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPHBob3Rvc2hvcDpEb2N1bWVudEFuY2VzdG9ycz4gPHJkZjpCYWc+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmIwYzZhZGY2LTI3NjMtZjA0YS1iMDVmLWEyYjIzY2FmYjY1NjwvcmRmOmxpPiA8L3JkZjpCYWc+IDwvcGhvdG9zaG9wOkRvY3VtZW50QW5jZXN0b3JzPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Ph6mLxYAAAqTSURBVHic7Zx9kFV1Gcc/CwvIS3BZwJepcEUqBYuLYebowPpCqxmxRYOaY2DjVFowa0kvps51xheqKW9QaSl1m5FpsIlOb/jSkKtjNNrQFKxImKKUSibyJmAsu9sfzzlx9pzv75xzd+/uXep+Z35zZ+7v+zy/55zz/N6e33MODBzGAouAFcAawPPLvAG0oYbBi48Bvwc6gG7gZeBbwPHVNCoNs4FXMYOjpbV6ZtUwCFAHfBftG93AbuAzwJBqGejCGOBfuA1vrZplNQwGXIfbN8Llj8CsrErrK25mHB8CJmbkfg6YGvnvK8ChilpUw2DBUOCWjNxZwFPA3cBN2EheVdxGvPetB94N5IARIW6b4OYGzNIaBhrvRY/O+x3/B+VV4NNUeXlSJG7Y+Q5um+Dm+tvAGqqGecSf981+3SXAX0V9uPwZ27/FUC2Pr/o0UsOgwGviv83+74PAGcD1wB6H/AzgMSzKdnK4Is2xJwHnABcC78hma9VxMtaLP4Cty8ZUQOdY7D5cQHnhpyHANGCuL39SH+2oB0717TgXGN9HfdXGH4CrgJcc9R3YjD8VW1t3OngLgWeAy5IaGwXcAGwhPvS/CHwJOA6YjPWkcPmyryMvZKNrqKjsHuCI4D6BLVHaEmw+Ebgd2CHkjwC/BVqw0JIL3xP2TAK+CRwI6esC3u7LrBYyYB3hNmCnsKcd2/yMS7AlitOAVdhMF9bVhe1Xgun4TmHPZL/uDlH3Iva803CzkH2sDPvTMAq7J+uBxgTedOAh3H51GPO9GM5DO0e0bALmiP8Lvp58Bh29KQqfBPZllH+cow86ipLgu25ioy/jibo85jBptuwELnbYEmAIcCu6w0fLcuDbCbaego140fpPpdgwBlsyROUuT5HrT1yMDRDqPjwUJX8Y8/isTqZi0wVfV74MPX1x7OW90LETW7tFUSpDR6Mv42W8L67SCXxc2AIWCltd5rXtSrAV4Keivp3kmWypkNlG9Q9M6oFr0dc8JSDNAA4KQrml4OvLV0BXmmN/NoXblVC3g3hsvVSGHY2+jFeBazoMvI84bq/QPWsM6Xy/g3ORaB/MedTss9jBT0MdMB9Yi3WOp4EfA2f3Uh/YqWTUvgVBY0+JynDvXAusQ/cO5dgN2MUvBh4RvFtC9eGyVXCvC9UHmAK8KbhPY2vpYN04AesAyu7VkRtUclzTBqAZOAubth8nu2NvBFZi6/RHcXe2TfQcAd+DXjZ0Y8uSDcDPsM2Xi6ccGywfI8r5FRpXCu4OYJiDn4RZvt0uO+/shc4G4GGh63Kwh6Yaep54vHk4NjUppwo7dhhFwcs7DG0T3Jzg/VDwNuDeCE1FO/e0EKck6jfS8wApQOCEnpDpBl7BIhdRTMecWMlcGuL9xMFZQzyyMhn4uYOvHPujgtNFPOpVB/xFcK8V15WEE7HnlTSDBmVpRp3DsTDgboeeaQA/EBU7SA5rNaNHioLgFgUv79DbJri5CGcU8WVTJ+nhSJWT8I1QfUnUL0zR6QmZfcC7EmQagOeE3H1+/XDgDVH//QSddbjX440R7hDgb4K3IsJTA94rwMgEO8IYjkXQsm7su7FoS1p4tgV4NkHHxoCoTndaMhh+r5ArCF5R8PIOnW2Cm4twLhKcdl9nUjlfyP33JqAdOy3pxhMyX02RAfiIkNvq150j6naS7lDjSN88BlD7k/1YmDLAesG5IcO1gQUiVOfJUlxpzHm0f4TLQWzJCMR71C5sR56Gc4XiguAVBS/v0KkMz0U4WbPBspRwclVJ1De5Lt6HJ2SmJAn4GEY8H+J1v04tFYoZdIKN+lkcexS6E7T69bNE3Wukj6bT0GveaNmMJbxtFnVLIjpPwAbRtKXMP7AQNGDT0lsiirbhPuEJY2s6pV9QydO24yqoK8D2DJwOLNoQxjj/dyxxbMnYdtZnchA7yYtiCeYTXxR1K7ElksJ4LIa+CTvxdeF1zKFnAt/BNsBRBINqsJR5FrgGd0jy39jG8zRCh0b12KgVnuZGJxgWRiWOqnsDdYEHsKkvjP1k66CVRgM2GqYhGm7c6/8eFNys9zrrswNzrGWYAwWYgm3KFkS4+zHHVZiPnYpOSGjrCPYywa30zBPqFtwrsNF5KZY+kAQP+AIW6IhhOz2H9E6y5UMsIj4dFASvKHh5h842wc1FOFcLjrywMlESeptSZDwhc0WGtmYIuXa/bo6o+2XGa3hUyDYm8FcJvprylzvkF5AebvwNNpoqXJUim7SUuTDhugC4XwjelSIzAp1LUhDcouDlHXrbBLchwjldcLqxTVcSxmKb4nCZE6ovCZ1NKTo9IbOF5PyLOuDXQu4ev340Nr1GnW1mii2zhc40xz7DIRMuh7CcmSjGoo/aw843N8XmSb7+rA69C9v4ZnpB5jKHkmsc/BHAAw6ZguAXBS/v0K1GHMVVeQLtuBOLhqOd6Y4QpyTqmxz6AnhCJhilonsXsAey0iHTHOKtE/XP496YTsdefi3XscHSQ5OcqeiQW+Tg/xM7yMoSgAA7rEtz6CPYfYsOcokYhjsu+Avgg8DbgHdiCUfPJBhQEPqLgpd32OIJ7kbsUKCFoyderilsq29v0KOHYgcfGwX3gH9dAUqC0+SwM8neoLyMZcXNxWaGVvQs1429zxfeOzQ5ePuwdepM7ODjLODr9Mw+LNexVfg0KIc5mskYheqga9EdOglDsMxKlw2PYB23V7iA9LVSllIQuouCl3fYsSJFf87n1WGpqC7eIeDvJCd1XR9puyQ4TQ47A3gp9mYpbzrux48qoDuLY4O9iaJkkw6FioJ/U4a2XJiDHTJtwQaoNaRnP2aCSiZJKnvFfwWhtyh4eYcNLSlt5kLcBnQcNEtZJdouCV6Tw84AnpApZ4DoxJ0cPxL4XZnXpZ5JY8o1gM3EUbkjxF+sDkOdJ3Rie4VB9y2QhdixZtoNfAHL3a60Y9cDTya0m4vwx2MJPFkffAe2PFAhw5LgNznsDOAJmSVky2l/ifSd/Uh05EKVB7D4c28c+x4hd3+KzPG4N357OfpCyqDBCcDX0A9nFxb6GYs5WaUdG1/vveh8iZxDZj4WnHedTh3A0iNdYSeonGM3+Xbehf5I0AtY5xqXojuM2dhhhnKkzRwNMbaK+sYU3ScRX7J10TNBzIVlor1w2Y7NSK7DlRyWN7MuY3sVQR22YWzGlghnkn2nG8ZbiedtZEmkGYq9vxiWS2t/ArYZuhI7mm7BNlgqQ68S8EjuDEOxTwxcio3Op/SxvdHYcfc8X2df9YEeeNaWIb+MeHgyWp5A5900hjgd2CfNBtUo//8Kj/JH+cGEieiZ8cwy9ZxK+ka6C5sVw2m3UwTv6t5cSBTVfr2nhuri88SP4R8G/lSmnuew2bEZd15LHRb73oZ93WsiOou03HBhDf0Aj2N3xM6hAwXn9VFvPZbnsVvozlJa+th+DRWAx7Hr2DcSt72tgvonYIlWWd6wD8oblLeprqGf4HFsOrbrkwrNSUK9xOmkH9sH5cZ+aL+GXsDj2HTsVuJ2P9nPbV6CvWztcur7SP4MRFkYiM8I/y+jnXhsfc/Am1E2zib+JSdXamql8CCWBrEY+ASW/9GB5fHcjSWp1VBDDUn4D0yxeYaSI0xVAAAAAElFTkSuQmCC"/>
-            </defs>
-          </svg>
-        </p>
-      </div>
-      <h3>DockPot Grow System</h3>
-      <div class="bs__delivery">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" fill="none">
-          <path d="M22.6851 9.06977L19.7651 5.86077C19.5677 5.64202 19.3232 5.47094 19.05 5.36043C18.7768 5.24991 18.4821 5.20285 18.1881 5.22277H16.2031V2.71777C16.2031 2.05473 15.9397 1.41885 15.4709 0.950006C15.0021 0.481166 14.3662 0.217773 13.7031 0.217773H2.70312C2.04008 0.217773 1.4042 0.481166 0.935358 0.950006C0.466517 1.41885 0.203125 2.05473 0.203125 2.71777V12.4678C0.203125 13.1308 0.466517 13.7667 0.935358 14.2355C1.4042 14.7044 2.04008 14.9678 2.70312 14.9678H3.25112C3.36194 15.6042 3.6936 16.1813 4.1878 16.5974C4.682 17.0135 5.30708 17.242 5.95312 17.2428C6.56437 17.2714 7.16633 17.085 7.65446 16.716C8.14258 16.347 8.48602 15.8187 8.62512 15.2228H15.3061C15.4698 15.8231 15.8326 16.35 16.335 16.717C16.8375 17.084 17.4498 17.2693 18.0715 17.2426C18.6931 17.2158 19.2872 16.9786 19.7563 16.5698C20.2254 16.161 20.5416 15.6049 20.6531 14.9928H21.3881C21.6303 15.017 21.8749 14.9876 22.1044 14.9066C22.3339 14.8256 22.5428 14.695 22.7161 14.5241C22.8894 14.3532 23.0229 14.1462 23.107 13.9178C23.1912 13.6894 23.224 13.4453 23.2031 13.2028V10.3948C23.2048 9.90339 23.0196 9.42975 22.6851 9.06977ZM7.62912 14.9678C7.52702 15.3338 7.30791 15.6563 7.00527 15.8861C6.70263 16.1158 6.3331 16.2402 5.95312 16.2402C5.57315 16.2402 5.20362 16.1158 4.90098 15.8861C4.59834 15.6563 4.37923 15.3338 4.27712 14.9678C4.1735 14.6416 4.17876 14.2907 4.29213 13.9678C4.40151 13.6126 4.62183 13.3019 4.92077 13.0812C5.21971 12.8605 5.58153 12.7414 5.95312 12.7414C6.32472 12.7414 6.68654 12.8605 6.98548 13.0812C7.28442 13.3019 7.50474 13.6126 7.61413 13.9678C7.72742 14.2907 7.73268 14.6416 7.62912 14.9678ZM8.65012 14.2228C8.59037 13.5676 8.29566 12.9561 7.82038 12.5011C7.3451 12.0462 6.72131 11.7785 6.06412 11.7474C5.40693 11.7163 4.76067 11.924 4.24459 12.3321C3.72851 12.7402 3.37743 13.3211 3.25612 13.9678H2.70312C2.30546 13.9672 1.92424 13.809 1.64305 13.5279C1.36186 13.2467 1.20365 12.8654 1.20312 12.4678V2.71777C1.20365 2.32011 1.36186 1.93889 1.64305 1.6577C1.92424 1.37651 2.30546 1.2183 2.70312 1.21777H13.7031C14.1008 1.2183 14.482 1.37651 14.7632 1.6577C15.0444 1.93889 15.2026 2.32011 15.2031 2.71777V14.2228H8.65012ZM19.6221 14.9928C19.5168 15.3538 19.2973 15.6709 18.9965 15.8966C18.6956 16.1222 18.3297 16.2442 17.9536 16.2442C17.5776 16.2442 17.2116 16.1222 16.9108 15.8966C16.61 15.6709 16.3904 15.3538 16.2851 14.9928C16.1764 14.6683 16.1764 14.3172 16.2851 13.9928C16.3481 13.7706 16.4547 13.5631 16.5986 13.3825C16.7425 13.2019 16.9208 13.0517 17.1233 12.9406C17.3258 12.8295 17.5484 12.7599 17.778 12.7356C18.0077 12.7113 18.2399 12.733 18.4611 12.7993C18.6823 12.8656 18.8882 12.9752 19.0666 13.1217C19.2451 13.2683 19.3927 13.4489 19.5007 13.653C19.6087 13.8571 19.6751 14.0807 19.696 14.3107C19.7168 14.5407 19.6917 14.7726 19.6221 14.9928ZM22.2031 13.2028C22.2031 13.7718 21.9741 13.9928 21.3881 13.9928H20.6531C20.5688 13.5207 20.3617 13.0791 20.0525 12.7125C19.7433 12.3459 19.343 12.0672 18.8919 11.9045C18.4407 11.7418 17.9547 11.7008 17.4827 11.7857C17.0107 11.8705 16.5694 12.0782 16.2031 12.3878V6.22277H18.1891C18.3437 6.20449 18.5005 6.22345 18.6462 6.27807C18.792 6.33269 18.9226 6.4214 19.0271 6.53677L21.9541 9.75077C22.115 9.92661 22.2038 10.1565 22.2031 10.3948V13.2028ZM20.8791 9.84277C20.9332 9.89031 20.9767 9.94873 21.0067 10.0142C21.0366 10.0797 21.0525 10.1508 21.0531 10.2228H17.7471C17.6754 10.2294 17.6031 10.2204 17.5352 10.1965C17.4672 10.1725 17.4053 10.1341 17.3536 10.084C17.3019 10.0338 17.2617 9.97304 17.2357 9.90586C17.2098 9.83867 17.1986 9.76666 17.2031 9.69477V7.22277H18.2761C18.3888 7.2206 18.5006 7.24353 18.6033 7.28988C18.706 7.33623 18.7972 7.40485 18.8701 7.49077L20.8791 9.84277Z" fill="#404546"/>
-        </svg>
-        <p>
-          <span><strong>Delivery:</strong></span>
-          <span>In stock</span>
-          <span>Free shipping</span>
+        <p class="bs__need-moment">
+          <strong>Need a moment?</strong>
+          Keep all your selections by saving this device to Your Saves, then come back at any time and pick up where you left off.
           <a href="">
-            Get delivery dates
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13" viewBox="0 0 15 13" fill="none">
-              <path d="M7.59277 12.8083C6.96764 12.8083 6.36388 12.7263 5.78148 12.5621C5.19908 12.398 4.65154 12.1641 4.13885 11.8605C3.62616 11.557 3.16069 11.1961 2.74244 10.7778C2.32419 10.3596 1.96328 9.89411 1.65972 9.38142C1.35615 8.86873 1.12229 8.32118 0.958141 7.73878C0.79399 7.15638 0.711914 6.55262 0.711914 5.9275C0.711914 5.29788 0.79399 4.69299 0.958141 4.11284C1.12229 3.53269 1.35503 2.98627 1.65634 2.47358C1.95766 1.96089 2.31745 1.49542 2.73569 1.07717C3.15394 0.658925 3.61941 0.298018 4.1321 -0.00554943C4.64479 -0.309116 5.19234 -0.542975 5.77474 -0.707127C6.35714 -0.871278 6.9609 -0.953353 7.58602 -0.953353C8.21564 -0.953353 8.82165 -0.871278 9.40405 -0.707127C9.98645 -0.542975 10.5329 -0.309116 11.0433 -0.00554943C11.5538 0.298018 12.0192 0.658925 12.4397 1.07717C12.8602 1.49542 13.2222 1.96089 13.5258 2.47358C13.8294 2.98627 14.0632 3.53269 14.2274 4.11284C14.3915 4.69299 14.4736 5.29788 14.4736 5.9275C14.4736 6.55262 14.3915 7.15638 14.2274 7.73878C14.0632 8.32118 13.8294 8.86873 13.5258 9.38142C13.2222 9.89411 12.8613 10.3596 12.4431 10.7778C12.0248 11.1961 11.5594 11.557 11.0467 11.8605C10.534 12.1641 9.98757 12.398 9.40742 12.5621C8.82727 12.7263 8.22239 12.8083 7.59277 12.8083ZM7.59277 11.6615C8.23138 11.6615 8.83739 11.566 9.41079 11.3748C9.9842 11.1837 10.5093 10.9127 10.986 10.562C11.4627 10.2112 11.8764 9.79742 12.2272 9.3207C12.578 8.84399 12.849 8.31893 13.0401 7.74553C13.2312 7.17212 13.3268 6.56611 13.3268 5.9275C13.3268 5.28888 13.2301 4.68287 13.0367 4.10947C12.8433 3.53607 12.5713 3.01101 12.2205 2.53429C11.8697 2.05758 11.4559 1.64383 10.9792 1.29304C10.5025 0.942254 9.97745 0.671292 9.40405 0.480158C8.83064 0.289023 8.22463 0.193456 7.58602 0.193456C6.9474 0.193456 6.34252 0.289023 5.77136 0.480158C5.20021 0.671292 4.67627 0.942254 4.19956 1.29304C3.72285 1.64383 3.31022 2.05758 2.96168 2.53429C2.61314 3.01101 2.34331 3.53607 2.15217 4.10947C1.96104 4.68287 1.86547 5.28888 1.86547 5.9275C1.86547 6.56611 1.96104 7.17212 2.15217 7.74553C2.34331 8.31893 2.61314 8.84399 2.96168 9.3207C3.31022 9.79742 3.72285 10.2112 4.19956 10.562C4.67627 10.9127 5.20133 11.1837 5.77474 11.3748C6.34814 11.566 6.95415 11.6615 7.59277 11.6615ZM7.57927 9.12507C7.39938 9.12507 7.26109 9.06661 7.1644 8.94968C7.06771 8.83275 7.01936 8.67759 7.01936 8.48421V6.49416H4.91463C4.72574 6.49416 4.57059 6.44581 4.44916 6.34912C4.32773 6.25243 4.26702 6.11414 4.26702 5.93424C4.26702 5.74986 4.32549 5.60819 4.44241 5.50925C4.55934 5.41031 4.71675 5.36084 4.91463 5.36084H7.01936V3.24262C7.01936 3.04923 7.06771 2.89408 7.1644 2.77715C7.26109 2.66022 7.39938 2.60175 7.57927 2.60175C7.75916 2.60175 7.89971 2.65909 8.00089 2.77378C8.10208 2.88846 8.15268 3.04474 8.15268 3.24262V5.36084H10.2642C10.462 5.36084 10.6183 5.41031 10.733 5.50925C10.8477 5.60819 10.905 5.74986 10.905 5.93424C10.905 6.11414 10.8454 6.25243 10.7263 6.34912C10.6071 6.44581 10.453 6.49416 10.2642 6.49416H8.15268V8.48421C8.15268 8.68209 8.10208 8.83837 8.00089 8.95305C7.89971 9.06773 7.75916 9.12507 7.57927 9.12507Z" fill="#0066CC"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="15" viewBox="0 0 10 15" fill="none">
+              <path d="M7.00339 1.47266C7.32148 1.47319 7.6264 1.59978 7.85133 1.82471C8.07626 2.04964 8.20286 2.35456 8.20339 2.67266V13.4907L5.46539 10.7807C5.26235 10.5803 4.9886 10.468 4.70339 10.468C4.41817 10.468 4.14442 10.5803 3.94139 10.7807L1.20339 13.4917V2.67266C1.20391 2.35456 1.33051 2.04964 1.55544 1.82471C1.78037 1.59978 2.08529 1.47319 2.40339 1.47266H7.00339ZM7.00339 0.472656H2.40339C1.81991 0.472656 1.26033 0.704441 0.847751 1.11702C0.435171 1.5296 0.203385 2.08918 0.203385 2.67266V14.2607C0.192678 14.4491 0.251773 14.635 0.369385 14.7827C0.426301 14.8462 0.496686 14.8962 0.575403 14.9291C0.654121 14.962 0.739184 14.9769 0.824385 14.9727C0.961446 14.9715 1.09457 14.9267 1.20439 14.8447C1.38976 14.7014 1.56486 14.5454 1.72839 14.3777L4.64439 11.4927C4.66011 11.4771 4.6813 11.4684 4.70339 11.4684C4.72547 11.4684 4.74667 11.4771 4.76239 11.4927L7.67839 14.3787C7.84314 14.5424 8.01673 14.6969 8.19839 14.8417C8.30836 14.9266 8.44342 14.9727 8.58239 14.9727C8.66775 14.977 8.75301 14.9622 8.83191 14.9293C8.91081 14.8964 8.98136 14.8463 9.03839 14.7827C9.15564 14.6348 9.21437 14.449 9.20339 14.2607V2.67266C9.20339 2.08918 8.9716 1.5296 8.55902 1.11702C8.14644 0.704441 7.58686 0.472656 7.00339 0.472656Z" fill="#0066CC"/>
             </svg>
+            Save for later
           </a>
         </p>
       </div>
-      <p class="bs__need-moment">
-        <strong>Need a moment?</strong>
-        Keep all your selections by saving this device to Your Saves, then come back at any time and pick up where you left off.
-        <a href="">
-          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="15" viewBox="0 0 10 15" fill="none">
-            <path d="M7.00339 1.47266C7.32148 1.47319 7.6264 1.59978 7.85133 1.82471C8.07626 2.04964 8.20286 2.35456 8.20339 2.67266V13.4907L5.46539 10.7807C5.26235 10.5803 4.9886 10.468 4.70339 10.468C4.41817 10.468 4.14442 10.5803 3.94139 10.7807L1.20339 13.4917V2.67266C1.20391 2.35456 1.33051 2.04964 1.55544 1.82471C1.78037 1.59978 2.08529 1.47319 2.40339 1.47266H7.00339ZM7.00339 0.472656H2.40339C1.81991 0.472656 1.26033 0.704441 0.847751 1.11702C0.435171 1.5296 0.203385 2.08918 0.203385 2.67266V14.2607C0.192678 14.4491 0.251773 14.635 0.369385 14.7827C0.426301 14.8462 0.496686 14.8962 0.575403 14.9291C0.654121 14.962 0.739184 14.9769 0.824385 14.9727C0.961446 14.9715 1.09457 14.9267 1.20439 14.8447C1.38976 14.7014 1.56486 14.5454 1.72839 14.3777L4.64439 11.4927C4.66011 11.4771 4.6813 11.4684 4.70339 11.4684C4.72547 11.4684 4.74667 11.4771 4.76239 11.4927L7.67839 14.3787C7.84314 14.5424 8.01673 14.6969 8.19839 14.8417C8.30836 14.9266 8.44342 14.9727 8.58239 14.9727C8.66775 14.977 8.75301 14.9622 8.83191 14.9293C8.91081 14.8964 8.98136 14.8463 9.03839 14.7827C9.15564 14.6348 9.21437 14.449 9.20339 14.2607V2.67266C9.20339 2.08918 8.9716 1.5296 8.55902 1.11702C8.14644 0.704441 7.58686 0.472656 7.00339 0.472656Z" fill="#0066CC"/>
-          </svg>
-          Save for later
-        </a>
-      </p>
     </div>
-  </div>
+  </form>
 </div>
 
 <script>
@@ -509,6 +512,31 @@
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+    });
+
+    let btnMainSubmit = document.querySelector('.build-system .btn-main-submit');
+    let inputArray = document.querySelectorAll('.build-system .js-label input');
+    let formData = { items: [] };
+
+    btnMainSubmit.addEventListener('click', (e) => {
+      event.preventDefault();
+      inputArray.forEach((item) => {
+        if (item.checked) {
+          formData.items.push({ id: item.value, quantity: 1 });
+        }
+      });
+
+      fetch(window.Shopify.routes.root + 'cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+        .then((response) => {
+          return response.json();
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
     });
   });
 </script>
