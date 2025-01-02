@@ -9,6 +9,22 @@
         label {
             cursor: pointer;
         }
+        label.popup-label.button--primary:has(input[type="radio"]) {
+            padding: 10px 18px;
+            cursor: pointer;
+            font: inherit;
+            font-size: 16px;
+            color: rgb(var(--color-button-text));
+            background-color: rgba(var(--color-button), var(--alpha-button-background));
+        }
+        label.popup-label.button--secondary:has(input[type="radio"]) {
+            padding: 10px 18px;
+            cursor: pointer;
+            font: inherit;
+            font-size: 16px;
+            color: white;
+            background-color: #39474A;
+        }
         legend,
         h3,
         h2 {
@@ -138,6 +154,44 @@
                     }
                     fieldset:nth-child(1) {
                         background: #F3F4F6;
+                    }
+                }
+                article.popup__room-size {
+                    position: fixed;
+                    left: 50%;
+                    top: 60vh;
+                    transform: translate(-50vh, -50vh);
+                    z-index: 100;
+                    background: #fff;
+                    display: none;
+                    border-radius: 12px;
+                    width: 735px;
+                    max-height: 740px;
+                    height: 80vh;
+                    overflow-y: auto;
+                    &.popup--opened {
+                        display: block;
+                    }
+                    h3 {
+                        font-size: 30px;
+                        line-height: 40px;
+                        font-weight: 700;
+                        color: #0f1c1f;
+                        margin: 33px auto;
+                        text-align: center;
+                    }
+                }
+                .bs__overlay {
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    width: 100%;
+                    z-index: 100;
+                    background-color: rgba(38, 38, 38, .5);
+                    display: none;
+                    &.popup--opened {
+                        display: block;
                     }
                 }
                 
@@ -319,4 +373,5 @@
             }
         }
     }
+
 }
