@@ -1,5 +1,21 @@
 .build-system {
     .build-system__wrapper {
+        fieldset {
+            border: none;
+            display: flex;
+            align-items: center;
+            max-width: 513px;
+            margin: 0 auto;
+            justify-content: space-between;
+            gap: 80px;
+            h2 {
+                width: 50%;
+            }
+            .popup__wrapper-btn {
+                display: flex;
+                flex-direction: column;
+            }
+        }
         input[type="radio"] {
             visibility: hidden;
             width: 0;
