@@ -10,7 +10,7 @@
 {%- endstyle -%}
 
 <div class="build-system__wrapper section-{{ section.id }}-padding">
-  <form method="post" action="/cart/add">
+  <form>
     <div class="bs-section room-size__wrapper page-width">
       <div class="bs__images-wrapp">
         {%- if section.settings.room_size_image != blank -%}
@@ -33,21 +33,21 @@
             <fieldset style="background: #F3F4F6;">
               <h2>Measurement system.<span>Choose your preference</span></h2>
               <div class="popup__wrapper-btn">
-                <label class="popup-label button--primary">Imperial<input type="radio" name="measurement" value="imperial"></label>
-                <label class="popup-label button--secondary">Metric<input type="radio" name="measurement" value="metric"></label>
+                <label class="popup-label button--primary">Imperial<input class="measurement-system" type="radio" name="measurement" value="imperial"></label>
+                <label class="popup-label button--secondary">Metric<input class="measurement-system" type="radio" name="measurement" value="metric"></label>
               </div>
             </fieldset>
             <fieldset style="align-items: baseline;">
               <h2>Enter Dimensions.</h2>
               <div class="popup__wrapper-btn">
                 <div class="popup__wrapper-btn--inline">
-                  <input type="number" placeholder="Length" value="" title="Length" required>
+                  <input class="input__length" type="number" placeholder="Length" value="" title="Length" required>
                   <svg xmlns="http://www.w3.org/2000/svg" width="10" height="13" viewBox="0 0 10 13" fill="none">
                     <path d="M3.968 6.44148L0.208 0.889476H2.032L4.88 5.35348L7.856 0.889476H9.552L5.776 6.44148L9.792 12.3135H7.936L4.864 7.59348L1.696 12.3135H0L3.968 6.44148Z" fill="#8F9394"/>
                   </svg>
-                  <input type="number" placeholder="Width" value="" title="Width" required>
+                  <input class="input__width" type="number" placeholder="Width" value="" title="Width" required>
                 </div>
-                <button class="button button--primary">Continue</button>
+                <button class="button button--primary js-room-size--submit">Continue</button>
               </div>
             </fieldset>
           </form>
@@ -541,6 +541,22 @@
       document.querySelector('.bs__overlay').classList.remove('popup--opened');
     });
 
+    //get room size
+    let roomSizeWrapper = document.querySelector('.popup__room-size');
+    roomSizeWrapper.querySelector('.js-room-size--submit').addEventListener('click', (e) => {
+      event.preventDefault();
+      let dimensions = {};
+      dimensions.lengthRoom = roomSizeWrapper.querySelector('.input__length').value;
+      dimensions.widthRoom = roomSizeWrapper.querySelector('.input__width').value;
+      roomSizeWrapper.querySelectorAll('.measurement-system').forEach((item) => {
+        if (item.checked) {
+          dimensions.measurement = item.value;
+        }
+      });
+      console.log(dimensions);
+    });
+
+    // send to cart
     let btnMainSubmit = document.querySelector('.build-system .btn-main-submit');
     let inputArray = document.querySelectorAll('.build-system .js-label input');
     let formData = { items: [] };
