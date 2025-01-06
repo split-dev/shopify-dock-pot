@@ -100,6 +100,8 @@
         {%- for product in section.settings.s_o_products -%}
           <label class="bs__label-{{ forloop.index }} js-label">
             <input
+              class="js-input-product"
+              data-product_price="{{ product.variants.first.price | money_without_currency }}"
               type="radio"
               name="s_o_products"
               value="{{ product.variants.first.id }}"
@@ -202,6 +204,8 @@
         {%- for product in section.settings.g_s_products -%}
           <label class="bs__label-{{ forloop.index }} js-label">
             <input
+              class="js-input-product"
+              data-product_price="{{ product.variants.first.price | money_without_currency }}"
               type="radio"
               name="g_s_products"
               value="{{ product.variants.first.id }}"
@@ -252,6 +256,8 @@
         {%- for product in section.settings.g_m_products -%}
           <label class="js-label">
             <input
+              class="js-input-product"
+              data-product_price="{{ product.variants.first.price | money_without_currency }}"
               type="radio"
               name="g_m_products"
               value="{{ product.variants.first.id }}"
@@ -302,6 +308,8 @@
         {%- for product in section.settings.t_s_products -%}
           <label class="js-label">
             <input
+              class="js-input-product"
+              data-product_price="{{ product.variants.first.price | money_without_currency }}"
               type="radio"
               name="t_s_products"
               value="{{ product.variants.first.id }}"
@@ -352,6 +360,8 @@
         {%- for product in section.settings.t_n_products -%}
           <label class="js-label">
             <input
+              class="js-input-product"
+              data-product_price="{{ product.variants.first.price | money_without_currency }}"
               type="radio"
               name="t_n_products"
               value="{{ product.variants.first.id }}"
@@ -397,6 +407,8 @@
         {%- for product in section.settings.d_products -%}
           <label class="js-label">
             <input
+              class="js-input-product"
+              data-product_price="{{ product.variants.first.price | money_without_currency }}"
               type="radio"
               name="d_products"
               value="{{ product.variants.first.id }}"
@@ -442,6 +454,8 @@
         {%- for product in section.settings.h_products -%}
           <label class="js-label">
             <input
+              class="js-input-product"
+              data-product_price="{{ product.variants.first.price | money_without_currency }}"
               type="radio"
               name="h_products"
               value="{{ product.variants.first.id }}"
@@ -495,7 +509,7 @@
         </div>
 
         <div class="bs__price-delivery">
-          <h3>USD 20,807.98</h3>
+          <h3></h3>
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="18" viewBox="0 0 23 18" fill="none">
               <path d="M22.482 8.84712L19.562 5.63812C19.3646 5.41937 19.12 5.24829 18.8469 5.13777C18.5737 5.02726 18.279 4.98019 17.985 5.00012H16V2.49512C16 1.83208 15.7366 1.19619 15.2678 0.72735C14.7989 0.258509 14.163 -0.00488281 13.5 -0.00488281H2.5C1.83696 -0.00488281 1.20107 0.258509 0.732233 0.72735C0.263392 1.19619 0 1.83208 0 2.49512V12.2451C0 12.9082 0.263392 13.544 0.732233 14.0129C1.20107 14.4817 1.83696 14.7451 2.5 14.7451H3.048C3.15881 15.3816 3.49048 15.9586 3.98468 16.3747C4.47887 16.7908 5.10396 17.0193 5.75 17.0201C6.36124 17.0488 6.96321 16.8624 7.45133 16.4934C7.93946 16.1244 8.2829 15.596 8.422 15.0001H15.103C15.2666 15.6004 15.6295 16.1273 16.1319 16.4943C16.6344 16.8613 17.2467 17.0467 17.8683 17.0199C18.49 16.9932 19.0841 16.756 19.5532 16.3472C20.0223 15.9384 20.3385 15.3823 20.45 14.7701H21.185C21.4272 14.7944 21.6717 14.765 21.9013 14.684C22.1308 14.603 22.3396 14.4723 22.5129 14.3014C22.6862 14.1305 22.8197 13.9235 22.9039 13.6951C22.9881 13.4667 23.0209 13.2226 23 12.9801V10.1721C23.0016 9.68073 22.8165 9.20709 22.482 8.84712ZM7.426 14.7451C7.32389 15.1111 7.10478 15.4336 6.80215 15.6634C6.49951 15.8932 6.12998 16.0175 5.75 16.0175C5.37002 16.0175 5.00049 15.8932 4.69785 15.6634C4.39522 15.4336 4.17611 15.1111 4.074 14.7451C3.97037 14.419 3.97564 14.068 4.089 13.7451C4.19838 13.39 4.41871 13.0793 4.71765 12.8585C5.01659 12.6378 5.3784 12.5187 5.75 12.5187C6.1216 12.5187 6.48341 12.6378 6.78235 12.8585C7.08129 13.0793 7.30162 13.39 7.411 13.7451C7.52429 14.068 7.52956 14.419 7.426 14.7451ZM8.447 14.0001C8.38724 13.3449 8.09254 12.7334 7.61725 12.2785C7.14197 11.8235 6.51819 11.5558 5.86099 11.5248C5.2038 11.4937 4.55754 11.7013 4.04146 12.1094C3.52538 12.5175 3.1743 13.0985 3.053 13.7451H2.5C2.10234 13.7446 1.72111 13.5864 1.43992 13.3052C1.15873 13.024 1.00053 12.6428 1 12.2451V2.49512C1.00053 2.09746 1.15873 1.71623 1.43992 1.43504C1.72111 1.15385 2.10234 0.995646 2.5 0.995117H13.5C13.8977 0.995646 14.2789 1.15385 14.5601 1.43504C14.8413 1.71623 14.9995 2.09746 15 2.49512V14.0001H8.447ZM19.419 14.7701C19.3137 15.1311 19.0942 15.4483 18.7933 15.6739C18.4925 15.8996 18.1266 16.0215 17.7505 16.0215C17.3744 16.0215 17.0085 15.8996 16.7077 15.6739C16.4068 15.4483 16.1873 15.1311 16.082 14.7701C15.9732 14.4457 15.9732 14.0946 16.082 13.7701C16.145 13.5479 16.2515 13.3405 16.3954 13.1599C16.5393 12.9792 16.7177 12.829 16.9202 12.7179C17.1227 12.6069 17.3452 12.5372 17.5749 12.5129C17.8046 12.4887 18.0368 12.5103 18.258 12.5766C18.4792 12.6429 18.6851 12.7525 18.8635 12.8991C19.042 13.0457 19.1895 13.2263 19.2976 13.4304C19.4056 13.6345 19.472 13.8581 19.4928 14.0881C19.5137 14.3181 19.4886 14.5499 19.419 14.7701ZM22 12.9801C22 13.5491 21.771 13.7701 21.185 13.7701H20.45C20.3657 13.298 20.1585 12.8564 19.8494 12.4899C19.5402 12.1233 19.1399 11.8446 18.6887 11.6819C18.2376 11.5192 17.7516 11.4782 17.2796 11.563C16.8076 11.6478 16.3662 11.8555 16 12.1651V6.00012H17.986C18.1406 5.98183 18.2973 6.00079 18.4431 6.05541C18.5889 6.11004 18.7195 6.19874 18.824 6.31412L21.751 9.52812C21.9118 9.70396 22.0007 9.93382 22 10.1721V12.9801ZM20.676 9.62012C20.7301 9.66766 20.7736 9.72608 20.8035 9.79155C20.8335 9.85703 20.8494 9.9281 20.85 10.0001H17.544C17.4723 10.0068 17.4 9.99778 17.332 9.97382C17.2641 9.94986 17.2022 9.91148 17.1505 9.86131C17.0988 9.81114 17.0586 9.75038 17.0326 9.6832C17.0066 9.61602 16.9955 9.54401 17 9.47212V7.00012H18.073C18.1857 6.99795 18.2974 7.02087 18.4002 7.06722C18.5029 7.11357 18.5941 7.1822 18.667 7.26812L20.676 9.62012Z" fill="#39474A"/>
@@ -629,6 +643,7 @@
         btnPopupRoom.querySelector('.bs__label-price span').innerHTML = btnPopupRoom.querySelector('.bs__label-price').dataset.price * amountRails;
         document.querySelector('.total__wrapper-area').innerHTML = dimensions.lengthRoom * dimensions.widthRoom;
         document.querySelector('.bs__total-wrapper .bs__label-price').innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} sf`;
+        document.querySelector('.bs__price-delivery h3').innerHTML = `USD  ${document.querySelector('.bs__price-delivery h3').dataset.clear_price * amountRails}`
       } else if (dimensions.measurement == 'imperial') {
         console.log('imperial');
       }
@@ -646,16 +661,39 @@
       });
     });
 
+    // Change price in first time
+    let newPrice = 0;
+    document.querySelectorAll('.js-input-product').forEach((item) => {
+      if (item.checked) {
+        newPrice = newPrice + +item.dataset.product_price;
+      }
+    });
+    document.querySelector('.bs__price-delivery h3').innerHTML = `USD ${(newPrice * amountRails).toFixed(2)}`;
+    document.querySelector('.bs__price-delivery h3').dataset.clear_price = `${(newPrice * amountRails).toFixed(2)}`;
+    
+    // Change price in next time
+    let newPriceClick = 0;
+    document.querySelectorAll('.js-input-product').forEach((item) => {
+      item.addEventListener('click', () => {
+        document.querySelectorAll('.js-input-product:checked').forEach((item_) => {
+          newPriceClick = newPriceClick + +item_.dataset.product_price;
+          document.querySelector('.bs__price-delivery h3').innerHTML = `USD ${(newPriceClick * amountRails).toFixed(2)}`;
+        });
+        newPriceClick = 0;
+      });
+    });
+
+    
     // send to cart
     let btnMainSubmit = document.querySelector('.build-system .btn-main-submit');
-    let inputArray = document.querySelectorAll('.build-system .js-label input');
+    let inputArray = document.querySelectorAll('.build-system .js-label:not(.js-popup-room) input');
     let formData = { items: [] };
 
     btnMainSubmit.addEventListener('click', (e) => {
       event.preventDefault();
       inputArray.forEach((item) => {
         if (item.checked) {
-          formData.items.push({ id: item.value, quantity: 1 });
+          formData.items.push({ id: item.value, quantity: amountRails });
         }
       });
 
