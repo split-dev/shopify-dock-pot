@@ -149,6 +149,7 @@
                 letter-spacing: 0.12px;
                 display: flex;
                 justify-content: center;
+                min-width: fit-content;
             }
         }
         label:not(.popup-label):has(input[type=radio]:checked) {
