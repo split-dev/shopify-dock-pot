@@ -34,7 +34,7 @@
               <h2>Measurement system.<span>Choose your preference</span></h2>
               <div class="popup__wrapper-btn">
                 <label class="popup-label button--primary">Imperial<input class="measurement-system" type="radio" name="measurement" value="imperial"></label>
-                <label class="popup-label button--secondary">Metric<input class="measurement-system" type="radio" name="measurement" value="metric"></label>
+                <label class="popup-label button--secondary">Metric<input class="measurement-system" type="radio" name="measurement" value="metric" checked></label>
               </div>
             </fieldset>
             <fieldset style="align-items: baseline;">
@@ -55,8 +55,16 @@
         <h2>Room size. <span>Enter dimensions</span></h2>
         <label class="js-popup-room js-label">
           <input type="radio" name="roomsize" value="">
-          <p class="bs__title-subtitle">Enter room size<span>850 bays requried</span></p>
-          <p class="bs__label-price">USD 3,629</p>
+          <p class="bs__title-subtitle">
+            Enter room size
+            <span>
+              <span>0</span>
+              bays requried
+            </span>
+          </p>
+          <p class="bs__label-price" data-price="{{- section.settings.price_1_rails -}}">
+            USD <span style="display: contents;">{{- section.settings.price_1_rails -}}</span>
+          </p>
         </label>
       </div>
     </div>
@@ -91,7 +99,14 @@
 
         {%- for product in section.settings.s_o_products -%}
           <label class="bs__label-{{ forloop.index }} js-label">
-            <input type="radio" name="s_o_products" value="{{ product.variants.first.id }}">
+            <input
+              type="radio"
+              name="s_o_products"
+              value="{{ product.variants.first.id }}"
+              {%- if forloop.index == 1 -%}
+                checked
+              {%- endif -%}
+            >
             <p class="bs__title-subtitle">
               {{ product.title }}
               <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
@@ -134,8 +149,15 @@
         <h2>Plant capacity. <span>Choose the amount of plants per rail</span></h2>
         <div class="bs__label-wrapp">
           {%- for product in section.settings.p_c_products -%}
-            <label class="js-label">
-              <input type="radio" name="p_c_products" value="{{ product.variants.first.id }}">
+            <label class="js-label js-pots" data-count="{{ forloop.index | plus: 2 }}" data-plant_count_pot="{{  section.settings.plant_count_pot }}">
+              <input
+                type="radio"
+                name="p_c_products"
+                value="{{ product.variants.first.id }}"
+                {%- if forloop.index == 1 -%}
+                  checked
+                {%- endif -%}
+              >
               <span>{{ product.metafields.custom.bs_plant_image | metafield_tag }}</span>
               <p class="bs__title-subtitle">
                 {{ product.title }}
@@ -179,7 +201,14 @@
         <h2>Your grow style. <span>Choose the system that supports your grow better</span></h2>
         {%- for product in section.settings.g_s_products -%}
           <label class="bs__label-{{ forloop.index }} js-label">
-            <input type="radio" name="g_s_products" value="{{ product.variants.first.id }}">
+            <input
+              type="radio"
+              name="g_s_products"
+              value="{{ product.variants.first.id }}"
+              {%- if forloop.index == 1 -%}
+                checked
+              {%- endif -%}
+            >
             <p class="bs__title-subtitle">
               {{ product.title }}
               <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
@@ -222,7 +251,14 @@
         <h2>Growing medium. <span>Choose the growing medium that supports your garden</span></h2>
         {%- for product in section.settings.g_m_products -%}
           <label class="js-label">
-            <input type="radio" name="g_m_products" value="{{ product.variants.first.id }}">
+            <input
+              type="radio"
+              name="g_m_products"
+              value="{{ product.variants.first.id }}"
+              {%- if forloop.index == 1 -%}
+                checked
+              {%- endif -%}
+            >
             <p class="bs__title-subtitle">
               {{ product.title }}
               <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
@@ -265,7 +301,14 @@
         <h2>Trellis support. <span>Choose the trellis support that works for you</span></h2>
         {%- for product in section.settings.t_s_products -%}
           <label class="js-label">
-            <input type="radio" name="t_s_products" value="{{ product.variants.first.id }}">
+            <input
+              type="radio"
+              name="t_s_products"
+              value="{{ product.variants.first.id }}"
+              {%- if forloop.index == 1 -%}
+                checked
+              {%- endif -%}
+            >
             <p class="bs__title-subtitle">
               {{ product.title }}
               <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
@@ -308,7 +351,14 @@
         <h2>Trellis netting. <span>Choose the netting that fits your system</span></h2>
         {%- for product in section.settings.t_n_products -%}
           <label class="js-label">
-            <input type="radio" name="t_n_products" value="{{ product.variants.first.id }}">
+            <input
+              type="radio"
+              name="t_n_products"
+              value="{{ product.variants.first.id }}"
+              {%- if forloop.index == 1 -%}
+                checked
+              {%- endif -%}
+            >
             <p class="bs__title-subtitle">
               {{ product.title }}
               <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
@@ -346,7 +396,14 @@
         <h2>Drainage. <span>Choose from our supporting drainage or source your own</span></h2>
         {%- for product in section.settings.d_products -%}
           <label class="js-label">
-            <input type="radio" name="d_products" value="{{ product.variants.first.id }}">
+            <input
+              type="radio"
+              name="d_products"
+              value="{{ product.variants.first.id }}"
+              {%- if forloop.index == 1 -%}
+                checked
+              {%- endif -%}
+            >
             <p class="bs__title-subtitle">
               {{ product.title }}
               <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
@@ -384,7 +441,14 @@
         <h2>Hardware. <span>Choose from our supporting hardware or source your own</span></h2>
         {%- for product in section.settings.h_products -%}
           <label class="js-label">
-            <input type="radio" name="h_products" value="{{ product.variants.first.id }}">
+            <input
+              type="radio"
+              name="h_products"
+              value="{{ product.variants.first.id }}"
+              {%- if forloop.index == 1 -%}
+                checked
+              {%- endif -%}
+            >
             <p class="bs__title-subtitle">
               {{ product.title }}
               <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
@@ -398,20 +462,24 @@
     <div class="bs-section total__wrapper">
       <div class="bs__total-wrapper page-width">
         <div>
-          <h3>Room area. <span>1600sf</span></h3>
+          <h3>
+            Room area.
+            <span>
+              <span class="total__wrapper-area">0</span>
+              sf
+            </span>
+          </h3>
           <label>
-            {% comment %} <input type="radio" name="scateoption" value=""> {% endcomment %}
             <p class="bs__title-subtitle">
               Canopy area
               <span>Total flower canopy area</span>
             </p>
-            <p class="bs__label-price">1536.00 sf</p>
+            <p class="bs__label-price">0 sf</p>
           </label>
         </div>
         <div>
-          <h3>Plant count. <span>1525</span></h3>
+          <h3>Plant count. <span class="plant-count">0</span></h3>
           <label>
-            {% comment %} <input type="radio" name="scateoption" value=""> {% endcomment %}
             <p class="bs__title-subtitle">
               Yield increase
               <span>Fixed pot or aisle system</span>
@@ -542,10 +610,11 @@
     });
 
     //get room size
+    let dimensions = {};
     let roomSizeWrapper = document.querySelector('.popup__room-size');
+    let amountRails = 1;
     roomSizeWrapper.querySelector('.js-room-size--submit').addEventListener('click', (e) => {
       event.preventDefault();
-      let dimensions = {};
       dimensions.lengthRoom = roomSizeWrapper.querySelector('.input__length').value;
       dimensions.widthRoom = roomSizeWrapper.querySelector('.input__width').value;
       roomSizeWrapper.querySelectorAll('.measurement-system').forEach((item) => {
@@ -553,7 +622,28 @@
           dimensions.measurement = item.value;
         }
       });
-      console.log(dimensions);
+      if (dimensions.measurement == 'metric') {
+        amountRails = ((dimensions.lengthRoom * dimensions.widthRoom) / {{ section.settings.area_1_rails }}).toFixed();
+        btnPopupRoom.querySelector('input[type=radio]').value = amountRails;
+        btnPopupRoom.querySelector('.bs__title-subtitle span span').innerHTML = amountRails;
+        btnPopupRoom.querySelector('.bs__label-price span').innerHTML = btnPopupRoom.querySelector('.bs__label-price').dataset.price * amountRails;
+        document.querySelector('.total__wrapper-area').innerHTML = dimensions.lengthRoom * dimensions.widthRoom;
+        document.querySelector('.bs__total-wrapper .bs__label-price').innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} sf`;
+      } else if (dimensions.measurement == 'imperial') {
+        console.log('imperial');
+      }
+      document.querySelector('.popup__room-size').classList.remove('popup--opened');
+      document.querySelector('.bs__overlay').classList.remove('popup--opened');
+    });
+
+    // Pots
+    document.querySelectorAll('.plant-capacity__wrapper .js-pots').forEach((item) => {
+      item.addEventListener('click', () => {
+        if (item.querySelector('input').checked) {
+          let railsPot = amountRails * item.dataset.count;
+          document.querySelector('.bs__total-wrapper .plant-count').innerHTML = (railsPot * item.dataset.plant_count_pot).toFixed(2);
+        }
+      });
     });
 
     // send to cart
@@ -600,6 +690,16 @@
       "label": "Animated GIF"
     },
     {
+      "type": "number",
+      "id": "price_1_rails",
+      "label": "Price for one rails"
+    },
+    {
+      "type": "number",
+      "id": "area_1_rails",
+      "label": "Area for one rails in m2"
+    },
+    {
       "type": "header",
       "content": "Room size POPUP"
     },
@@ -627,6 +727,11 @@
       "id": "p_c_products",
       "label": "Plant capacity. - Products",
       "limit": 3
+    },
+    {
+      "type": "number",
+      "id": "plant_count_pot",
+      "label": "Plant count in one Pot"
     },
     {
       "type": "header",
