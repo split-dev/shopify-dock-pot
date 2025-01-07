@@ -256,6 +256,7 @@
                 }
             }
 
+            article.popup__share,
             article.popup__skate-options,
             article.popup__room-size {
                 position: fixed;
@@ -492,6 +493,7 @@
                     gap: 10px;
                     margin-top: 10px;
                     justify-content: end;
+                    cursor: pointer;
                 }
             }
         }
