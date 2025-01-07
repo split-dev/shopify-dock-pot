@@ -31,21 +31,45 @@
           {%- endif -%}
           <form>
             <fieldset style="background: #F3F4F6;">
-              <h2>Measurement system.<span>Choose your preference</span></h2>
+              <h2>Measurement system. <span>Choose your preference</span></h2>
               <div class="popup__wrapper-btn">
-                <label class="popup-label button--primary">Imperial<input class="measurement-system" type="radio" name="measurement" value="imperial"></label>
-                <label class="popup-label button--secondary">Metric<input class="measurement-system" type="radio" name="measurement" value="metric" checked></label>
+                <label class="popup-label button--primary">Imperial<input class="measurement-system m-s__imperial" type="radio" name="measurement" value="imperial"></label>
+                <label class="popup-label button--secondary">Metric<input class="measurement-system m-s__metric" type="radio" name="measurement" value="metric" checked></label>
               </div>
             </fieldset>
             <fieldset style="align-items: baseline;">
-              <h2>Enter Dimensions.</h2>
+              <h2>Enter Dimensions. <span class="measurement-system__output">In meters</span></h2>
               <div class="popup__wrapper-btn">
                 <div class="popup__wrapper-btn--inline">
-                  <input class="input__length" type="number" placeholder="Length" value="" title="Length" required>
+                  <input
+                    class="input__length"
+                    type="number"
+                    placeholder="Length"
+                    value=""
+                    min="1"
+                    step="1"
+                    required
+                    onfocus="this.placeholder = ''"
+                    onblur="this.placeholder = 'Length'"
+                    oninput="this.value = this.value.replace(/[^\d-]/g, '');"
+                    onkeydown="return preventDecimalInput(event)"
+                  >
                   <svg xmlns="http://www.w3.org/2000/svg" width="10" height="13" viewBox="0 0 10 13" fill="none">
                     <path d="M3.968 6.44148L0.208 0.889476H2.032L4.88 5.35348L7.856 0.889476H9.552L5.776 6.44148L9.792 12.3135H7.936L4.864 7.59348L1.696 12.3135H0L3.968 6.44148Z" fill="#8F9394"/>
                   </svg>
-                  <input class="input__width" type="number" placeholder="Width" value="" title="Width" required>
+                  <input
+                    class="input__width"
+                    type="number"
+                    placeholder="Width"
+                    value=""
+                    min="1"
+                    step="1"
+                    required
+                    onfocus="this.placeholder = ''"
+                    onblur="this.placeholder = 'Width'"
+                    oninput="this.value = this.value.replace(/[^\d-]/g, '');"
+                    onkeydown="return preventDecimalInput(event)"
+                  >
                 </div>
                 <button class="button button--primary js-room-size--submit">Continue</button>
               </div>
@@ -148,7 +172,11 @@
         <div class="bs__label-info">
           <p>Trellis handles and netting.</p>
           <p>Trellis handles are only compatible with the Skate and handle system</p>
-          <a class="skate-options--open-popup" href="#">More info</a>
+          {%- if section.settings.s_o_more_info_link != blank -%}
+            <a href="{{ section.settings.s_o_more_info_link }}">More info</a>
+          {% else %}
+            <a class="skate-options--open-popup" href="#">More info</a>
+          {%- endif -%}
         </div>
       </div>
     </div>
@@ -200,7 +228,9 @@
         <div class="bs__label-info">
           <p>Plant capacity.</p>
           <p>Information about the advantages and disadvantages of using a number of pots.</p>
-          <a href="#">More info</a>
+          {%- if section.settings.p_c_more_info_link != blank -%}
+            <a href="{{ section.settings.p_c_more_info_link }}">More info</a>
+          {%- endif -%}
         </div>
       </div>
     </div>
@@ -252,7 +282,9 @@
         <div class="bs__label-info">
           <p>Compatibility.</p>
           <p>Infinity trays are not compatible with theDockPot system, Expandable CocoBagsare whats required when using infinity trays.</p>
-          <a href="#">More info</a>
+          {%- if section.settings.g_s_more_info_link != blank -%}
+            <a href="{{ section.settings.g_s_more_info_link }}">More info</a>
+          {%- endif -%}
         </div>
       </div>
     </div>
@@ -304,7 +336,9 @@
         <div class="bs__label-info">
           <p>CocoBags VS CocoPuck & MeshDisk</p>
           <p>Trellis handles are only compatible with the Skate and handle system</p>
-          <a href="#">More info</a>
+          {%- if section.settings.g_m_more_info_link != blank -%}
+            <a href="{{ section.settings.g_m_more_info_link }}">More info</a>
+          {%- endif -%}
         </div>
       </div>
     </div>
@@ -356,7 +390,9 @@
         <div class="bs__label-info">
           <p>TrellisHandles VS TrellisStakes</p>
           <p>Trellis handles are only compatible with the Skate and handle system</p>
-          <a href="#">More info</a>
+          {%- if section.settings.t_s_more_info_link != blank -%}
+            <a href="{{ section.settings.t_s_more_info_link }}">More info</a>
+          {%- endif -%}
         </div>
       </div>
     </div>
@@ -529,7 +565,7 @@
           {%- endif -%}
           <form>
             <fieldset style="background: #F3F4F6; padding: 30px 26px; gap: 27px;">
-              <div style="width: calc(50% - 27px);">
+              <div>
                 <h2>
                   Room area.
                   <span>
@@ -545,7 +581,7 @@
                   <p class="bs__label-price js-bs__label-price">0 sf</p>
                 </label>
               </div>
-              <div style="width: calc(50% - 27px);">
+              <div>
                 <h2>Plant count. <span class="plant-count">0</span></h2>
                 <label style="width: 100%;">
                   <p class="bs__title-subtitle">
@@ -613,6 +649,7 @@
                   <path d="M7.38579 12.5833C6.44625 12.5833 5.56178 12.4034 4.73238 12.0438C3.90297 11.6842 3.17134 11.1874 2.53749 10.5536C1.90364 9.91972 1.4069 9.18809 1.04726 8.35869C0.687629 7.52928 0.507812 6.64481 0.507812 5.70527C0.507812 4.76573 0.687629 3.88126 1.04726 3.05185C1.4069 2.22245 1.90251 1.49082 2.53412 0.856968C3.16573 0.223115 3.89623 -0.273628 4.72563 -0.633262C5.55504 -0.992894 6.43951 -1.17271 7.37905 -1.17271C8.31859 -1.17271 9.20419 -0.992894 10.0358 -0.633262C10.8675 -0.273628 11.6002 0.223115 12.2341 0.856968C12.8679 1.49082 13.3647 2.22245 13.7243 3.05185C14.084 3.88126 14.2638 4.76573 14.2638 5.70527C14.2638 6.64481 14.084 7.52928 13.7243 8.35869C13.3647 9.18809 12.8679 9.91972 12.2341 10.5536C11.6002 11.1874 10.8686 11.6842 10.0392 12.0438C9.20981 12.4034 8.32534 12.5833 7.38579 12.5833ZM7.38579 11.4369C8.18148 11.4369 8.92547 11.2886 9.61777 10.9919C10.3101 10.6952 10.9192 10.285 11.4452 9.76126C11.9711 9.23754 12.3813 8.62954 12.6758 7.93724C12.9702 7.24495 13.1174 6.50096 13.1174 5.70527C13.1174 4.90958 12.9691 4.16559 12.6724 3.4733C12.3757 2.781 11.9655 2.17188 11.4418 1.64591C10.9181 1.11995 10.3089 0.709743 9.6144 0.415294C8.91985 0.120844 8.17474 -0.0263805 7.37905 -0.0263805C6.58336 -0.0263805 5.83937 0.120844 5.14708 0.415294C4.45478 0.709743 3.8479 1.11995 3.32644 1.64591C2.80497 2.17188 2.39701 2.781 2.10256 3.4733C1.80811 4.16559 1.66089 4.90958 1.66089 5.70527C1.66089 6.50096 1.80811 7.24495 2.10256 7.93724C2.39701 8.62954 2.80609 9.23754 3.32981 9.76126C3.85352 10.285 4.46153 10.6952 5.15382 10.9919C5.84612 11.2886 6.59011 11.4369 7.38579 11.4369ZM4.25699 5.70527C4.25699 5.53444 4.30981 5.39621 4.41545 5.29057C4.52109 5.18493 4.65933 5.13211 4.83015 5.13211H6.81263V3.14963C6.81263 2.9788 6.86433 2.83945 6.96772 2.73155C7.07112 2.62366 7.20598 2.56972 7.37231 2.56972C7.54313 2.56972 7.68137 2.62254 7.78701 2.72818C7.89265 2.83383 7.94547 2.97431 7.94547 3.14963V5.13211H9.93469C10.1055 5.13211 10.2438 5.18493 10.3494 5.29057C10.455 5.39621 10.5079 5.53444 10.5079 5.70527C10.5079 5.86711 10.4539 5.99972 10.346 6.10311C10.2381 6.20651 10.101 6.25821 9.93469 6.25821H7.94547V8.24743C7.94547 8.41825 7.89265 8.55649 7.78701 8.66213C7.68137 8.76777 7.54313 8.82059 7.37231 8.82059C7.20598 8.82059 7.07112 8.76777 6.96772 8.66213C6.86433 8.55649 6.81263 8.41825 6.81263 8.24743V6.25821H4.83015C4.65933 6.25821 4.52109 6.20651 4.41545 6.10311C4.30981 5.99972 4.25699 5.86711 4.25699 5.70527Z" fill="#67B035"/>
                 </svg>
               </a>
+              <input type="date">
             </p>
           </div>
         </div>
@@ -671,6 +708,7 @@
                 <path d="M7.59277 12.8083C6.96764 12.8083 6.36388 12.7263 5.78148 12.5621C5.19908 12.398 4.65154 12.1641 4.13885 11.8605C3.62616 11.557 3.16069 11.1961 2.74244 10.7778C2.32419 10.3596 1.96328 9.89411 1.65972 9.38142C1.35615 8.86873 1.12229 8.32118 0.958141 7.73878C0.79399 7.15638 0.711914 6.55262 0.711914 5.9275C0.711914 5.29788 0.79399 4.69299 0.958141 4.11284C1.12229 3.53269 1.35503 2.98627 1.65634 2.47358C1.95766 1.96089 2.31745 1.49542 2.73569 1.07717C3.15394 0.658925 3.61941 0.298018 4.1321 -0.00554943C4.64479 -0.309116 5.19234 -0.542975 5.77474 -0.707127C6.35714 -0.871278 6.9609 -0.953353 7.58602 -0.953353C8.21564 -0.953353 8.82165 -0.871278 9.40405 -0.707127C9.98645 -0.542975 10.5329 -0.309116 11.0433 -0.00554943C11.5538 0.298018 12.0192 0.658925 12.4397 1.07717C12.8602 1.49542 13.2222 1.96089 13.5258 2.47358C13.8294 2.98627 14.0632 3.53269 14.2274 4.11284C14.3915 4.69299 14.4736 5.29788 14.4736 5.9275C14.4736 6.55262 14.3915 7.15638 14.2274 7.73878C14.0632 8.32118 13.8294 8.86873 13.5258 9.38142C13.2222 9.89411 12.8613 10.3596 12.4431 10.7778C12.0248 11.1961 11.5594 11.557 11.0467 11.8605C10.534 12.1641 9.98757 12.398 9.40742 12.5621C8.82727 12.7263 8.22239 12.8083 7.59277 12.8083ZM7.59277 11.6615C8.23138 11.6615 8.83739 11.566 9.41079 11.3748C9.9842 11.1837 10.5093 10.9127 10.986 10.562C11.4627 10.2112 11.8764 9.79742 12.2272 9.3207C12.578 8.84399 12.849 8.31893 13.0401 7.74553C13.2312 7.17212 13.3268 6.56611 13.3268 5.9275C13.3268 5.28888 13.2301 4.68287 13.0367 4.10947C12.8433 3.53607 12.5713 3.01101 12.2205 2.53429C11.8697 2.05758 11.4559 1.64383 10.9792 1.29304C10.5025 0.942254 9.97745 0.671292 9.40405 0.480158C8.83064 0.289023 8.22463 0.193456 7.58602 0.193456C6.9474 0.193456 6.34252 0.289023 5.77136 0.480158C5.20021 0.671292 4.67627 0.942254 4.19956 1.29304C3.72285 1.64383 3.31022 2.05758 2.96168 2.53429C2.61314 3.01101 2.34331 3.53607 2.15217 4.10947C1.96104 4.68287 1.86547 5.28888 1.86547 5.9275C1.86547 6.56611 1.96104 7.17212 2.15217 7.74553C2.34331 8.31893 2.61314 8.84399 2.96168 9.3207C3.31022 9.79742 3.72285 10.2112 4.19956 10.562C4.67627 10.9127 5.20133 11.1837 5.77474 11.3748C6.34814 11.566 6.95415 11.6615 7.59277 11.6615ZM7.57927 9.12507C7.39938 9.12507 7.26109 9.06661 7.1644 8.94968C7.06771 8.83275 7.01936 8.67759 7.01936 8.48421V6.49416H4.91463C4.72574 6.49416 4.57059 6.44581 4.44916 6.34912C4.32773 6.25243 4.26702 6.11414 4.26702 5.93424C4.26702 5.74986 4.32549 5.60819 4.44241 5.50925C4.55934 5.41031 4.71675 5.36084 4.91463 5.36084H7.01936V3.24262C7.01936 3.04923 7.06771 2.89408 7.1644 2.77715C7.26109 2.66022 7.39938 2.60175 7.57927 2.60175C7.75916 2.60175 7.89971 2.65909 8.00089 2.77378C8.10208 2.88846 8.15268 3.04474 8.15268 3.24262V5.36084H10.2642C10.462 5.36084 10.6183 5.41031 10.733 5.50925C10.8477 5.60819 10.905 5.74986 10.905 5.93424C10.905 6.11414 10.8454 6.25243 10.7263 6.34912C10.6071 6.44581 10.453 6.49416 10.2642 6.49416H8.15268V8.48421C8.15268 8.68209 8.10208 8.83837 8.00089 8.95305C7.89971 9.06773 7.75916 9.12507 7.57927 9.12507Z" fill="#0066CC"/>
               </svg>
             </a>
+            <input type="date">
           </p>
         </div>
         <p class="bs__need-moment">
@@ -700,7 +738,7 @@
       },
     });
 
-    // open popup room size
+    // open room size popup
     let btnPopupRoom = document.querySelector('.build-system .js-popup-room');
     btnPopupRoom.addEventListener('click', () => {
       document.querySelector('.popup__room-size').classList.add('popup--opened');
@@ -715,7 +753,7 @@
       document.querySelector('.bs__overlay').classList.remove('popup--opened');
     });
 
-    // open skate-options--open-popup
+    // open skate-options-popup
     document.querySelector('.skate-options--open-popup').addEventListener('click', () => {
       document.querySelector('.popup__skate-options').classList.add('popup--opened');
       document.querySelector('.skate-options__wrapper .bs__overlay').classList.add('popup--opened');
@@ -729,7 +767,7 @@
       document.querySelector('.skate-options__wrapper .bs__overlay').classList.remove('popup--opened');
     });
 
-    // open share--popup
+    // open share-popup
     document.querySelector('.bs__share').addEventListener('click', () => {
       document.querySelector('.popup__share').classList.add('popup--opened');
       document.querySelector('.bs__total-wrapper .bs__overlay').classList.add('popup--opened');
@@ -747,6 +785,19 @@
     let dimensions = {};
     let roomSizeWrapper = document.querySelector('.popup__room-size');
     let amountRails = 1;
+
+    document.querySelectorAll('.measurement-system').forEach(item => {
+      item.addEventListener('click', () => {
+        if (item.classList.contains("m-s__imperial")) {
+          document.querySelector('.measurement-system__output').innerHTML = "In yard";
+        } else if (item.classList.contains("m-s__metric")) {
+          document.querySelector('.measurement-system__output').innerHTML = "In meter"
+        }
+      });
+    });
+    function preventDecimalInput(e) {
+      return !(e.key === '.');
+    }
     
     roomSizeWrapper.querySelector('.js-room-size--submit').addEventListener('click', (e) => {
       event.preventDefault();
@@ -762,7 +813,6 @@
         btnPopupRoom.querySelector('input[type=radio]').value = amountRails;
         btnPopupRoom.querySelector('.bs__title-subtitle span span').innerHTML = amountRails;
         btnPopupRoom.querySelector('.bs__label-price span').innerHTML = btnPopupRoom.querySelector('.bs__label-price').dataset.price * amountRails;
-
         document.querySelectorAll('.bs__total-wrapper  .total__wrapper-area').forEach((item) => {
           item.innerHTML = dimensions.lengthRoom * dimensions.widthRoom;
         });
@@ -811,13 +861,22 @@
       });
     });
 
+    // open day picker
+    document.querySelector('.bs__price-delivery a').addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelector('.bs__price-delivery a').nextElementSibling.showPicker();
+    });
+    document.querySelector('.bs__delivery a').addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelector('.bs__delivery a').nextElementSibling.showPicker();
+    });
+
     // send to cart
     let btnMainSubmit = document.querySelector('.build-system .btn-main-submit');
     let inputArray = document.querySelectorAll('.build-system .js-label:not(.js-popup-room) input');
     let formData = { items: [] };
-
     btnMainSubmit.addEventListener('click', (e) => {
-      event.preventDefault();
+      e.preventDefault();
       inputArray.forEach((item) => {
         if (item.checked) {
           formData.items.push({ id: item.value, quantity: amountRails });
@@ -884,6 +943,11 @@
       "limit": 3
     },
     {
+      "type": "url",
+      "id": "s_o_more_info_link",
+      "label": "More info link"
+    },
+    {
       "type": "header",
       "content": "Skate options POPUP"
     },
@@ -923,6 +987,11 @@
       "label": "Plant count in one Pot"
     },
     {
+      "type": "url",
+      "id": "p_c_more_info_link",
+      "label": "More info link"
+    },
+    {
       "type": "header",
       "content": "Your grow style"
     },
@@ -931,6 +1000,11 @@
       "id": "g_s_products",
       "label": "Your grow style. - Products",
       "limit": 3
+    },
+    {
+      "type": "url",
+      "id": "g_s_more_info_link",
+      "label": "More info link"
     },
     {
       "type": "header",
@@ -943,6 +1017,11 @@
       "limit": 3
     },
     {
+      "type": "url",
+      "id": "g_m_more_info_link",
+      "label": "More info link"
+    },
+    {
       "type": "header",
       "content": "Trellis support"
     },
@@ -951,6 +1030,11 @@
       "id": "t_s_products",
       "label": "Trellis support. - Products",
       "limit": 3
+    },
+    {
+      "type": "url",
+      "id": "t_s_more_info_link",
+      "label": "More info link"
     },
     {
       "type": "header",

@@ -77,6 +77,7 @@
           "skate-pro",
           "skate-pro-copy"
         ],
+        "s_o_more_info_link": "",
         "s_o_popup_image": "shopify://shop_images/image_12.png",
         "s_o_popup_content": "<p><strong>Headline goes here</strong></p><p>Taerchil iquaectur? Ullupidita corecum ut autem re et volor acerum, con et lande verorro videleste pro cone consenis eaquam voluptaquid ut et, idemquatias dem. Nam andic tecae vende eres et laborem ventempor rerate que ea que plit, nit lis re nus dis eatiundio cuptur atur as eos </p><p><strong>Headline goes here</strong></p><p>excerrum laut eatem quisqui busapit, si con ea commolo reprat quat aut aceatur, volore con rehendio. Et verum, quos es earias alicide llorae venihitatem que volor aturi dessit lautempor seque lautemp orestis quassimi, iur sita dolor aut aut magnimp ostissi dolut esto ipiet ut pa ex et volupta speriam, ut velique verrum quiam sincius essequi ilictur rerchiliti solorem. Ucilis volorectur, tectatem simpore con parchil labores tiunti same nusdam latet as cuptat ut labo. Doloriorae excearci dolore veriber iberatum</p>",
         "s_o_popup_list_left": "<p><strong>Includes</strong></p><ul><li>aceatur, volore con </li><li>aceatur, volore con </li><li>aceatur, volore con </li><li>aceatur, volore con</li></ul>",
@@ -87,19 +88,23 @@
           "4x-pots-or-cocobags-copy"
         ],
         "plant_count_pot": 35,
+        "p_c_more_info_link": "shopify://pages/build-your-sustem",
         "g_s_products": [
           "dockpots",
           "infinity-trays-300",
           "infinity-trays-450"
         ],
+        "g_s_more_info_link": "shopify://pages/build-your-sustem",
         "g_m_products": [
           "cocobags",
           "cocopuck-meshdisk"
         ],
+        "g_m_more_info_link": "shopify://pages/build-your-sustem",
         "t_s_products": [
           "trellis-handles",
           "trellis-stakes"
         ],
+        "t_s_more_info_link": "shopify://pages/build-your-sustem",
         "t_n_products": [
           "trellis-netting",
           "trellis-netting-roll-800"
