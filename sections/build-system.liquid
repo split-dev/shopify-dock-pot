@@ -505,36 +505,64 @@
     <div class="bs-section total__wrapper">
       <div class="bs__total-wrapper page-width">
         <span class="bs__overlay"></span>
-        <article class="popup__room-size">
+        <article class="popup__share">
           <span class="popup__icon-close">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z" fill="#8F9394"/>
             </svg>
           </span>
-          <h3>Measure your grow room.</h3>
-          {%- if section.settings.r_s_popup_image != blank -%}
-            {{ section.settings.r_s_popup_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" width="192" height="31" viewBox="0 0 192 31" fill="none">
+              <path d="M187.96 29.5498C187.461 29.5498 186.985 29.4631 186.551 29.2681C186.118 29.0948 185.749 28.8349 185.424 28.5099C185.099 28.1849 184.839 27.795 184.665 27.3617C184.492 26.9285 184.405 26.4518 184.405 25.9536C184.405 25.4553 184.492 24.9787 184.687 24.5454C184.86 24.1122 185.121 23.7222 185.446 23.3973C185.771 23.0723 186.161 22.8124 186.594 22.639C187.028 22.4657 187.505 22.3574 188.003 22.3574C188.502 22.3574 188.979 22.4441 189.412 22.6174C189.846 22.7907 190.236 23.0507 190.539 23.3756C190.864 23.7006 191.103 24.0689 191.298 24.5021C191.493 24.9354 191.558 25.3903 191.558 25.9103C191.558 26.4302 191.471 26.8851 191.276 27.3184C191.103 27.7517 190.843 28.1416 190.517 28.4666C190.192 28.7915 189.802 29.0515 189.369 29.2248C188.935 29.3981 188.458 29.5064 187.96 29.5064V29.5498ZM187.96 28.7699C188.35 28.7699 188.718 28.7049 189.065 28.5532C189.39 28.4016 189.694 28.2066 189.954 27.9466C190.214 27.6867 190.409 27.3834 190.539 27.0584C190.669 26.7118 190.756 26.3435 190.756 25.9319C190.756 25.5203 190.691 25.152 190.561 24.8271C190.431 24.4805 190.236 24.1988 189.997 23.9389C189.759 23.6789 189.455 23.4839 189.13 23.3539C188.805 23.224 188.415 23.1373 188.025 23.1373C187.635 23.1373 187.266 23.2023 186.919 23.3539C186.573 23.5056 186.291 23.7006 186.031 23.9605C185.771 24.2205 185.597 24.5238 185.446 24.8487C185.316 25.1954 185.251 25.5636 185.251 25.9536C185.251 26.3435 185.316 26.7118 185.446 27.0584C185.576 27.4051 185.771 27.7083 186.009 27.9466C186.248 28.2066 186.551 28.4016 186.898 28.5316C187.245 28.6615 187.591 28.7482 188.003 28.7482L187.96 28.7699ZM186.356 27.9033V24.0255H188.112C188.675 24.0255 189.109 24.1555 189.412 24.4155C189.715 24.6754 189.867 25.0221 189.867 25.4553C189.867 25.9103 189.715 26.2569 189.412 26.4952C189.109 26.7335 188.675 26.8635 188.133 26.8635H187.613V27.925H186.356V27.9033ZM187.591 25.9536H188.025C188.198 25.9536 188.35 25.9103 188.458 25.8236C188.567 25.737 188.61 25.607 188.61 25.4337C188.61 25.2603 188.567 25.1304 188.458 25.0437C188.35 24.9571 188.22 24.9137 188.025 24.9137H187.591V25.9536ZM188.762 27.9033L187.808 26.4302H189.087L190.041 27.9033H188.762Z" fill="#404546"/>
+              <path d="M0 28.8776V1.75473C0 1.45143 0.238418 1.21313 0.541859 1.21313H12.8746C21.3493 1.21313 27.223 6.17411 27.223 15.3162C27.223 24.4582 21.2626 29.4192 12.7879 29.4192H0.541859C0.238418 29.4192 0 29.1809 0 28.8776ZM7.93282 22.5302H12.0943C16.6893 22.5302 19.2685 20.4288 19.2685 15.3162C19.2685 10.2035 16.7326 8.10217 12.0943 8.10217H7.93282V22.5302Z" fill="#404546"/>
+              <path d="M28.6533 18.7389C28.6533 11.9799 33.9852 7.21387 41.3111 7.21387C48.6371 7.21387 53.969 11.9799 53.969 18.7389C53.969 25.498 48.6371 30.264 41.3111 30.264C33.9852 30.264 28.6533 25.5196 28.6533 18.7389ZM46.2312 18.7389C46.2312 15.966 44.3456 13.9079 41.3111 13.9079C38.2767 13.9079 36.3911 15.966 36.3911 18.7389C36.3911 21.5119 38.2767 23.5699 41.3111 23.5699C44.3456 23.5699 46.2312 21.5119 46.2312 18.7389Z" fill="#404546"/>
+              <path d="M55.0312 18.7389C55.0312 12.0015 60.3198 7.21387 67.4507 7.21387C73.0427 7.21387 77.6159 10.1168 79.0681 14.4279C79.1548 14.7095 79.0031 15.0128 78.7213 15.0994L72.5225 17.0058C72.2624 17.0925 71.9806 16.9625 71.8722 16.7025C71.2003 14.9911 69.6181 13.9079 67.4723 13.9079C64.7414 13.9079 62.7907 15.836 62.7907 18.7389C62.7907 21.6419 64.7197 23.5699 67.4723 23.5699C69.6181 23.5699 71.2003 22.4434 71.8722 20.7536C71.9806 20.4937 72.2624 20.3854 72.5225 20.4504L78.743 22.3568C79.0248 22.4434 79.1982 22.7467 79.0898 23.0283C77.6376 27.3394 73.0643 30.2423 67.4723 30.2423C60.3415 30.2423 55.0529 25.4547 55.0529 18.7173L55.0312 18.7389Z" fill="#404546"/>
+              <path d="M81.5166 28.8776V0.541591C81.5166 0.2383 81.755 0 82.0585 0H88.7342C89.0376 0 89.276 0.2383 89.276 0.541591V15.2079H89.3627L97.2739 8.21052C97.2739 8.21052 97.4906 8.08054 97.6207 8.08054H106.399C106.897 8.08054 107.136 8.70878 106.746 9.03374L97.664 16.7027L107.092 28.5743C107.374 28.921 107.114 29.4409 106.681 29.4409H98.596C98.4226 29.4409 98.2709 29.3542 98.1625 29.2243L92.0287 21.0137H91.942L89.4711 23.2018C89.3627 23.3101 89.2977 23.4401 89.2977 23.6134V28.921C89.2977 29.2243 89.0593 29.4626 88.7558 29.4626H82.0801C81.7767 29.4626 81.5383 29.2243 81.5383 28.921L81.5166 28.8776Z" fill="#404546"/>
+              <path d="M110.301 28.8776V1.75473C110.301 1.45143 110.539 1.21313 110.843 1.21313H125.711C132.04 1.21313 136.548 4.8093 136.548 11.2867C136.548 17.7642 132.04 21.2303 125.711 21.2303H118.255V28.8776C118.255 29.1809 118.017 29.4192 117.713 29.4192H110.843C110.539 29.4192 110.301 29.1809 110.301 28.8776ZM118.234 14.5796H124.931C126.708 14.5796 128.594 13.5831 128.594 11.1134C128.594 8.64376 126.86 7.84221 125.039 7.84221H118.234V14.5796Z" fill="#404546"/>
+              <path d="M137.307 18.7389C137.307 11.9799 142.639 7.21387 149.964 7.21387C157.29 7.21387 162.622 11.9799 162.622 18.7389C162.622 25.498 157.29 30.264 149.964 30.264C142.639 30.264 137.307 25.5196 137.307 18.7389ZM154.885 18.7389C154.885 15.966 152.999 13.9079 149.964 13.9079C146.93 13.9079 145.044 15.966 145.044 18.7389C145.044 21.5119 146.93 23.5699 149.964 23.5699C152.999 23.5699 154.885 21.5119 154.885 18.7389Z" fill="#404546"/>
+              <path d="M181.566 14.0588H175.28V20.7096C175.28 22.0094 175.844 22.5293 177.166 22.5293H180.699C181.002 22.5293 181.241 22.7676 181.241 23.0709V28.8984C181.241 29.2017 181.002 29.44 180.699 29.44H175.865C170.1 29.44 167.521 26.7321 167.521 21.5761V14.0805H163.013C162.709 14.0805 162.471 13.8422 162.471 13.5389V8.59961C162.471 8.29632 162.709 8.05802 163.013 8.05802H167.521V2.9454C167.521 2.64211 167.759 2.40381 168.063 2.40381H174.738C175.042 2.40381 175.28 2.64211 175.28 2.9454V8.05802H181.566C181.869 8.05802 182.108 8.29632 182.108 8.59961V13.5389C182.108 13.8422 181.869 14.0805 181.566 14.0805V14.0588Z" fill="#404546"/>
+              <rect x="29.1221" y="1.21313" width="24.3795" height="4.72541" rx="1" fill="#8FC85A"/>
+            </svg>
+          </h3>
+          {%- if section.settings.s_popup_image != blank -%}
+            {{ section.settings.s_popup_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}
           {%- endif -%}
           <form>
-            <fieldset style="background: #F3F4F6;">
-              <h2>Measurement system.<span>Choose your preference</span></h2>
-              <div class="popup__wrapper-btn">
-                <label class="popup-label button--primary">Imperial<input class="measurement-system" type="radio" name="measurement" value="imperial"></label>
-                <label class="popup-label button--secondary">Metric<input class="measurement-system" type="radio" name="measurement" value="metric" checked></label>
+            <fieldset style="background: #F3F4F6; padding: 30px 26px; gap: 27px;">
+              <div style="width: calc(50% - 27px);">
+                <h2>
+                  Room area.
+                  <span>
+                    <span class="total__wrapper-area">0</span>
+                    sf
+                  </span>
+                </h2>
+                <label style="width: 100%;">
+                  <p class="bs__title-subtitle">
+                    Canopy area
+                    <span>Total flower canopy area</span>
+                  </p>
+                  <p class="bs__label-price js-bs__label-price">0 sf</p>
+                </label>
+              </div>
+              <div style="width: calc(50% - 27px);">
+                <h2>Plant count. <span class="plant-count">0</span></h2>
+                <label style="width: 100%;">
+                  <p class="bs__title-subtitle">
+                    Yield increase
+                    <span>Fixed pot or aisle system</span>
+                  </p>
+                  <p class="bs__label-price">74%</p>
+                </label>
               </div>
             </fieldset>
-            <fieldset style="align-items: baseline;">
-              <h2>Enter Dimensions.</h2>
-              <div class="popup__wrapper-btn">
-                <div class="popup__wrapper-btn--inline">
-                  <input class="input__length" type="number" placeholder="Length" value="" title="Length" required>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="13" viewBox="0 0 10 13" fill="none">
-                    <path d="M3.968 6.44148L0.208 0.889476H2.032L4.88 5.35348L7.856 0.889476H9.552L5.776 6.44148L9.792 12.3135H7.936L4.864 7.59348L1.696 12.3135H0L3.968 6.44148Z" fill="#8F9394"/>
-                  </svg>
-                  <input class="input__width" type="number" placeholder="Width" value="" title="Width" required>
-                </div>
-                <button class="button button--primary js-room-size--submit">Continue</button>
-              </div>
+            <fieldset style="justify-content: center; background: #FAFBFB;">
+              <button class="button button--primary js-share">
+                Share
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="23" viewBox="0 0 22 23" fill="none">
+                  <path d="M7.92182 12.6762L14.087 16.2687M14.0779 6.3576L7.92182 9.95016M19.1238 4.99459C19.1238 6.49015 17.9114 7.70255 16.4158 7.70255C14.9202 7.70255 13.7078 6.49015 13.7078 4.99459C13.7078 3.49902 14.9202 2.28662 16.4158 2.28662C17.9114 2.28662 19.1238 3.49902 19.1238 4.99459ZM8.29191 11.3132C8.29191 12.8087 7.07951 14.0211 5.58394 14.0211C4.08837 14.0211 2.87598 12.8087 2.87598 11.3132C2.87598 9.8176 4.08837 8.60521 5.58394 8.60521C7.07951 8.60521 8.29191 9.8176 8.29191 11.3132ZM19.1238 17.6318C19.1238 19.1273 17.9114 20.3397 16.4158 20.3397C14.9202 20.3397 13.7078 19.1273 13.7078 17.6318C13.7078 16.1362 14.9202 14.9238 16.4158 14.9238C17.9114 14.9238 19.1238 16.1362 19.1238 17.6318Z" stroke="#FAFBFB" stroke-width="2.03097" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
             </fieldset>
           </form>
         </article>
@@ -551,7 +579,7 @@
               Canopy area
               <span>Total flower canopy area</span>
             </p>
-            <p class="bs__label-price">0 sf</p>
+            <p class="bs__label-price js-bs__label-price">0 sf</p>
           </label>
         </div>
         <div>
@@ -701,10 +729,25 @@
       document.querySelector('.skate-options__wrapper .bs__overlay').classList.remove('popup--opened');
     });
 
+    // open share--popup
+    document.querySelector('.bs__share').addEventListener('click', () => {
+      document.querySelector('.popup__share').classList.add('popup--opened');
+      document.querySelector('.bs__total-wrapper .bs__overlay').classList.add('popup--opened');
+    });
+    document.querySelector('.bs__total-wrapper .bs__overlay').addEventListener('click', () => {
+      document.querySelector('.popup__share').classList.remove('popup--opened');
+      document.querySelector('.bs__total-wrapper .bs__overlay').classList.remove('popup--opened');
+    });
+    document.querySelector('.bs__total-wrapper .popup__icon-close').addEventListener('click', () => {
+      document.querySelector('.popup__share').classList.remove('popup--opened');
+      document.querySelector('.bs__total-wrapper .bs__overlay').classList.remove('popup--opened');
+    });
+
     //get room size
     let dimensions = {};
     let roomSizeWrapper = document.querySelector('.popup__room-size');
     let amountRails = 1;
+    
     roomSizeWrapper.querySelector('.js-room-size--submit').addEventListener('click', (e) => {
       event.preventDefault();
       dimensions.lengthRoom = roomSizeWrapper.querySelector('.input__length').value;
@@ -719,8 +762,13 @@
         btnPopupRoom.querySelector('input[type=radio]').value = amountRails;
         btnPopupRoom.querySelector('.bs__title-subtitle span span').innerHTML = amountRails;
         btnPopupRoom.querySelector('.bs__label-price span').innerHTML = btnPopupRoom.querySelector('.bs__label-price').dataset.price * amountRails;
-        document.querySelector('.total__wrapper-area').innerHTML = dimensions.lengthRoom * dimensions.widthRoom;
-        document.querySelector('.bs__total-wrapper .bs__label-price').innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} sf`;
+
+        document.querySelectorAll('.bs__total-wrapper  .total__wrapper-area').forEach((item) => {
+          item.innerHTML = dimensions.lengthRoom * dimensions.widthRoom;
+        });
+        document.querySelectorAll('.bs__total-wrapper .js-bs__label-price').forEach((item) => {
+          item.innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} sf`;
+        });
         document.querySelector('.bs__price-delivery h3').innerHTML = `USD  ${document.querySelector('.bs__price-delivery h3').dataset.clear_price * amountRails}`
       } else if (dimensions.measurement == 'imperial') {
         console.log('imperial');
@@ -734,7 +782,9 @@
       item.addEventListener('click', () => {
         if (item.querySelector('input').checked) {
           let railsPot = amountRails * item.dataset.count;
-          document.querySelector('.bs__total-wrapper .plant-count').innerHTML = (railsPot * item.dataset.plant_count_pot).toFixed(2);
+          document.querySelectorAll('.plant-count').forEach((item_) => {
+            item_.innerHTML = (railsPot * item.dataset.plant_count_pot).toFixed(2);
+          });
         }
       });
     });
@@ -761,7 +811,6 @@
       });
     });
 
-    
     // send to cart
     let btnMainSubmit = document.querySelector('.build-system .btn-main-submit');
     let inputArray = document.querySelectorAll('.build-system .js-label:not(.js-popup-room) input');
@@ -932,6 +981,15 @@
       "id": "h_products",
       "label": "Hardware. - Products",
       "limit": 3
+    },
+    {
+      "type": "header",
+      "content": "Share POPUP"
+    },
+    {
+      "type": "image_picker",
+      "id": "s_popup_image",
+      "label": "Image for Popup Share"
     },
     {
       "type": "header",
