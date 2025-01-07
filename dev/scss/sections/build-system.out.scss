@@ -222,79 +222,7 @@
                 @media screen and (max-width: 768px) {
                     width: 100%;
                 }
-                article {
-                    img {
-                        width: 100%;
-                        height: auto;
-                        display: block;
-                        border-bottom: 1px solid #dfdfdf;
-                    }
-                    fieldset:nth-child(1) {
-                        background: #F3F4F6;
-                    }
-                }
-                article.popup__room-size {
-                    position: fixed;
-                    left: 50%;
-                    top: 60vh;
-                    transform: translate(-50%, -50vh);
-                    z-index: 100;
-                    background: #fff;
-                    display: none;
-                    border-radius: 12px;
-                    width: 735px;
-                    max-height: 740px;
-                    height: 80vh;
-                    overflow-y: auto;
-                    @media screen and (max-width: 768px) {
-                        width: 80%;
-                    }
-                    @media screen and (max-width: 450px) {
-                        height: 100vh;
-                        width: 100%;
-                        top: 0;
-                        transform: translate(-50%, 0);
-                        border-radius: 0;
-                    }
-                    &.popup--opened {
-                        display: block;
-                    }
-                    .popup__icon-close {
-                        position: absolute;
-                        right: 0;
-                        width: 50px;
-                        height: 50px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        cursor: pointer;
-                    }
-                    h3 {
-                        font-size: 30px;
-                        line-height: 40px;
-                        font-weight: 700;
-                        color: #0f1c1f;
-                        margin: 33px auto;
-                        text-align: center;
-                        @media screen and (max-width: 768px) {
-                            font-size: 23px;
-                            margin: 10px auto;
-                        }
-                    }
-                }
-                .bs__overlay {
-                    position: fixed;
-                    left: 0;
-                    top: 0;
-                    height: 100%;
-                    width: 100%;
-                    z-index: 100;
-                    background-color: rgba(38, 38, 38, .5);
-                    display: none;
-                    &.popup--opened {
-                        display: block;
-                    }
-                }
+                
                 
                 .bs__label-wrapp {
                     display: flex;
@@ -313,6 +241,100 @@
                             gap: 12px;
                         }
                     }
+                }
+            }
+            article {
+                img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                    border-bottom: 1px solid #dfdfdf;
+                }
+
+                fieldset:nth-child(1) {
+                    background: #F3F4F6;
+                }
+            }
+
+            article.popup__skate-options,
+            article.popup__room-size {
+                position: fixed;
+                left: 50%;
+                top: 60vh;
+                transform: translate(-50%, -50vh);
+                z-index: 100;
+                background: #fff;
+                display: none;
+                border-radius: 12px;
+                width: 735px;
+                max-height: 740px;
+                height: 80vh;
+                overflow-y: auto;
+                @media screen and (max-width: 768px) {
+                    width: 80%;
+                }
+                @media screen and (max-width: 450px) {
+                    height: 100vh;
+                    width: 100%;
+                    top: 0;
+                    transform: translate(-50%, 0);
+                    border-radius: 0;
+                }
+                &.popup--opened {
+                    display: block;
+                }
+                .popup__icon-close {
+                    position: absolute;
+                    right: 0;
+                    width: 50px;
+                    height: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                }
+                h3 {
+                    font-size: 30px;
+                    line-height: 40px;
+                    font-weight: 700;
+                    color: #0f1c1f;
+                    margin: 33px auto;
+                    text-align: center;
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 23px;
+                        margin: 10px auto;
+                    }
+                }
+                .popup__content {
+                    background: #FAFBFB;
+                    padding: 37px 64px;
+                }
+                .popup__footer {
+                    background: #F3F4F6;
+                    padding: 21px 55px;
+                    display: flex;
+                    gap: 93px;
+                }
+                .popup__content p,
+                .popup__footer p,
+                .popup__footer li {
+                    font-size: 18px;
+                    line-height: 28px;
+                    color: #39474A;
+                }
+            }
+            .bs__overlay {
+                position: fixed;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                z-index: 100;
+                background-color: rgba(38, 38, 38, .5);
+                display: none;
+                &.popup--opened {
+                    display: block;
                 }
             }
         }
