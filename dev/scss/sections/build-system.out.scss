@@ -36,6 +36,10 @@
                 flex-direction: row;
                 gap: 13px;
                 align-items: center;
+                @media screen and (max-width: 450px) {
+                    justify-content: space-between;
+                    width: 100%;
+                }
                 input::-webkit-outer-spin-button,
                 input::-webkit-inner-spin-button {
                     -webkit-appearance: none;
@@ -268,8 +272,7 @@
                 display: none;
                 border-radius: 12px;
                 width: 735px;
-                max-height: 740px;
-                height: 80vh;
+                max-height: 80vh;
                 overflow-y: auto;
                 @media screen and (max-width: 768px) {
                     width: 80%;
@@ -280,6 +283,7 @@
                     top: 0;
                     transform: translate(-50%, 0);
                     border-radius: 0;
+                    min-height: 100vh;
                 }
                 &.popup--opened {
                     display: block;
@@ -301,7 +305,6 @@
                     color: #0f1c1f;
                     margin: 33px auto;
                     text-align: center;
-
                     @media screen and (max-width: 768px) {
                         font-size: 23px;
                         margin: 10px auto;
@@ -310,12 +313,19 @@
                 .popup__content {
                     background: #FAFBFB;
                     padding: 37px 64px;
+                    @media screen and (max-width: 450px) {
+                        padding: 30px 30px;
+                    }
                 }
                 .popup__footer {
                     background: #F3F4F6;
                     padding: 21px 55px;
                     display: flex;
                     gap: 93px;
+                    @media screen and (max-width: 450px) {
+                        padding: 21px 30px;
+                        gap: 20px;
+                    }
                 }
                 .popup__content p,
                 .popup__footer p,
@@ -323,6 +333,26 @@
                     font-size: 18px;
                     line-height: 28px;
                     color: #39474A;
+                }
+                .popup__footer ul {
+                    @media screen and (max-width: 450px) {
+                        padding: 0;
+                        padding-left: 17px;
+                    }
+                    li {
+                        @media screen and (max-width: 450px) {
+                            line-height: 20px;
+                            margin-bottom: 12px;
+                        }
+                    }
+                }
+            }
+            article.popup__share {
+                fieldset > div {
+                    width: calc(50% - 27px);
+                    @media screen and (max-width: 768px) {
+                        width: 100%;
+                    }
                 }
             }
             .bs__overlay {
@@ -362,6 +392,13 @@
                         a {
                             color: #0066CC;
                             text-decoration: none;
+                        }
+                        a + input[type="date"] {
+                            height: 0;
+                            width: 0;
+                            margin: 0;
+                            padding: 0;
+                            border: none;
                         }
                     }
                 }
@@ -420,6 +457,13 @@
                     }
                 }
                 & > div.bs__price-delivery {
+                    a + input[type="date"] {
+                        height: 0;
+                        width: 0;
+                        margin: 0;
+                        padding: 0;
+                        border: none;
+                    }
                     h3 {
                         font-size: 24px;
                         @media screen and (max-width: 1161px) {
@@ -495,7 +539,31 @@
                     justify-content: end;
                     cursor: pointer;
                 }
+                p.bs__share:hover {
+                    opacity: 0.5;
+                }
+                .btn-main-submit {
+                    width: 100%;
+                    transition: all 0.3s;
+                    &:hover {
+                        background: white;
+                        border: 2px solid #8FC85A;
+                        color: #8FC85A;
+                    }
+                }
+                .button--secondary {
+                    border: 2px solid #8FC85A;
+                    &:after {
+                        box-shadow: none;
+                    }
+                    &:hover {
+                        opacity: 0.5;
+                    }
+                }
             }
+        }
+        a:hover {
+            opacity: 0.5;
         }
     }
     ::-webkit-scrollbar {
