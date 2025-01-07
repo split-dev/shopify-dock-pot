@@ -95,8 +95,37 @@
         </div>
       </div>
       <div class="bs__buttons-wrapp">
-        <h2>Skate options. <span>Choose skates with or without handles</span></h2>
+        <span class="bs__overlay"></span>
+        <article class="popup__skate-options">
+          <span class="popup__icon-close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z" fill="#8F9394"/>
+            </svg>
+          </span>
+          <h3>What is the Skate PRO</h3>
+          {%- if section.settings.s_o_popup_image != blank -%}
+            {{ section.settings.s_o_popup_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}
+          {%- endif -%}
+          <div class="popup__content">
+            {%- if section.settings.s_o_popup_content != blank -%}
+              {{ section.settings.s_o_popup_content }}
+            {%- endif -%}
+          </div>
+          <div class="popup__footer">
+            <div class="popup__footer-left">
+              {%- if section.settings.s_o_popup_list_left != blank -%}
+                {{ section.settings.s_o_popup_list_left }}
+              {%- endif -%}
+            </div>
+            <div class="popup__footer-right">
+              {%- if section.settings.s_o_popup_list_right != blank -%}
+                {{ section.settings.s_o_popup_list_right }}
+              {%- endif -%}
+            </div>
+          </div>
+        </article>
 
+        <h2>Skate options. <span>Choose skates with or without handles</span></h2>
         {%- for product in section.settings.s_o_products -%}
           <label class="bs__label-{{ forloop.index }} js-label">
             <input
@@ -119,7 +148,7 @@
         <div class="bs__label-info">
           <p>Trellis handles and netting.</p>
           <p>Trellis handles are only compatible with the Skate and handle system</p>
-          <a href="#">More info</a>
+          <a class="skate-options--open-popup" href="#">More info</a>
         </div>
       </div>
     </div>
@@ -475,6 +504,40 @@
 
     <div class="bs-section total__wrapper">
       <div class="bs__total-wrapper page-width">
+        <span class="bs__overlay"></span>
+        <article class="popup__room-size">
+          <span class="popup__icon-close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z" fill="#8F9394"/>
+            </svg>
+          </span>
+          <h3>Measure your grow room.</h3>
+          {%- if section.settings.r_s_popup_image != blank -%}
+            {{ section.settings.r_s_popup_image | image_url: width: 820 | image_tag: class: '__image', loading: 'lazy' }}
+          {%- endif -%}
+          <form>
+            <fieldset style="background: #F3F4F6;">
+              <h2>Measurement system.<span>Choose your preference</span></h2>
+              <div class="popup__wrapper-btn">
+                <label class="popup-label button--primary">Imperial<input class="measurement-system" type="radio" name="measurement" value="imperial"></label>
+                <label class="popup-label button--secondary">Metric<input class="measurement-system" type="radio" name="measurement" value="metric" checked></label>
+              </div>
+            </fieldset>
+            <fieldset style="align-items: baseline;">
+              <h2>Enter Dimensions.</h2>
+              <div class="popup__wrapper-btn">
+                <div class="popup__wrapper-btn--inline">
+                  <input class="input__length" type="number" placeholder="Length" value="" title="Length" required>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="13" viewBox="0 0 10 13" fill="none">
+                    <path d="M3.968 6.44148L0.208 0.889476H2.032L4.88 5.35348L7.856 0.889476H9.552L5.776 6.44148L9.792 12.3135H7.936L4.864 7.59348L1.696 12.3135H0L3.968 6.44148Z" fill="#8F9394"/>
+                  </svg>
+                  <input class="input__width" type="number" placeholder="Width" value="" title="Width" required>
+                </div>
+                <button class="button button--primary js-room-size--submit">Continue</button>
+              </div>
+            </fieldset>
+          </form>
+        </article>
         <div>
           <h3>
             Room area.
@@ -609,18 +672,33 @@
       },
     });
 
+    // open popup room size
     let btnPopupRoom = document.querySelector('.build-system .js-popup-room');
     btnPopupRoom.addEventListener('click', () => {
       document.querySelector('.popup__room-size').classList.add('popup--opened');
-      document.querySelector('.bs__overlay').classList.add('popup--opened');
+      document.querySelector('.room-size__wrapper .bs__overlay').classList.add('popup--opened');
     });
-    document.querySelector('.bs__overlay').addEventListener('click', () => {
+    document.querySelector('.room-size__wrapper .bs__overlay').addEventListener('click', () => {
       document.querySelector('.popup__room-size').classList.remove('popup--opened');
-      document.querySelector('.bs__overlay').classList.remove('popup--opened');
+      document.querySelector('.room-size__wrapper .bs__overlay').classList.remove('popup--opened');
     });
     document.querySelector('.popup__icon-close').addEventListener('click', () => {
       document.querySelector('.popup__room-size').classList.remove('popup--opened');
       document.querySelector('.bs__overlay').classList.remove('popup--opened');
+    });
+
+    // open skate-options--open-popup
+    document.querySelector('.skate-options--open-popup').addEventListener('click', () => {
+      document.querySelector('.popup__skate-options').classList.add('popup--opened');
+      document.querySelector('.skate-options__wrapper .bs__overlay').classList.add('popup--opened');
+    });
+    document.querySelector('.skate-options__wrapper .bs__overlay').addEventListener('click', () => {
+      document.querySelector('.popup__skate-options').classList.remove('popup--opened');
+      document.querySelector('.skate-options__wrapper .bs__overlay').classList.remove('popup--opened');
+    });
+    document.querySelector('.skate-options__wrapper .popup__icon-close').addEventListener('click', () => {
+      document.querySelector('.popup__skate-options').classList.remove('popup--opened');
+      document.querySelector('.skate-options__wrapper .bs__overlay').classList.remove('popup--opened');
     });
 
     //get room size
@@ -648,7 +726,7 @@
         console.log('imperial');
       }
       document.querySelector('.popup__room-size').classList.remove('popup--opened');
-      document.querySelector('.bs__overlay').classList.remove('popup--opened');
+      document.querySelector('.room-size__wrapper .bs__overlay').classList.remove('popup--opened');
     });
 
     // Pots
@@ -755,6 +833,30 @@
       "id": "s_o_products",
       "label": "Skate options - Products",
       "limit": 3
+    },
+    {
+      "type": "header",
+      "content": "Skate options POPUP"
+    },
+    {
+      "type": "image_picker",
+      "id": "s_o_popup_image",
+      "label": "Image for Skate options size"
+    },
+    {
+      "type": "richtext",
+      "id": "s_o_popup_content",
+      "label": "Content for Popup"
+    },
+    {
+      "type": "richtext",
+      "id": "s_o_popup_list_left",
+      "label": "List left for Popup"
+    },
+    {
+      "type": "richtext",
+      "id": "s_o_popup_list_right",
+      "label": "List right for Popup"
     },
     {
       "type": "header",
