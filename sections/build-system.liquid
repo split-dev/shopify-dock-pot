@@ -568,7 +568,6 @@
                   Room area.
                   <span>
                     <span class="total__wrapper-area">0</span>
-                    {% comment %} sf {% endcomment %}
                   </span>
                 </h2>
                 <label style="width: 100%;">
@@ -605,7 +604,6 @@
             Room area.
             <span>
               <span class="total__wrapper-area">0</span>
-              {% comment %} sf {% endcomment %}
             </span>
           </h3>
           <label>
@@ -613,7 +611,7 @@
               Canopy area
               <span>Total flower canopy area</span>
             </p>
-            <p class="bs__label-price js-bs__label-price">0 sf</p>
+            <p class="bs__label-price js-bs__label-price">0</p>
           </label>
         </div>
         <div>
@@ -806,7 +804,6 @@
         }
       });
     });
-
     roomSizeWrapper.querySelector('.js-room-size--submit').addEventListener('click', (e) => {
       event.preventDefault();
       dimensions.lengthRoom = roomSizeWrapper.querySelector('.input__length').value;
@@ -847,6 +844,11 @@
 
     // Pots
     document.querySelectorAll('.plant-capacity__wrapper .js-pots').forEach((item) => {
+      if (item.querySelector('input').checked) {
+        document.querySelectorAll('.plant-count').forEach((item__) => {
+          item__.innerHTML = (item.dataset.count * item.dataset.plant_count_pot).toFixed(2);
+        });
+      }
       item.addEventListener('click', () => {
         if (item.querySelector('input').checked) {
           let railsPot = amountRails * item.dataset.count;
