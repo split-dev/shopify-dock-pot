@@ -794,7 +794,6 @@
     let dimensions = {};
     let roomSizeWrapper = document.querySelector('.popup__room-size');
     let amountRails = 1;
-
     document.querySelectorAll('.measurement-system').forEach(item => {
       item.addEventListener('click', () => {
         if (item.classList.contains("m-s__imperial")) {
@@ -824,7 +823,14 @@
         document.querySelectorAll('.bs__total-wrapper .js-bs__label-price').forEach((item) => {
           item.innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} m2`;
         });
-        document.querySelector('.bs__price-delivery h3').innerHTML = `USD  ${document.querySelector('.bs__price-delivery h3').dataset.clear_price * amountRails}`
+        document.querySelectorAll('.plant-count').forEach((item) => {
+          document.querySelectorAll('.plant-capacity__wrapper .js-pots').forEach((itemPots) => {
+            if (itemPots.querySelector('input').checked) {
+              item.innerHTML = ((itemPots.dataset.count * itemPots.dataset.plant_count_pot) * amountRails).toFixed();
+            }
+          });
+        });
+        document.querySelector('.bs__price-delivery h3').innerHTML = `USD  ${(document.querySelector('.bs__price-delivery h3').dataset.clear_price * amountRails).toFixed()}`
       } else if (dimensions.measurement == 'imperial') {
         amountRails = ((dimensions.lengthRoom * dimensions.widthRoom) / {{ section.settings.area_1_rails }}).toFixed();
         btnPopupRoom.querySelector('input[type=radio]').value = amountRails;
@@ -836,7 +842,14 @@
         document.querySelectorAll('.bs__total-wrapper .js-bs__label-price').forEach((item) => {
           item.innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} sf`;
         });
-        document.querySelector('.bs__price-delivery h3').innerHTML = `USD  ${document.querySelector('.bs__price-delivery h3').dataset.clear_price * amountRails}`
+        document.querySelectorAll('.plant-count').forEach((item) => {
+          document.querySelectorAll('.plant-capacity__wrapper .js-pots').forEach((itemPots) => {
+            if (itemPots.querySelector('input').checked) {
+              item.innerHTML = ((itemPots.dataset.count * itemPots.dataset.plant_count_pot) * amountRails).toFixed();
+            }
+          });
+        });
+        document.querySelector('.bs__price-delivery h3').innerHTML = `USD  ${(document.querySelector('.bs__price-delivery h3').dataset.clear_price * amountRails).toFixed()}`
       }
       document.querySelector('.popup__room-size').classList.remove('popup--opened');
       document.querySelector('.room-size__wrapper .bs__overlay').classList.remove('popup--opened');
@@ -846,14 +859,14 @@
     document.querySelectorAll('.plant-capacity__wrapper .js-pots').forEach((item) => {
       if (item.querySelector('input').checked) {
         document.querySelectorAll('.plant-count').forEach((item__) => {
-          item__.innerHTML = (item.dataset.count * item.dataset.plant_count_pot).toFixed(2);
+          item__.innerHTML = (item.dataset.count * item.dataset.plant_count_pot).toFixed();
         });
       }
       item.addEventListener('click', () => {
         if (item.querySelector('input').checked) {
           let railsPot = amountRails * item.dataset.count;
           document.querySelectorAll('.plant-count').forEach((item_) => {
-            item_.innerHTML = (railsPot * item.dataset.plant_count_pot).toFixed(2);
+            item_.innerHTML = (railsPot * item.dataset.plant_count_pot).toFixed();
           });
         }
       });
