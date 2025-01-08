@@ -891,6 +891,9 @@
         .then((response) => {
           return response.json();
         })
+        .then((res) => {
+          window.location.reload();
+        })
         .catch((error) => {
           console.error('Error:', error);
         });
