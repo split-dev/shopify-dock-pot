@@ -52,7 +52,6 @@
                     onfocus="this.placeholder = ''"
                     onblur="this.placeholder = 'Length'"
                     oninput="this.value = this.value.replace(/[^\d-]/g, '');"
-                    onkeydown="return preventDecimalInput(event)"
                   >
                   <svg xmlns="http://www.w3.org/2000/svg" width="10" height="13" viewBox="0 0 10 13" fill="none">
                     <path d="M3.968 6.44148L0.208 0.889476H2.032L4.88 5.35348L7.856 0.889476H9.552L5.776 6.44148L9.792 12.3135H7.936L4.864 7.59348L1.696 12.3135H0L3.968 6.44148Z" fill="#8F9394"/>
@@ -68,7 +67,6 @@
                     onfocus="this.placeholder = ''"
                     onblur="this.placeholder = 'Width'"
                     oninput="this.value = this.value.replace(/[^\d-]/g, '');"
-                    onkeydown="return preventDecimalInput(event)"
                   >
                 </div>
                 <button class="button button--primary js-room-size--submit">Continue</button>
@@ -570,7 +568,7 @@
                   Room area.
                   <span>
                     <span class="total__wrapper-area">0</span>
-                    sf
+                    {% comment %} sf {% endcomment %}
                   </span>
                 </h2>
                 <label style="width: 100%;">
@@ -578,7 +576,7 @@
                     Canopy area
                     <span>Total flower canopy area</span>
                   </p>
-                  <p class="bs__label-price js-bs__label-price">0 sf</p>
+                  <p class="bs__label-price js-bs__label-price">0</p>
                 </label>
               </div>
               <div>
@@ -607,7 +605,7 @@
             Room area.
             <span>
               <span class="total__wrapper-area">0</span>
-              sf
+              {% comment %} sf {% endcomment %}
             </span>
           </h3>
           <label>
@@ -808,10 +806,7 @@
         }
       });
     });
-    function preventDecimalInput(e) {
-      return !(e.key === '.');
-    }
-    
+
     roomSizeWrapper.querySelector('.js-room-size--submit').addEventListener('click', (e) => {
       event.preventDefault();
       dimensions.lengthRoom = roomSizeWrapper.querySelector('.input__length').value;
@@ -827,20 +822,19 @@
         btnPopupRoom.querySelector('.bs__title-subtitle span span').innerHTML = amountRails;
         btnPopupRoom.querySelector('.bs__label-price span').innerHTML = btnPopupRoom.querySelector('.bs__label-price').dataset.price * amountRails;
         document.querySelectorAll('.bs__total-wrapper  .total__wrapper-area').forEach((item) => {
-          item.innerHTML = dimensions.lengthRoom * dimensions.widthRoom;
+          item.innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} m2`;
         });
         document.querySelectorAll('.bs__total-wrapper .js-bs__label-price').forEach((item) => {
-          item.innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} sf`;
+          item.innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} m2`;
         });
         document.querySelector('.bs__price-delivery h3').innerHTML = `USD  ${document.querySelector('.bs__price-delivery h3').dataset.clear_price * amountRails}`
       } else if (dimensions.measurement == 'imperial') {
-        console.log('imperial');
         amountRails = ((dimensions.lengthRoom * dimensions.widthRoom) / {{ section.settings.area_1_rails }}).toFixed();
         btnPopupRoom.querySelector('input[type=radio]').value = amountRails;
         btnPopupRoom.querySelector('.bs__title-subtitle span span').innerHTML = amountRails;
         btnPopupRoom.querySelector('.bs__label-price span').innerHTML = btnPopupRoom.querySelector('.bs__label-price').dataset.price * amountRails;
         document.querySelectorAll('.bs__total-wrapper  .total__wrapper-area').forEach((item) => {
-          item.innerHTML = dimensions.lengthRoom * dimensions.widthRoom;
+          item.innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} sf`;
         });
         document.querySelectorAll('.bs__total-wrapper .js-bs__label-price').forEach((item) => {
           item.innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} sf`;
