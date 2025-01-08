@@ -862,19 +862,30 @@
     });
 
     // open day picker
+    let notesOrderDays = "";
+
     document.querySelector('.bs__price-delivery a').addEventListener('click', (e) => {
       e.preventDefault();
       document.querySelector('.bs__price-delivery a').nextElementSibling.showPicker();
+      document.querySelector('.bs__price-delivery a').nextElementSibling.addEventListener("change", () => {
+        console.log(document.querySelector('.bs__price-delivery a').nextElementSibling.value);
+        notesOrderDays = document.querySelector('.bs__price-delivery a').nextElementSibling.value;
+      })
     });
     document.querySelector('.bs__delivery a').addEventListener('click', (e) => {
       e.preventDefault();
       document.querySelector('.bs__delivery a').nextElementSibling.showPicker();
+      document.querySelector('.bs__delivery a').nextElementSibling.addEventListener("change", () => {
+        console.log(document.querySelector('.bs__delivery a').nextElementSibling.value);
+        notesOrderDays = document.querySelector('.bs__delivery a').nextElementSibling.value;
+      })
     });
 
     // send to cart
     let btnMainSubmit = document.querySelector('.build-system .btn-main-submit');
     let inputArray = document.querySelectorAll('.build-system .js-label:not(.js-popup-room) input');
     let formData = { items: [] };
+
     btnMainSubmit.addEventListener('click', (e) => {
       e.preventDefault();
       inputArray.forEach((item) => {
@@ -892,7 +903,20 @@
           return response.json();
         })
         .then((res) => {
-          window.location.reload();
+          fetch(window.Shopify.routes.root + 'cart/update.js', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              note: `${notesOrderDays}`
+            })
+          })
+          .then(response => response.json())
+          .then(data => {
+            //console.log(data);
+            window.location.reload();
+          });
         })
         .catch((error) => {
           console.error('Error:', error);
