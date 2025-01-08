@@ -164,7 +164,13 @@
               {{ product.title }}
               <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
             </p>
-            <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
+            <p class="bs__label-price">
+              {% if product.price > 0 %}
+                {{ product.price | money_with_currency }}
+              {% else %}
+                No Cost
+              {%- endif -%}
+            </p>
           </label>
         {%- endfor -%}
         <div class="bs__label-info">
@@ -274,7 +280,13 @@
               {{ product.title }}
               <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
             </p>
-            <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
+            <p class="bs__label-price">
+              {% if product.price > 0 %}
+                {{ product.price | money_with_currency }}
+              {% else %}
+                No Cost
+              {%- endif -%}
+            </p>
           </label>
         {%- endfor -%}
         <div class="bs__label-info">
@@ -328,7 +340,13 @@
               {{ product.title }}
               <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
             </p>
-            <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
+            <p class="bs__label-price">
+              {% if product.price > 0 %}
+                {{ product.price | money_with_currency }}
+              {% else %}
+                No Cost
+              {%- endif -%}
+            </p>
           </label>
         {%- endfor -%}
         <div class="bs__label-info">
@@ -382,7 +400,13 @@
               {{ product.title }}
               <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
             </p>
-            <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
+            <p class="bs__label-price">
+              {% if product.price > 0 %}
+                {{ product.price | money_with_currency }}
+              {% else %}
+                No Cost
+              {%- endif -%}
+            </p>
           </label>
         {%- endfor -%}
         <div class="bs__label-info">
@@ -436,7 +460,13 @@
               {{ product.title }}
               <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
             </p>
-            <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
+            <p class="bs__label-price">
+              {% if product.price > 0 %}
+                {{ product.price | money_with_currency }}
+              {% else %}
+                No Cost
+              {%- endif -%}
+            </p>
           </label>
         {%- endfor -%}
       </div>
@@ -483,7 +513,13 @@
               {{ product.title }}
               <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
             </p>
-            <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
+            <p class="bs__label-price">
+              {% if product.price > 0 %}
+                {{ product.price | money_with_currency }}
+              {% else %}
+                No Cost
+              {%- endif -%}
+            </p>
           </label>
         {%- endfor -%}
       </div>
@@ -530,7 +566,13 @@
               {{ product.title }}
               <span>{{ product.metafields.custom.bs_scate_options_subtitle | metafield_tag }}</span>
             </p>
-            <p class="bs__label-price">{{ product.price | money_with_currency }}</p>
+            <p class="bs__label-price">
+              {% if product.price > 0 %}
+                {{ product.price | money_with_currency }}
+              {% else %}
+                No Cost
+              {%- endif -%}
+            </p>
           </label>
         {%- endfor -%}
       </div>
