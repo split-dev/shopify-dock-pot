@@ -753,6 +753,19 @@
       document.querySelector('.bs__overlay').classList.remove('popup--opened');
     });
 
+    // open when scroll
+    let elem = document.querySelector(".room-size__wrapper");
+    if (elem ) {
+      window.addEventListener('scroll', () => {
+        let topCoord = elem.getBoundingClientRect().top;
+        if ((topCoord < -800) && (sessionStorage.getItem('room_popup') == null) && (sessionStorage.getItem('room_popup') !== 'false')) { 
+          sessionStorage.setItem('room_popup', 'false');
+          document.querySelector('.popup__room-size').classList.add('popup--opened');
+          document.querySelector('.room-size__wrapper .bs__overlay').classList.add('popup--opened');
+        }
+      });
+    }
+
     // open skate-options-popup
     document.querySelector('.skate-options--open-popup').addEventListener('click', () => {
       document.querySelector('.popup__skate-options').classList.add('popup--opened');
@@ -822,6 +835,17 @@
         document.querySelector('.bs__price-delivery h3').innerHTML = `USD  ${document.querySelector('.bs__price-delivery h3').dataset.clear_price * amountRails}`
       } else if (dimensions.measurement == 'imperial') {
         console.log('imperial');
+        amountRails = ((dimensions.lengthRoom * dimensions.widthRoom) / {{ section.settings.area_1_rails }}).toFixed();
+        btnPopupRoom.querySelector('input[type=radio]').value = amountRails;
+        btnPopupRoom.querySelector('.bs__title-subtitle span span').innerHTML = amountRails;
+        btnPopupRoom.querySelector('.bs__label-price span').innerHTML = btnPopupRoom.querySelector('.bs__label-price').dataset.price * amountRails;
+        document.querySelectorAll('.bs__total-wrapper  .total__wrapper-area').forEach((item) => {
+          item.innerHTML = dimensions.lengthRoom * dimensions.widthRoom;
+        });
+        document.querySelectorAll('.bs__total-wrapper .js-bs__label-price').forEach((item) => {
+          item.innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} sf`;
+        });
+        document.querySelector('.bs__price-delivery h3').innerHTML = `USD  ${document.querySelector('.bs__price-delivery h3').dataset.clear_price * amountRails}`
       }
       document.querySelector('.popup__room-size').classList.remove('popup--opened');
       document.querySelector('.room-size__wrapper .bs__overlay').classList.remove('popup--opened');
@@ -866,20 +890,19 @@
     let dataPicker = document.querySelectorAll('.js-delivery-dates');
     dataPicker.forEach((item) => {
       item.addEventListener('click', (e) => {
-      e.preventDefault();
-      item.nextElementSibling.showPicker();
-      item.nextElementSibling.addEventListener("change", () => {
-        console.log(item.nextElementSibling.value);
-        notesOrderDays = item.nextElementSibling.value;
-      })
-    }); 
+        e.preventDefault();
+        item.nextElementSibling.showPicker();
+        item.nextElementSibling.addEventListener("change", () => {
+          console.log(item.nextElementSibling.value);
+          notesOrderDays = item.nextElementSibling.value;
+        })
+      }); 
     });
 
     // send to cart
     let btnMainSubmit = document.querySelector('.build-system .btn-main-submit');
     let inputArray = document.querySelectorAll('.build-system .js-label:not(.js-popup-room) input');
     let formData = { items: [] };
-
     btnMainSubmit.addEventListener('click', (e) => {
       e.preventDefault();
       inputArray.forEach((item) => {
@@ -887,7 +910,6 @@
           formData.items.push({ id: item.value, quantity: amountRails });
         }
       });
-
       fetch(window.Shopify.routes.root + 'cart/add.js', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
