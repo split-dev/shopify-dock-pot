@@ -372,9 +372,10 @@
         }
         .submit__wrapper {
             .bs__buttons-wrapp {
+                gap: 12px;
                 border-top: 1px solid #D2D2D7;
                 .bs__installment-options {
-                    margin-bottom: 96px;
+                    // margin-bottom: 96px;
                 }
                 h3 {
                     font-size: 17px;
