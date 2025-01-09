@@ -435,7 +435,7 @@
                 padding-top: 20px;
                 padding-bottom: 20px;
             }
-            @media screen and (orientation: landscape) {
+            @media (max-width: 768px) and (orientation: landscape) {
                 position: inherit;
             }
             .bs__total-wrapper {
@@ -469,7 +469,7 @@
                     @media screen and (max-width: 768px) {
                         display: flex;
                         align-items: center;
-                        gap: 12px;
+                        gap: 8px;
                         justify-content: space-between;
                     }
                     @media screen and (max-width: 450px) {
@@ -559,7 +559,8 @@
                         padding: 7px 16px;
                     }
                     @media screen and (max-width: 768px) {
-                        min-width: 0%;
+                        min-width: 65%;
+                        width: 65%;
                     }
                     .bs__label-price {
                         font-size: 25px;
@@ -569,6 +570,9 @@
                         @media screen and (max-width: 1161px) {
                             font-size: 18px;
                             line-height: 20px;
+                        }
+                        @media screen and (max-width: 768px) {
+                            line-height: inherit;
                         }
                         sup {
                             font-size: medium;
