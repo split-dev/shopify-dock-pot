@@ -90,7 +90,8 @@
   }
 
   .banner--medium:not(.banner--adapt) {
-    min-height: 56rem;
+    /* min-height: 56rem; */
+    min-height: 497px;
   }
 
   .banner--large:not(.banner--adapt) {
@@ -507,5 +508,25 @@
   .banner--desktop-transparent .inline-richtext a:hover,
   .banner--desktop-transparent .rte a:hover {
     color: currentColor;
+  }
+}
+
+
+@media screen and (max-width: 749px) {
+  .banner__content {
+    position: absolute;
+  }
+  .banner--mobile-bottom .banner__box {
+    background: #ffffff80;
+  }
+  .banner__heading {
+    font-size: 30px;
+  }
+  .banner__box .banner__text {
+    margin-bottom: 20px;
+    line-height: normal;
+  }
+  .banner__box > * + .banner__buttons {
+    margin-top: 0;
   }
 }

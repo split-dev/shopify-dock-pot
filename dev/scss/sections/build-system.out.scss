@@ -39,6 +39,7 @@
                 @media screen and (max-width: 450px) {
                     justify-content: space-between;
                     width: 100%;
+                    margin-bottom: 60px;
                 }
                 input::-webkit-outer-spin-button,
                 input::-webkit-inner-spin-button {
@@ -283,7 +284,7 @@
                 max-height: 80vh;
                 overflow-y: auto;
                 @media screen and (max-width: 768px) {
-                    width: 80%;
+                    width: 90%;
                 }
                 @media screen and (max-width: 450px) {
                     height: 100vh;
@@ -321,7 +322,7 @@
                 .popup__content {
                     background: #FAFBFB;
                     padding: 37px 64px;
-                    @media screen and (max-width: 450px) {
+                    @media screen and (max-width: 768px) {
                         padding: 30px 30px;
                     }
                 }
@@ -330,9 +331,10 @@
                     padding: 21px 55px;
                     display: flex;
                     gap: 93px;
-                    @media screen and (max-width: 450px) {
+                    @media screen and (max-width: 768px) {
                         padding: 21px 30px;
-                        gap: 20px;
+                        gap: 10px;
+                        justify-content: space-around;
                     }
                 }
                 .popup__content p,
@@ -343,12 +345,12 @@
                     color: #39474A;
                 }
                 .popup__footer ul {
-                    @media screen and (max-width: 450px) {
+                    @media screen and (max-width: 768px) {
                         padding: 0;
                         padding-left: 17px;
                     }
                     li {
-                        @media screen and (max-width: 450px) {
+                        @media screen and (max-width: 768px) {
                             line-height: 20px;
                             margin-bottom: 12px;
                         }
