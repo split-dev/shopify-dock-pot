@@ -451,6 +451,14 @@
                         width: 100%;
                     }
                 }
+                & > div:first-of-type {
+                    .total__wrapper-area {
+                        line-height: 10px;
+                    }
+                    .bs__label-price {
+                        line-height: 25px;
+                    }
+                }
                 & > div.bs__btn-wrapper {
                     display: flex;
                     flex-direction: column;
@@ -525,9 +533,13 @@
                         font-size: 25px;
                         font-weight: 700;
                         line-height: 40px;
+                        display: block;
                         @media screen and (max-width: 1161px) {
                             font-size: 18px;
                             line-height: 20px;
+                        }
+                        sup {
+                            font-size: medium;
                         }
                     }
                 }
