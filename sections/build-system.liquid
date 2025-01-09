@@ -803,19 +803,6 @@
       document.querySelector('.bs__overlay').classList.remove('popup--opened');
     });
 
-    // open when scroll
-    let elem = document.querySelector(".room-size__wrapper");
-    if (elem ) {
-      window.addEventListener('scroll', () => {
-        let topCoord = elem.getBoundingClientRect().top;
-        if ((topCoord < -800) && (sessionStorage.getItem('room_popup') == null) && (sessionStorage.getItem('room_popup') !== 'false')) { 
-          sessionStorage.setItem('room_popup', 'false');
-          document.querySelector('.popup__room-size').classList.add('popup--opened');
-          document.querySelector('.room-size__wrapper .bs__overlay').classList.add('popup--opened');
-        }
-      });
-    }
-
     // open skate-options-popup
     document.querySelector('.skate-options--open-popup').addEventListener('click', () => {
       document.querySelector('.popup__skate-options').classList.add('popup--opened');
@@ -845,10 +832,7 @@
     });
 
     //get room size
-    let USDollar = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-    });
+    let USDollar = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD',});
     let dimensions = {};
     let roomSizeWrapper = document.querySelector('.popup__room-size');
     let amountRails = 1;
@@ -913,6 +897,18 @@
       }
       document.querySelector('.popup__room-size').classList.remove('popup--opened');
       document.querySelector('.room-size__wrapper .bs__overlay').classList.remove('popup--opened');
+    });
+
+    // open Room size popup when Scroll
+    let sectionRS = document.querySelector(".room-size__wrapper");
+    window.addEventListener('scroll', () => {
+      let topCoord = sectionRS?.getBoundingClientRect().top;
+      {% comment %} if ((topCoord < -800) && (sessionStorage.getItem('room_popup') == null) && (sessionStorage.getItem('room_popup') !== 'false')) {  {% endcomment %}
+      if ((topCoord < -800) && Object.keys(dimensions).length === 0) { 
+        //sessionStorage.setItem('room_popup', 'false');
+        document.querySelector('.popup__room-size').classList.add('popup--opened');
+        document.querySelector('.room-size__wrapper .bs__overlay').classList.add('popup--opened');
+      }
     });
 
     // Pots
