@@ -608,7 +608,7 @@
               <div>
                 <h2
                   style="
-                    margin-bottom: 15px;
+                    margin-bottom: 10px;
                     margin-top: -5px;
                   "
                 >
@@ -628,7 +628,7 @@
               <div>
                 <h2
                   style="
-                    margin-bottom: 15px;
+                    margin-bottom: 10px;
                     margin-top: -5px;
                   "
                 >
@@ -862,10 +862,12 @@
         document.querySelectorAll('.bs__total-wrapper  .total__wrapper-area').forEach((item) => {
           item.innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} m<sup>2</sup>`;
           item.style.lineHeight = '10px';
+          {% comment %} item.style.lineHeight = '25px'; {% endcomment %}
         });
         document.querySelectorAll('.bs__total-wrapper .js-bs__label-price').forEach((item) => {
           item.innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} m<sup>2</sup>`;
           item.style.lineHeight = '10px';
+          {% comment %} item.style.lineHeight = '25px'; {% endcomment %}
         });
         document.querySelectorAll('.plant-count').forEach((item) => {
           document.querySelectorAll('.plant-capacity__wrapper .js-pots').forEach((itemPots) => {
@@ -963,17 +965,6 @@
         })
       }); 
     });
-
-    // remove sticky panel 
-    {% comment %} document.addEventListener('orientationchange', () => {
-      document.querySelector('.total__wrapper').style.position = 'inherit';
-      console.log("TEST ROTATE");
-    });
-    window.onorientationchange = (event) => {
-      console.log(
-        `the orientation of the device is now ${event.target.screen.orientation.angle}`,
-      );
-    }; {% endcomment %}
 
     // send to cart
     let btnMainSubmit = document.querySelector('.build-system .btn-main-submit');
