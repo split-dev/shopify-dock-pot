@@ -858,7 +858,7 @@
         amountRails = ((dimensions.lengthRoom * dimensions.widthRoom) / {{ section.settings.area_1_rails }}).toFixed();
         btnPopupRoom.querySelector('input[type=radio]').value = amountRails;
         btnPopupRoom.querySelector('.bs__title-subtitle span span').innerHTML = amountRails;
-        btnPopupRoom.querySelector('.bs__label-price span').innerHTML = (btnPopupRoom.querySelector('.bs__label-price').dataset.price * amountRails).toFixed();
+        btnPopupRoom.querySelector('.bs__label-price span').innerHTML = (btnPopupRoom.querySelector('.bs__label-price').dataset.price * amountRails).toFixed(2);
         document.querySelectorAll('.bs__total-wrapper  .total__wrapper-area').forEach((item) => {
           item.innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} m2`;
         });
@@ -872,12 +872,12 @@
             }
           });
         });
-        document.querySelector('.bs__price-delivery h3').innerHTML = `USD  ${(document.querySelector('.bs__price-delivery h3').dataset.clear_price * amountRails).toFixed()}`
+        document.querySelector('.bs__price-delivery h3').innerHTML = `USD  ${(document.querySelector('.bs__price-delivery h3').dataset.clear_price * amountRails).toFixed(2)}`
       } else if (dimensions.measurement == 'imperial') {
         amountRails = ((dimensions.lengthRoom * dimensions.widthRoom) / {{ section.settings.area_1_rails }}).toFixed();
         btnPopupRoom.querySelector('input[type=radio]').value = amountRails;
         btnPopupRoom.querySelector('.bs__title-subtitle span span').innerHTML = amountRails;
-        btnPopupRoom.querySelector('.bs__label-price span').innerHTML = (btnPopupRoom.querySelector('.bs__label-price').dataset.price * amountRails).toFixed();
+        btnPopupRoom.querySelector('.bs__label-price span').innerHTML = (btnPopupRoom.querySelector('.bs__label-price').dataset.price * amountRails).toFixed(2);
         document.querySelectorAll('.bs__total-wrapper  .total__wrapper-area').forEach((item) => {
           item.innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} sf`;
         });
@@ -891,7 +891,7 @@
             }
           });
         });
-        document.querySelector('.bs__price-delivery h3').innerHTML = `USD  ${(document.querySelector('.bs__price-delivery h3').dataset.clear_price * amountRails).toFixed()}`
+        document.querySelector('.bs__price-delivery h3').innerHTML = `USD  ${(document.querySelector('.bs__price-delivery h3').dataset.clear_price * amountRails).toFixed(2)}`
       }
       document.querySelector('.popup__room-size').classList.remove('popup--opened');
       document.querySelector('.room-size__wrapper .bs__overlay').classList.remove('popup--opened');
