@@ -606,7 +606,12 @@
           <form>
             <fieldset style="background: #F3F4F6; padding: 30px 26px; gap: 27px;">
               <div>
-                <h2>
+                <h2
+                  style="
+                    margin-bottom: 15px;
+                    margin-top: -5px;
+                  "
+                >
                   Room area.
                   <span>
                     <span class="total__wrapper-area">0</span>
@@ -621,7 +626,14 @@
                 </label>
               </div>
               <div>
-                <h2>Plant count. <span class="plant-count">0</span></h2>
+                <h2
+                  style="
+                    margin-bottom: 15px;
+                    margin-top: -5px;
+                  "
+                >
+                  Plant count. <span class="plant-count">0</span>
+                </h2>
                 <label style="width: 100%;">
                   <p class="bs__title-subtitle">
                     Yield increase
@@ -864,10 +876,10 @@
         btnPopupRoom.querySelector('.bs__title-subtitle span span').innerHTML = amountRails;
         btnPopupRoom.querySelector('.bs__label-price span').innerHTML = (btnPopupRoom.querySelector('.bs__label-price').dataset.price * amountRails).toFixed(2);
         document.querySelectorAll('.bs__total-wrapper  .total__wrapper-area').forEach((item) => {
-          item.innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} m2`;
+          item.innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} m<sup>2</sup>`;
         });
         document.querySelectorAll('.bs__total-wrapper .js-bs__label-price').forEach((item) => {
-          item.innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} m2`;
+          item.innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} m<sup>2</sup>`;
         });
         document.querySelectorAll('.plant-count').forEach((item) => {
           document.querySelectorAll('.plant-capacity__wrapper .js-pots').forEach((itemPots) => {
