@@ -454,8 +454,21 @@
                     @media screen and (max-width: 1161px) {
                         margin-bottom: 8px;
                     }
+                    @media screen and (max-width: 768px) {
+                        display: flex;
+                        flex-direction: column;
+                        & > span {
+                            padding-left: 30px;
+                        }
+                    }
                 }
                 & > div {
+                    @media screen and (max-width: 768px) {
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+                        justify-content: space-between;
+                    }
                     @media screen and (max-width: 450px) {
                         width: 100%;
                     }
@@ -472,6 +485,11 @@
                     button {
                         width: 100%;
                         min-width: 151px;
+                    }
+                    button.btn__save-cart {
+                        @media screen and (max-width: 768px) {
+                            display: none;
+                        }
                     }
                 }
                 & > div.bs__price-delivery {
@@ -537,6 +555,9 @@
                         width: auto;
                         padding: 7px 16px;
                     }
+                    @media screen and (max-width: 768px) {
+                        min-width: 65%;
+                    }
                     .bs__label-price {
                         font-size: 25px;
                         font-weight: 700;
@@ -562,6 +583,9 @@
                     margin-top: 10px;
                     justify-content: end;
                     cursor: pointer;
+                    @media screen and (max-width: 768px) {
+                       display: none;
+                    }
                 }
                 p.bs__share:hover {
                     opacity: 0.5;
