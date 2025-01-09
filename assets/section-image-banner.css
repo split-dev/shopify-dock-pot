@@ -515,9 +515,11 @@
 @media screen and (max-width: 749px) {
   .banner__content {
     position: absolute;
+    height: 100%;
   }
   .banner--mobile-bottom .banner__box {
     background: #ffffff80;
+    height: 100%;
   }
   .banner__heading {
     font-size: 30px;
