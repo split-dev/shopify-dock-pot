@@ -455,9 +455,6 @@
                     .total__wrapper-area {
                         line-height: 10px;
                     }
-                    .bs__label-price {
-                        // line-height: 25px;
-                    }
                 }
                 & > div.bs__btn-wrapper {
                     display: flex;
@@ -594,6 +591,10 @@
     }
     ::-webkit-scrollbar-thumb:hover {
         background: #555;
+    }
+
+    .swiper-pagination-bullet-active {
+        background: #000000;
     }
 
 }
