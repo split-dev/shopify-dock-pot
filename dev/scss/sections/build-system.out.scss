@@ -431,6 +431,8 @@
                 display: flex;
                 gap: 27px;
                 flex-wrap: wrap;
+                width: 100%;
+                justify-content: space-between;
                 @media screen and (max-width: 1161px) {
                     row-gap: 5px;
                 }
