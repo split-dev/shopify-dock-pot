@@ -964,8 +964,16 @@
       }); 
     });
 
-    // remove sticy panel 
-    
+    // remove sticky panel 
+    {% comment %} document.addEventListener('orientationchange', () => {
+      document.querySelector('.total__wrapper').style.position = 'inherit';
+      console.log("TEST ROTATE");
+    });
+    window.onorientationchange = (event) => {
+      console.log(
+        `the orientation of the device is now ${event.target.screen.orientation.angle}`,
+      );
+    }; {% endcomment %}
 
     // send to cart
     let btnMainSubmit = document.querySelector('.build-system .btn-main-submit');

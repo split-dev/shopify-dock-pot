@@ -435,6 +435,9 @@
                 padding-top: 20px;
                 padding-bottom: 20px;
             }
+            @media screen and (orientation: landscape) {
+                position: inherit;
+            }
             .bs__total-wrapper {
                 display: flex;
                 gap: 27px;
@@ -556,7 +559,7 @@
                         padding: 7px 16px;
                     }
                     @media screen and (max-width: 768px) {
-                        min-width: 65%;
+                        min-width: 0%;
                     }
                     .bs__label-price {
                         font-size: 25px;
