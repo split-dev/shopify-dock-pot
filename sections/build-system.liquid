@@ -861,11 +861,11 @@
         btnPopupRoom.querySelector('.bs__label-price span').innerHTML = (btnPopupRoom.querySelector('.bs__label-price').dataset.price * amountRails).toFixed(2);
         document.querySelectorAll('.bs__total-wrapper  .total__wrapper-area').forEach((item) => {
           item.innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} m<sup>2</sup>`;
-          item.style.lineHeight = '25px';
+          item.style.lineHeight = '10px';
         });
         document.querySelectorAll('.bs__total-wrapper .js-bs__label-price').forEach((item) => {
           item.innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} m<sup>2</sup>`;
-          item.style.lineHeight = '25px';
+          item.style.lineHeight = '10px';
         });
         document.querySelectorAll('.plant-count').forEach((item) => {
           document.querySelectorAll('.plant-capacity__wrapper .js-pots').forEach((itemPots) => {
