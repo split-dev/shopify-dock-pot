@@ -833,6 +833,10 @@
     });
 
     //get room size
+    let USDollar = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    });
     let dimensions = {};
     let roomSizeWrapper = document.querySelector('.popup__room-size');
     let amountRails = 1;
@@ -872,7 +876,7 @@
             }
           });
         });
-        document.querySelector('.bs__price-delivery h3').innerHTML = `USD  ${(document.querySelector('.bs__price-delivery h3').dataset.clear_price * amountRails).toFixed(2)}`
+        document.querySelector('.bs__price-delivery h3').innerHTML = `USD  ${USDollar.format((document.querySelector('.bs__price-delivery h3').dataset.clear_price * amountRails).toFixed(2)).replace("$", "")}`
       } else if (dimensions.measurement == 'imperial') {
         amountRails = ((dimensions.lengthRoom * dimensions.widthRoom) / {{ section.settings.area_1_rails }}).toFixed();
         btnPopupRoom.querySelector('input[type=radio]').value = amountRails;
@@ -891,7 +895,7 @@
             }
           });
         });
-        document.querySelector('.bs__price-delivery h3').innerHTML = `USD  ${(document.querySelector('.bs__price-delivery h3').dataset.clear_price * amountRails).toFixed(2)}`
+        document.querySelector('.bs__price-delivery h3').innerHTML = `USD  ${USDollar.format((document.querySelector('.bs__price-delivery h3').dataset.clear_price * amountRails).toFixed(2)).replace("$", "")}`
       }
       document.querySelector('.popup__room-size').classList.remove('popup--opened');
       document.querySelector('.room-size__wrapper .bs__overlay').classList.remove('popup--opened');
