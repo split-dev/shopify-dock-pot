@@ -569,10 +569,12 @@
                         display: block;
                         @media screen and (max-width: 1161px) {
                             font-size: 18px;
-                            line-height: 20px;
+                            // line-height: 20px;
+                            line-height: 40px;
                         }
                         @media screen and (max-width: 768px) {
-                            line-height: inherit;
+                            // line-height: inherit;
+                            line-height: 40px;
                         }
                         sup {
                             font-size: medium;
