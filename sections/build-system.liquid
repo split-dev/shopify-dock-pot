@@ -1005,6 +1005,37 @@
           console.error('Error:', error);
         });
     });
+
+    //save the order
+    let btnSaveCart = document.querySelector('.build-system .btn__save-cart');
+    let inputsSaveCart = document.querySelectorAll('.build-system input');
+    let dataChecked = {};
+    btnSaveCart.addEventListener('click', () => {
+      inputsSaveCart.forEach((item, index) => {
+        if (((item.type == 'radio') || (item.type == 'number') || (item.type == 'radio')) && item.name != 'roomsize') {
+          dataChecked[index] = `${item.value}:${item.checked}`;
+          if (item.type == 'number') {
+            dataChecked[index] = `${item.value}`;
+          }
+        }
+      });
+      sessionStorage.setItem('inputsJson', JSON.stringify(dataChecked));
+      //console.log(JSON.parse(sessionStorage.getItem('inputsJson')));
+    });
+    let inputsFromJson = JSON.parse(sessionStorage.getItem('inputsJson'))
+
+    {% comment %} inputsSaveCart.forEach((item, index) => {
+      if (((item.type == 'radio') || (item.type == 'number') || (item.type == 'radio')) && item.name != 'roomsize') {
+        if ((item.value == inputsFromJson[index].split(':')[0]) && (inputsFromJson[index].split(':')[1] == "true") ) {
+          item.click();
+        }
+        if (item.type == 'number') {
+          item.value = inputsFromJson[index].split(':')[0];
+        }
+      }
+    }); {% endcomment %}
+
+    
   });
 </script>
 
