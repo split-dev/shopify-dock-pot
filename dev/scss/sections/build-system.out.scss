@@ -109,11 +109,12 @@
             font-weight: 700;
             letter-spacing: 0.22px;
             margin: 0;
+            color: #0F1C1F;
             @media screen and (max-width: 768px) {
                 font-size: 18px;
             }
             span {
-                color: #86868B;
+                color: #8F9394;
             }
         }
         label:not(.popup-label) {
@@ -135,7 +136,8 @@
                 line-height: 21px;
                 font-weight: 700;
                 letter-spacing: 0.37px;
-                color: #39474A;
+                // color: #39474A;
+                color: #404546;
                 display: flex;
                 flex-direction: column;
                 margin: 0;
@@ -226,9 +228,7 @@
                 margin-left: auto;
                 @media screen and (max-width: 768px) {
                     width: 100%;
-                }
-                
-                
+                }  
                 .bs__label-wrapp {
                     display: flex;
                     gap: 14px;
@@ -245,6 +245,13 @@
                             flex-direction: column;
                             gap: 12px;
                         }
+                    }
+                }
+                .bs__installment-options, h3, .bs__delivery, .bs__need-moment {
+                    font-size: 14px;
+                    line-height: 20px;
+                    a {
+                        margin-top: 8px;
                     }
                 }
             }
@@ -442,6 +449,7 @@
                 }
                 & > div h3 {
                     margin-bottom: 17px;
+                    color: #39474A;
                     @media screen and (max-width: 1161px) {
                         margin-bottom: 8px;
                     }
@@ -466,6 +474,7 @@
                     }
                 }
                 & > div.bs__price-delivery {
+                    color: #39474A;
                     a + input[type="date"] {
                         height: 0;
                         width: 0;
@@ -566,6 +575,7 @@
                 }
                 .button--secondary {
                     border: 2px solid #8FC85A;
+                    color: #39474A;
                     &:after {
                         box-shadow: none;
                     }
@@ -595,6 +605,9 @@
 
     .swiper-pagination-bullet-active {
         background: #000000;
+    }
+    .link__more-info {
+        font-size: 14px;
     }
 
 }
