@@ -867,7 +867,7 @@
         document.querySelectorAll('.bs__total-wrapper .js-bs__label-price').forEach((item) => {
           item.innerHTML = `${dimensions.lengthRoom * dimensions.widthRoom} m<sup>2</sup>`;
           {% comment %} item.style.lineHeight = '10px'; {% endcomment %}
-          item.style.lineHeight = '25px';
+          {% comment %} item.style.lineHeight = '25px'; {% endcomment %}
         });
         document.querySelectorAll('.plant-count').forEach((item) => {
           document.querySelectorAll('.plant-capacity__wrapper .js-pots').forEach((itemPots) => {
@@ -946,7 +946,7 @@
       item.addEventListener('click', () => {
         document.querySelectorAll('.js-input-product:checked').forEach((item_) => {
           newPriceClick = newPriceClick + +item_.dataset.product_price;
-          document.querySelector('.bs__price-delivery h3').innerHTML = `USD ${(newPriceClick * amountRails).toFixed(2)}`;
+          document.querySelector('.bs__price-delivery h3').innerHTML = `USD ${USDollar.format((newPriceClick * amountRails).toFixed(2)).replace("$", "")}`;
         });
         newPriceClick = 0;
       });
