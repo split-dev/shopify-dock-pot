@@ -2605,6 +2605,14 @@ input[type='checkbox'] {
   justify-self: end;
   padding-right: 0.8rem;
 }
+@media screen and (max-width: 749px) {
+  .header__icons {
+    transform: translateX(30px);
+  }
+  .header__icons > a {
+    margin-left: -5px;
+  }
+}
 
 .header__icons .shopify-app-block {
   max-width: 4.4rem;

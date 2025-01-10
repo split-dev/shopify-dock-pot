@@ -470,11 +470,6 @@
                         }
                     }
                 }
-                // & > div label {
-                //     @media screen and (max-width: 768px) {
-                //         min-height: 60px;
-                //     }
-                // }
                 & > div {
                     @media screen and (max-width: 768px) {
                         display: flex;
