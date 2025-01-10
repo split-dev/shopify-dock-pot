@@ -111,4 +111,9 @@ main#MainContent {
             }
         }
     }
+    .help-bar__container:has(.btn__open-link.change-icon) {
+        @media screen and (max-width: 768px) {
+            transform: translateX(0);
+        }
+    }
 }
