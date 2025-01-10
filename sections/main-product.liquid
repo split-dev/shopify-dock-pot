@@ -37,6 +37,12 @@
         padding-bottom: {{ section.settings.padding_bottom }}px;
       }
     }
+    .quantity_prompt {
+      font-size: 12px;
+      font-style: italic;
+      margin-top: -10px;
+      display: block;
+    }
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
@@ -678,10 +684,23 @@
       btnQuantity.classList.remove('is-disabled');
     });
 
+    quantity.addEventListener('input', () => {
+      let inputValue = quantity.value.replace(/^0/g, '');
+      quantity.value = inputValue;
+    });
+
     if (!btnQuantity.classList.contains('is-disabled')) {
+      const quantity_prompt = document.createElement('span');
+      quantity_prompt.classList.add('quantity_prompt');
+      quantity_prompt.innerText = '* Minimum quantity one unit';
       btnQuantity.addEventListener('click', () => {
-        price.innerHTML = `$${(price.dataset.price.match(/\d+/)[0] * quantity.value).toFixed(2)}`;
-        btnQuantity.classList.add('is-disabled');
+        if (quantity.value != '') {
+          price.innerHTML = `$${(price.dataset.price.match(/\d+/)[0] * quantity.value).toFixed(2)}`;
+          btnQuantity.classList.add('is-disabled');
+          document.querySelector('.quantity_prompt').remove();
+        } else {
+          document.querySelector('.product-form__quantity').after(quantity_prompt);
+        }
       });
     } else {
       btnQuantity.classList.remove('is-disabled');
