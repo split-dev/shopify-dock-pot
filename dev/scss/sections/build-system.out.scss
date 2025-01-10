@@ -307,6 +307,10 @@
                     align-items: center;
                     justify-content: center;
                     cursor: pointer;
+                    @media screen and (max-width: 450px) {
+                        height: 35px;
+                        width: 35px;
+                    }
                 }
                 h3 {
                     font-size: 30px;
@@ -318,6 +322,9 @@
                     @media screen and (max-width: 768px) {
                         font-size: 23px;
                         margin: 10px auto;
+                    }
+                    @media screen and (max-width: 450px) {
+                        margin-top: 20px;
                     }
                 }
                 .popup__content {
