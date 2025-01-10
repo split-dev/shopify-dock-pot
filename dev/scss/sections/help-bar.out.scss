@@ -15,50 +15,100 @@ main#MainContent {
         top: inherit;
         bottom: 10%;
     }
-    .help-bar {
+
+    .help-bar__container {
         display: flex;
-        width: fit-content;
-        padding-left: 18px;
         align-items: center;
-        gap: 10px;
-        border-radius: 5px 0 0 5px;
-        font-size: 16px;
-        line-height: 21px;
-        font-weight: 600;
-        transform: translateX(34px);
         transition: all 0.3s;
-        cursor: pointer;
-        text-decoration: none;
-        height: 48px;
-        
         @media screen and (max-width: 768px) {
-            transform: translateX(0);
-            padding: 6px;
-            font-size: 12px;
-            width: 70px;
+            transform: translateX(150px);
+        }
+        .btn__open-link {
+            display: none;  
             height: 50px;
-            line-height: 14px;
-            font-weight: 900;
+            width: 50px;
             text-align: center;
-        }
-        span {
-            width: 100%;
-        }
-        svg:nth-child(1) {
+            padding-top: 15px;
+            border-radius: 5px 0 0 5px;
+            cursor: pointer;
+            padding-left: 15px;
             @media screen and (max-width: 768px) {
-                display: none;
+                display: block;
+            }
+            svg {
+                @media screen and (max-width: 768px) {
+                    height: 20px;
+                    width: 20px;
+                }
+            }
+            .hb-close {
+                @media screen and (max-width: 768px) {
+                    display: none;
+                }
+            }
+            .hb-open {
+                @media screen and (max-width: 768px) {
+                    display: block;
+                }
             }
         }
-        svg:last-child {
-            min-width: 34px;
+        .help-bar {
+            display: flex;
+            width: fit-content;
+            padding-left: 18px;
+            align-items: center;
+            gap: 10px;
+            border-radius: 5px 0 0 5px;
+            font-size: 16px;
+            line-height: 21px;
+            font-weight: 600;
+            transform: translateX(34px);
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            height: 48px;
             @media screen and (max-width: 768px) {
-                display: none;
+                transform: translateX(0);
+                padding: 6px;
+                font-size: 12px;
+                // width: 70px;
+                width: 150px;
+                height: 50px;
+                line-height: 14px;
+                font-weight: 900;
+                text-align: center;
+                border-radius: 0;
             }
+            span {
+                width: 100%;
+            }
+            svg:nth-child(1) {
+                @media screen and (max-width: 768px) {
+                    display: none;
+                }
+            }
+            svg:last-child {
+                min-width: 34px;
+                @media screen and (max-width: 768px) {
+                    display: none;
+                }
+            }
+        }
+        .help-bar:hover {
+            transform: translateX(0);
+            text-decoration: underline;
         }
     }
-    
-    .help-bar:hover {
-        transform: translateX(0);
-        text-decoration: underline;
+    .help-bar__container:has(.btn__open-link.change-icon) {
+        .hb-close {
+            @media screen and (max-width: 768px) {
+                display: block;
+            }
+        }
+        .hb-open {
+            @media screen and (max-width: 768px) {
+                display: none;
+            }
+        }
     }
 }
