@@ -1,0 +1,156 @@
+{
+  "article": [],
+  "blog": [],
+  "brand": [],
+  "collection": [],
+  "company": [],
+  "company_location": [],
+  "location": [],
+  "market": [],
+  "order": [],
+  "page": [],
+  "product": [
+    {
+      "key": "color-pattern",
+      "namespace": "shopify",
+      "name": "Color",
+      "description": "Defines the primary color or pattern, such as blue or striped",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "faq_content_1",
+      "namespace": "custom",
+      "name": "FAQ-content-1",
+      "description": "",
+      "type": {
+        "name": "rich_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "faq_content_2",
+      "namespace": "custom",
+      "name": "FAQ-content-2",
+      "description": "",
+      "type": {
+        "name": "rich_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "faq_content_3",
+      "namespace": "custom",
+      "name": "FAQ-content-3",
+      "description": "",
+      "type": {
+        "name": "rich_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "faq_content_4",
+      "namespace": "custom",
+      "name": "FAQ-content-4",
+      "description": "",
+      "type": {
+        "name": "rich_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "faq_content_5",
+      "namespace": "custom",
+      "name": "FAQ-content-5",
+      "description": "",
+      "type": {
+        "name": "rich_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "faq_title_1",
+      "namespace": "custom",
+      "name": "FAQ-title-1",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "faq_title_2",
+      "namespace": "custom",
+      "name": "FAQ-title-2",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "faq_title_3",
+      "namespace": "custom",
+      "name": "FAQ-title-3",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "faq_title_4",
+      "namespace": "custom",
+      "name": "FAQ-title-4",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "faq_title_5",
+      "namespace": "custom",
+      "name": "FAQ-title-5",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "bs_scate_options_subtitle",
+      "namespace": "custom",
+      "name": "BS Scate options Subtitle",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "bs_plant_subtitle",
+      "namespace": "custom",
+      "name": "BS Plant Subtitle",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "bs_plant_image",
+      "namespace": "custom",
+      "name": "BS Plant Image",
+      "description": "",
+      "type": {
+        "name": "file_reference",
+        "category": "REFERENCE"
+      }
+    }
+  ],
+  "variant": [],
+  "shop": []
+}

@@ -517,6 +517,9 @@
     position: absolute;
     height: 100%;
   }
+  .template-index .banner__content {
+    position: relative;
+  }
   .banner--mobile-bottom .banner__box {
     background: #ffffff80;
     height: 100%;
