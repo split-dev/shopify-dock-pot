@@ -130,7 +130,7 @@
             cursor: pointer;
             background: white;
             width: 328px;
-            height: 83px;
+            min-height: 83px;
             @media screen and (max-width: 450px) {
                 width: 100%;
             }
