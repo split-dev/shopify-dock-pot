@@ -40,7 +40,6 @@
                     justify-content: space-between;
                     width: 100%;
                     margin-bottom: 30px;
-                    // flex-direction: column;
                 }
                 input::-webkit-outer-spin-button,
                 input::-webkit-inner-spin-button {
@@ -130,7 +129,7 @@
             cursor: pointer;
             background: white;
             width: 328px;
-            min-height: 83px;
+            height: 83px;
             @media screen and (max-width: 450px) {
                 width: 100%;
             }
@@ -163,6 +162,9 @@
         }
         label:not(.popup-label):has(input[type=radio]:checked) {
             outline: 2px solid #8FC85A;
+        }
+        label.js-pots {
+            height: inherit;
         }
         .skate-options__wrapper,
         .your-grow-style__wrapper {
@@ -288,14 +290,6 @@
                 @media screen and (max-width: 768px) {
                     width: 90%;
                 }
-                // @media screen and (max-width: 450px) {
-                //     height: 100vh;
-                //     width: 100%;
-                //     top: 0;
-                //     transform: translate(-50%, 0);
-                //     border-radius: 0;
-                //     min-height: 100vh;
-                // }
                 &.popup--opened {
                     display: block;
                 }
@@ -446,7 +440,7 @@
                 padding-top: 20px;
                 padding-bottom: 20px;
             }
-            @media (max-width: 768px) and (orientation: landscape) {
+            @media (max-width: 935px) and (orientation: landscape) {
                 position: inherit;
             }
             .bs__total-wrapper {
@@ -476,6 +470,11 @@
                         }
                     }
                 }
+                // & > div label {
+                //     @media screen and (max-width: 768px) {
+                //         min-height: 60px;
+                //     }
+                // }
                 & > div {
                     @media screen and (max-width: 768px) {
                         display: flex;
@@ -496,6 +495,9 @@
                     display: flex;
                     flex-direction: column;
                     gap: 20px;
+                    @media screen and (max-width: 933px) {
+                        flex-direction: row;
+                    }
                     button {
                         width: 100%;
                         min-width: 151px;
@@ -572,6 +574,7 @@
                     @media screen and (max-width: 768px) {
                         min-width: 65%;
                         width: 65%;
+                        height: 60px;
                     }
                     .bs__label-price {
                         font-size: 25px;
@@ -581,11 +584,9 @@
                         line-height: inherit;
                         @media screen and (max-width: 1161px) {
                             font-size: 18px;
-                            // line-height: 20px;
                             line-height: 40px;
                         }
                         @media screen and (max-width: 768px) {
-                            // line-height: inherit;
                             line-height: 40px;
                         }
                         sup {
