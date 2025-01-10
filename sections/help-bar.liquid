@@ -44,10 +44,10 @@
     document.querySelectorAll('.btn__open-link').forEach((item) => {
       item.addEventListener('click', () => {
         if (item.classList.contains('change-icon')) {
-          item.parentElement.style.transform = 'translateX(150px)';
+          //item.parentElement.style.transform = 'translateX(150px)';
           item.classList.remove('change-icon');
         } else {
-          item.parentElement.style.transform = 'translateX(0)';
+          //item.parentElement.style.transform = 'translateX(0)';
           item.classList.add('change-icon');
         }
       });
