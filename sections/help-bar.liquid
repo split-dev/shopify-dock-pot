@@ -8,29 +8,51 @@
 {%- endstyle -%}
 
 {% for block in section.blocks %}
-  <a href="{{ block.settings.page }}" class="help-bar" style="background: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }};">
-    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31" fill="none">
-      <path d="M28.25 19.875C28.25 20.6485 27.9427 21.3904 27.3957 21.9374C26.8487 22.4844 26.1069 22.7917 25.3333 22.7917H7.83333L2 28.625V5.29167C2 4.51812 2.30729 3.77625 2.85427 3.22927C3.40125 2.68229 4.14312 2.375 4.91667 2.375H25.3333C26.1069 2.375 26.8487 2.68229 27.3957 3.22927C27.9427 3.77625 28.25 4.51812 28.25 5.29167V19.875Z" stroke="#FAFBFB" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <span>{{ block.settings.content }}</span>
-    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="48" viewBox="0 0 34 48" fill="none">
-      <rect width="34" height="48" fill="white" fill-opacity="0.3"/>
-      <g opacity="0.2">
-      <circle cx="11" cy="12" r="3" fill="#FAFBFB"/>
-      <circle cx="11" cy="24" r="3" fill="#FAFBFB"/>
-      <circle cx="11" cy="36" r="3" fill="#FAFBFB"/>
-      </g>
-      <g opacity="0.2">
-      <circle cx="23" cy="12" r="3" fill="#FAFBFB"/>
-      <circle cx="23" cy="24" r="3" fill="#FAFBFB"/>
-      <circle cx="23" cy="36" r="3" fill="#FAFBFB"/>
-      </g>
-    </svg>
-  </a>
+  <div class="help-bar__container">
+    <span class="btn__open-link" style="background: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }};">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="hb-close" width="30" height="31" viewBox="0 0 18 17">
+        <path fill="currentColor" d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z"></path>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" class="hb-open" width="30" height="31" viewBox="0 0 30 31" fill="none">
+        <path d="M28.25 19.875C28.25 20.6485 27.9427 21.3904 27.3957 21.9374C26.8487 22.4844 26.1069 22.7917 25.3333 22.7917H7.83333L2 28.625V5.29167C2 4.51812 2.30729 3.77625 2.85427 3.22927C3.40125 2.68229 4.14312 2.375 4.91667 2.375H25.3333C26.1069 2.375 26.8487 2.68229 27.3957 3.22927C27.9427 3.77625 28.25 4.51812 28.25 5.29167V19.875Z" stroke="#FAFBFB" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+    <a href="{{ block.settings.page }}" class="help-bar" style="background: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }};">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31" fill="none">
+        <path d="M28.25 19.875C28.25 20.6485 27.9427 21.3904 27.3957 21.9374C26.8487 22.4844 26.1069 22.7917 25.3333 22.7917H7.83333L2 28.625V5.29167C2 4.51812 2.30729 3.77625 2.85427 3.22927C3.40125 2.68229 4.14312 2.375 4.91667 2.375H25.3333C26.1069 2.375 26.8487 2.68229 27.3957 3.22927C27.9427 3.77625 28.25 4.51812 28.25 5.29167V19.875Z" stroke="#FAFBFB" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>{{ block.settings.content }}</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="34" height="48" viewBox="0 0 34 48" fill="none">
+        <rect width="34" height="48" fill="white" fill-opacity="0.3"/>
+        <g opacity="0.2">
+        <circle cx="11" cy="12" r="3" fill="#FAFBFB"/>
+        <circle cx="11" cy="24" r="3" fill="#FAFBFB"/>
+        <circle cx="11" cy="36" r="3" fill="#FAFBFB"/>
+        </g>
+        <g opacity="0.2">
+        <circle cx="23" cy="12" r="3" fill="#FAFBFB"/>
+        <circle cx="23" cy="24" r="3" fill="#FAFBFB"/>
+        <circle cx="23" cy="36" r="3" fill="#FAFBFB"/>
+        </g>
+      </svg>
+    </a>
+  </div>
 {% endfor %}
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {});
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.btn__open-link').forEach((item) => {
+      item.addEventListener('click', () => {
+        if (item.classList.contains('change-icon')) {
+          item.parentElement.style.transform = 'translateX(150px)';
+          item.classList.remove('change-icon');
+        } else {
+          item.parentElement.style.transform = 'translateX(0)';
+          item.classList.add('change-icon');
+        }
+      });
+    });
+  });
 </script>
 
 {% schema %}
