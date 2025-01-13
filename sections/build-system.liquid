@@ -1020,32 +1020,39 @@
           }
         }
       });
-      sessionStorage.setItem('inputsJson', JSON.stringify(dataChecked));
-      //console.log(JSON.parse(sessionStorage.getItem('inputsJson')));
+      localStorage.setItem('inputsJson', JSON.stringify(dataChecked));
+      window.location.reload();
     });
-    let inputsFromJson = JSON.parse(sessionStorage.getItem('inputsJson'))
+    let inputsFromJson = JSON.parse(localStorage.getItem('inputsJson'));
 
-    {% comment %} inputsSaveCart.forEach((item, index) => {
-      if (((item.type == 'radio') || (item.type == 'number') || (item.type == 'radio')) && item.name != 'roomsize') {
-        if ((item.value == inputsFromJson[index].split(':')[0]) && (inputsFromJson[index].split(':')[1] == "true") ) {
-          item.click();
-        }
-        if (item.type == 'number') {
-          item.value = inputsFromJson[index].split(':')[0];
-        }
-      }
-    }); {% endcomment %}
+    if (inputsFromJson != null) {
+      const btnOpenLastForm = document.createElement('span');
+      btnOpenLastForm.innerHTML = "Open form";
+      btnOpenLastForm.classList.add("btn__open-last-form");
+      btnSaveCart.parentElement.append(btnOpenLastForm);
+
+      document.querySelector('.btn__open-last-form').addEventListener('click', () => { 
+        inputsSaveCart.forEach((item, index) => {
+          if (((item.type == 'radio') || (item.type == 'number') || (item.type == 'radio')) && item.name != 'roomsize') {
+            if ((item.value == inputsFromJson[index].split(':')[0]) && (inputsFromJson[index].split(':')[1] == "true") ) {
+              item.click();
+            }
+            if (item.type == 'number') {
+              item.value = inputsFromJson[index].split(':')[0];
+            }
+          }
+        }); 
+        delete localStorage.inputsJson;
+      });
+    }
+
 
 
     // cover panel submit
     document.querySelector('.total__wrapper--open').addEventListener('click', () => {
       document.querySelector('.total__wrapper--open').parentElement.classList.toggle('total__wrapper--is-hidden');
-      //document.querySelector('.total__wrapper').style.overflow = 'hidden';
-      //document.querySelector('.total__wrapper').style.height = 0;
-      //document.querySelector('.total__wrapper').style.padding = 0;
-      //document.querySelector('.total__wrapper *:not(.total__wrapper--open)').style.display = 'none';
     });
-    
+
     
   });
 </script>
