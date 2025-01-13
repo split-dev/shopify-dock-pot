@@ -500,8 +500,17 @@
                     display: flex;
                     flex-direction: column;
                     gap: 20px;
-                    @media screen and (max-width: 933px) {
+                    @media (max-width: 933px) and (min-width: 768px) {
                         flex-direction: row;
+                        align-items: center;
+                    }
+                    @media (max-width: 768px) {
+                        margin-bottom: 30px;
+                    }
+                    &:has(.btn__open-last-form) {
+                        @media (max-width: 768px) {
+                            margin-bottom: 0;
+                        }
                     }
                     button {
                         width: 100%;
@@ -611,7 +620,9 @@
                     justify-content: end;
                     cursor: pointer;
                     @media screen and (max-width: 768px) {
-                       display: none;
+                    //    display: none;
+                        position: absolute;
+                        bottom: 20px;
                     }
                 }
                 p.bs__share:hover {
