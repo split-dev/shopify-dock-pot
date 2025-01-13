@@ -440,8 +440,18 @@
                 padding-top: 20px;
                 padding-bottom: 20px;
             }
-            @media (max-width: 935px) and (orientation: landscape) {
-                position: inherit;
+            span.total__wrapper--open {
+                position: absolute;
+                right: 0;
+                top: -19px;
+                cursor: pointer;
+                font-size: 12px;
+                color: white;
+                display: block;
+                background: #8fc85a;
+                padding: 2px 12px;
+                line-height: normal;
+                font-weight: 600;
             }
             .bs__total-wrapper {
                 display: flex;
@@ -499,7 +509,7 @@
                     }
                     button.btn__save-cart {
                         @media screen and (max-width: 768px) {
-                            display: none;
+                            // display: none;
                         }
                     }
                 }
@@ -631,6 +641,14 @@
         a:hover {
             opacity: 0.5;
         }
+        .total__wrapper.total__wrapper--is-hidden {
+            height: 0;
+            padding: 0;
+            & *:not(.total__wrapper--open) {
+                display: none;
+            }
+        }
+
     }
     ::-webkit-scrollbar {
         width: 3px;
