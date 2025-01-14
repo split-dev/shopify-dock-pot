@@ -1009,9 +1009,23 @@
 
     //save the order
     let btnSaveCart = document.querySelector('.build-system .btn__save-cart');
+    let btnSaveForLater = document.querySelector('.build-system .bs__need-moment a');
     let inputsSaveCart = document.querySelectorAll('.build-system input');
     let dataChecked = {};
     btnSaveCart.addEventListener('click', () => {
+      inputsSaveCart.forEach((item, index) => {
+        if (((item.type == 'radio') || (item.type == 'number') || (item.type == 'radio')) && item.name != 'roomsize') {
+          dataChecked[index] = `${item.value}:${item.checked}`;
+          if (item.type == 'number') {
+            dataChecked[index] = `${item.value}`;
+          }
+        }
+      });
+      localStorage.setItem('inputsJson', JSON.stringify(dataChecked));
+      window.location.reload();
+    });
+    btnSaveForLater.addEventListener('click', (e) => {
+      e.preventDefault();
       inputsSaveCart.forEach((item, index) => {
         if (((item.type == 'radio') || (item.type == 'number') || (item.type == 'radio')) && item.name != 'roomsize') {
           dataChecked[index] = `${item.value}:${item.checked}`;
