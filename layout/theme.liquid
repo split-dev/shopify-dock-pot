@@ -253,6 +253,12 @@
           font-size: 1.6rem;
         }
       }
+      {% if canonical_url contains 'coming-soon' %}
+        sticky-header, utility-bar, footer {
+          display: none!important;
+        }
+      {% endif %}
+
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}

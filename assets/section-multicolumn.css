@@ -51,7 +51,6 @@
 
 .multicolumn-card__image-wrapper img {
   object-fit: contain;
-  opacity: 0.3;
 }
 
 .multicolumn-list__item.center .multicolumn-card__image-wrapper:not(.multicolumn-card__image-wrapper--full-width),
@@ -121,7 +120,6 @@
 .multicolumn-list__item.center .media--adapt img {
   left: 50%;
   transform: translateX(-50%);
-  opacity: 30%;
 }
 
 @media screen and (max-width: 749px) {
