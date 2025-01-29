@@ -124,17 +124,16 @@
     "subscribe_with_media_dtfgCU": {
       "type": "subscribe-with-media",
       "blocks": {
-        "heading_B3LbgC": {
-          "type": "heading",
+        "logo_aFibjK": {
+          "type": "logo",
           "settings": {
-            "heading": "Subscribe to our emails",
-            "heading_size": "h1"
+            "logo": "shopify://shop_images/header-black-logo.png"
           }
         },
         "paragraph_riXUAU": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Be the first to know about new collections and exclusive offers.</p>"
+            "text": "<h2>COMING SOON</h2><p>Sign up to receive updates</p>"
           }
         },
         "email_form_78rY6y": {
@@ -143,7 +142,7 @@
         }
       },
       "block_order": [
-        "heading_B3LbgC",
+        "logo_aFibjK",
         "paragraph_riXUAU",
         "email_form_78rY6y"
       ],

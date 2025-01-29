@@ -26,40 +26,34 @@
         {%- when '@app' -%}
           {% render block %}
         {%- when 'logo' -%}
-            <div class="subscribe-with-media__logo">
-                {{
-                    block.settings.logo
-                        | image_url: width: 2000
-                        | image_tag:
-                            width: imageWidth,
-                            height: imageHeight,
-                            class: '',
-                            sizes: '100vw',
-                            widths: '375, 550, 750, 1100, 1500, 1780, 2000'
-                        }}
-                
-            </div>
-          {%- when 'heading' -%}
-          <h2
-            class="inline-richtext {{ block.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-            {{ block.shopify_attributes }}
-            {% if settings.animations_reveal_on_scroll %}
-              data-cascade
-              style="--animation-order: {{ forloop.index }};"
+          <div class="subscribe-with-media__logo">
+            {% if block.settings.logo != blank %}
+              {{ block.settings.logo | image_url: width: 2000 | image_tag: width: imageWidth, height: imageHeight, class: '', sizes: '100vw', widths: '375, 550, 750, 1100, 1500, 1780, 2000' }}
             {% endif %}
-          >
-            {{ block.settings.heading }}
-          </h2>
+          </div>
+        {%- when 'heading' -%}
+            <h2
+              class="inline-richtext {{ block.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+              {{ block.shopify_attributes }}
+              {% if settings.animations_reveal_on_scroll %}
+                data-cascade
+                style="--animation-order: {{ forloop.index }};"
+              {% endif %}
+            >
+              {{ block.settings.heading }}
+            </h2>
         {%- when 'paragraph' -%}
-          <div
-            class="newsletter__subheading rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-            {{ block.shopify_attributes }}
-            {% if settings.animations_reveal_on_scroll %}
-              data-cascade
-              style="--animation-order: {{ forloop.index }};"
-            {% endif %}
-          >
-            {{ block.settings.text }}
+          <div class="subscribe-with-media__text-container">
+            <div
+              class="newsletter__subheading rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+              {{ block.shopify_attributes }}
+              {% if settings.animations_reveal_on_scroll %}
+                data-cascade
+                style="--animation-order: {{ forloop.index }};"
+              {% endif %}
+            >
+              {{ block.settings.text }}
+            </div>
           </div>
         {%- when 'email_form' -%}
           <div {{ block.shopify_attributes }}>
@@ -72,7 +66,7 @@
                   style="--animation-order: {{ forloop.index }};"
                 {% endif %}
               >
-                <div class="field">
+                <div class="field field-email">
                   <input
                     id="NewsletterForm--{{ section.id }}"
                     type="email"
@@ -117,7 +111,7 @@
                     <option value="USA">USA</option>
                     <option value="Netherlands">Netherlands</option>
                   </select>
-                 
+
                   <label class="field__label" for="NewsletterForm-country-{{ section.id }}">
                     {{ section.settings.select_1_label }}
                   </label>
@@ -143,11 +137,10 @@
                     <option value="Google">Google</option>
                     <option value="Other">Other</option>
                   </select>
-                 
+
                   <label class="field__label" for="NewsletterForm-heard_about_us-{{ section.id }}">
                     {{ section.settings.select_2_label }}
                   </label>
-                 
                 </div>
                 {%- if form.errors -%}
                   <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
@@ -160,16 +153,14 @@
                 {%- endif -%}
               </div>
               <button
-              type="submit"
-              class="newsletter-form__button field__button"
-              name="commit"
-              id="Subscribe"
-              aria-label="{{ 'newsletter.button_label' | t }}"
-            >
-              <span class="svg-wrapper">
-                Submit
-              </span>
-            </button>
+                type="submit"
+                class="newsletter-form__button field__button"
+                name="commit"
+                id="Subscribe"
+                aria-label="{{ 'newsletter.button_label' | t }}"
+              >
+                <span class="svg-wrapper"> Submit </span>
+              </button>
               {%- if form.posted_successfully? -%}
                 <h3
                   class="newsletter-form__message newsletter-form__message--success form__message"

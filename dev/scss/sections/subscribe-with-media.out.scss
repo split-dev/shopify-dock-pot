@@ -9,7 +9,17 @@
         max-width: 100%;
         width: 305px;
         height: 48px;
-        object-fit: contain;
+        margin: 0 auto;
+        margin-block: 50px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    &__text-container {
+        background: #39474a;
+        width: 100%;
     }
     video {
         position: absolute;
@@ -22,15 +32,64 @@
         height: 100%;
         z-index: 2;
     }
+    .newsletter-form__field-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
     .newsletter__wrapper {
+        display: flex;
+        flex-direction: column;
         z-index: 3;
-        background: #FFFFFFCC;
-        max-width: 700px;
-        padding-inline: 35px;
-        padding-block: 20px;
+        background: #ffffffcc;
+        width: 740px;
+        max-width: 100%;
         border-radius: 32px;
+        padding: 0;
+        .field-email {
+            input {
+                border: 1px solid #404546;
+                border-radius: 2px;
+            }
+        }
+        select {
+            border: 1px solid #404546;
+            border-radius: 2px;
+            padding: 0;
+            padding-left: 10px;
+        }
+        button[type="submit"] {
+            background: #67B035;
+            border-radius: 6.31px;
+            width: 102px;
+            height: 53px;
+            color: #fff;
+            margin-top: 15px;
+        }
     }
     .field__button {
         position: unset;
+    }
+    .newsletter__subheading {
+        padding-block: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h2 {
+            font-weight: 700;
+            font-size: 60px;
+            line-height: 76px;
+            color: #e5e9e9;
+            max-width: 447px;
+            margin: 0;
+        }
+        p {
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 40px;
+            color: #e5e9e9;
+            max-width: 447px;
+            margin: 0;
+        }
     }
 }
