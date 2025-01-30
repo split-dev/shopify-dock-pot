@@ -23,6 +23,7 @@
       "block_order": [
         "heading_Wp3QBc"
       ],
+      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -42,6 +43,7 @@
     },
     "video_KrpqbK": {
       "type": "video",
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h0",
@@ -71,6 +73,7 @@
       "block_order": [
         "column_f7xcT3"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h1",
@@ -114,6 +117,7 @@
         "paragraph_JV6Th9",
         "email_form_kktVGz"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "",
         "full_width": true,
