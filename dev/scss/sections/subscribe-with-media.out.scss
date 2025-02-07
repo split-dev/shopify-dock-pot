@@ -41,6 +41,11 @@
         height: 100%;
         z-index: 2;
     }
+    .field {
+        &::after {
+            display: none;
+        }
+    }
     .newsletter-form, .subscribe-with-media__text-container, .subscribe-with-media__logo {
         padding-inline: 15px;
         &__field-wrapper {
