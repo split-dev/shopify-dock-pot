@@ -174,6 +174,13 @@
                   {{- 'newsletter.success' | t }}
                 </h3>
               {%- endif -%}
+              {% if form.errors %}
+                <p style="color: red;">Ошибка отправки: {{ form.errors | json }}</p>
+              {% endif %}
+              
+              {% if form.posted_successfully? %}
+                <p style="color: green;">Форма успешно отправлена!</p>
+              {% endif %}
             {% endform %}
           </div>
       {%- endcase -%}
