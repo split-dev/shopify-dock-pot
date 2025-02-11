@@ -67,6 +67,9 @@
     }
     .shopify-block {
         padding-inline: 10px;
+        p {
+            text-align: left;
+        }
     }
     .newsletter__wrapper {
         display: flex;
