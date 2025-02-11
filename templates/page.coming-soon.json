@@ -140,20 +140,15 @@
             "text": "<h2>COMING SOON</h2><p>Sign up to receive updates</p>"
           }
         },
-        "email_form_78rY6y": {
-          "type": "email_form",
-          "disabled": true,
-          "settings": {}
-        },
         "forms_inline_g3qYcW": {
           "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
           "settings": {
-            "form_id": "342378",
+            "form_id": "342690",
             "text_color": "#202020",
             "button_background_color": "#202020",
-            "button_label_color": "#FFFFFF",
-            "links_color": "#1878B9",
-            "errors_color": "#E02229",
+            "button_label_color": "#ffffff",
+            "links_color": "#1878b9",
+            "errors_color": "#e02229",
             "text_alignment": "center",
             "form_alignment": "center",
             "padding_top": 0,
@@ -166,7 +161,6 @@
       "block_order": [
         "logo_aFibjK",
         "paragraph_riXUAU",
-        "email_form_78rY6y",
         "forms_inline_g3qYcW"
       ],
       "settings": {
