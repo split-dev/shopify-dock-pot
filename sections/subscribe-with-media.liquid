@@ -55,138 +55,31 @@
               {{ block.settings.text }}
             </div>
           </div>
-        {%- when 'email_form' -%}
-          <div {{ block.shopify_attributes }}>
-            {% form 'customer', class: 'newsletter-form' %}
-              <input type="hidden" name="contact[tags]" value="newsletter">
-              <div
-                class="newsletter-form__field-wrapper{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-                {% if settings.animations_reveal_on_scroll %}
-                  data-cascade
-                  style="--animation-order: {{ forloop.index }};"
-                {% endif %}
-              >
-                <div class="field field-email">
-                  <input
-                    id="NewsletterForm--{{ section.id }}"
-                    type="email"
-                    name="contact[email]"
-                    class="field__input"
-                    value="{{ form.email }}"
-                    aria-required="true"
-                    autocorrect="off"
-                    autocapitalize="off"
-                    autocomplete="email"
-                    {% if form.errors %}
-                      autofocus
-                      aria-invalid="true"
-                      aria-describedby="Newsletter-error--{{ section.id }}"
-                    {% elsif form.posted_successfully? %}
-                      aria-describedby="Newsletter-success--{{ section.id }}"
-                    {% endif %}
-                    placeholder="{{ 'newsletter.label' | t }}"
-                    required
-                  >
-                  <label class="field__label" for="NewsletterForm--{{ section.id }}">
-                    {{ 'newsletter.label' | t }}
-                  </label>
-                </div>
-                <div class="field">
-                  <select
-                    name="contact[country]"
-                    id="NewsletterForm-country-{{ section.id }}"
-                    value="{{ form.country }}"
-                    class="field__input"
-                    {% if form.errors %}
-                      autofocus
-                      aria-invalid="true"
-                      aria-describedby="Newsletter-error--{{ section.id }}"
-                    {% elsif form.posted_successfully? %}
-                      aria-describedby="Newsletter-success--{{ section.id }}"
-                    {% endif %}
-                    placeholder="{{ 'newsletter.label' | t }}"
-                  >
-                    <option value="Australia">Australia</option>
-                    <option value="Japan">Japan</option>
-                    <option value="USA">USA</option>
-                    <option value="Netherlands">Netherlands</option>
-                  </select>
-
-                  <label class="field__label" for="NewsletterForm-country-{{ section.id }}">
-                    {{ section.settings.select_1_label }}
-                  </label>
-                </div>
-                <div class="field">
-                  <select
-                    name="contact[heard_about_us]"
-                    id="NewsletterForm-heard_about_us-{{ section.id }}"
-                    value="{{ form.heard_about_us }}"
-                    class="field__input"
-                    {% if form.errors %}
-                      autofocus
-                      aria-invalid="true"
-                      aria-describedby="Newsletter-error--{{ section.id }}"
-                    {% elsif form.posted_successfully? %}
-                      aria-describedby="Newsletter-success--{{ section.id }}"
-                    {% endif %}
-                    placeholder="{{ 'newsletter.label' | t }}"
-                  >
-                    <option value="Spannabis">Spannabis</option>
-                    <option value="CWCBE">CWCBE</option>
-                    <option value="CannaCon">CannaCon</option>
-                    <option value="Google">Google</option>
-                    <option value="Other">Other</option>
-                  </select>
-
-                  <label class="field__label" for="NewsletterForm-heard_about_us-{{ section.id }}">
-                    {{ section.settings.select_2_label }}
-                  </label>
-                </div>
-                {%- if form.errors -%}
-                  <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
-                    <span class="svg-wrapper">
-                      {{- 'icon-error.svg' | inline_asset_content -}}
-                    </span>
-                    {{- form.errors.translated_fields.email | capitalize }}
-                    {{ form.errors.messages.email -}}
-                  </small>
-                {%- endif -%}
-              </div>
-              <button
-                type="submit"
-                class="newsletter-form__button field__button"
-                name="commit"
-                id="Subscribe"
-                aria-label="{{ 'newsletter.button_label' | t }}"
-              >
-                 Submit
-              </button>
-              {%- if form.posted_successfully? -%}
-                <h3
-                  class="newsletter-form__message newsletter-form__message--success form__message"
-                  id="Newsletter-success--{{ section.id }}"
-                  tabindex="-1"
-                  autofocus
-                >
-                  <span class="svg-wrapper">
-                    {{- 'icon-success.svg' | inline_asset_content -}}
-                  </span>
-                  {{- 'newsletter.success' | t }}
-                </h3>
-              {%- endif -%}
-              {% if form.errors %}
-                <p style="color: red;">Ошибка отправки: {{ form.errors | json }}</p>
-              {% endif %}
-              
-              {% if form.posted_successfully? %}
-                <p style="color: green;">Форма успешно отправлена!</p>
-              {% endif %}
-            {% endform %}
-          </div>
-      {%- endcase -%}
+        {%- endcase -%}
     {%- endfor -%}
   </div>
 </div>
+
+<script>
+    (() => {
+        let interval = setInterval(() => {
+        let host = document.querySelector('form-embed');
+    
+        if (host === null) return;
+
+        const newCSSContent = `
+        form[data-testid="form"] div {
+              margin-block: 2px!important;
+          }
+        `;
+        let sheet = new CSSStyleSheet;
+        sheet.replaceSync(newCSSContent);
+        host.shadowRoot.adoptedStyleSheets.push(sheet)
+    
+        clearInterval(interval);
+      }, 150);
+    })();
+</script>
 
 
 {% schema %}
@@ -323,11 +216,6 @@
       ]
     },
     {
-      "type": "email_form",
-      "name": "t:sections.newsletter.blocks.email_form.name",
-      "limit": 1
-    },
-    {
       "type": "@app"
     }
   ],
@@ -340,9 +228,6 @@
         },
         {
           "type": "paragraph"
-        },
-        {
-          "type": "email_form"
         }
       ]
     }
