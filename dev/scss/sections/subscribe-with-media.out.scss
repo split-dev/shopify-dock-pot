@@ -119,6 +119,9 @@
             color: #e5e9e9;
             max-width: 447px;
             margin: 0;
+            @include media-breakpoint-down(sm) {
+                font-size: 38px;
+            }
         }
         p {
             font-weight: 700;
@@ -127,6 +130,9 @@
             color: #e5e9e9;
             max-width: 447px;
             margin: 0;
+            @include media-breakpoint-down(sm) {
+                font-size: 18px;
+            }
         }
     }
 }
